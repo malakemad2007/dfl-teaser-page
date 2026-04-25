@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Future Luminary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#a488f4',
+                        secondary: '#facc15',
+                        dark: '#1e3a8a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-white overflow-x-hidden font-sans">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor purple"></div>
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-xl border-b border-gray-100/50">
+        <div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="Dear Future Luminary" class="h-10 w-10" />
+                    <span class="font-bold text-lg text-[#1e3a8a] hidden sm:inline">Dear Future Luminary</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">Home</a>
+                    <a href="#what-we-offer" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">What We Offer</a>
+                    <a href="#about" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">About</a>
+                    <a href="#programs" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">Programs</a>
+                    <a href="#faq" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">FAQ</a>
+                    <button onclick="toggleModal('joinModal')" class="px-6 py-2 bg-[#1e3a8a] text-white rounded-xl font-bold hover:bg-[#a488f4] transition-all">Join Us</button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-gray-600 hover:text-[#1e3a8a]">
+                        <i data-lucide="menu" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-100 bg-white">
+                <a href="#" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">Home</a>
+                <a href="#what-we-offer" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">What We Offer</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">About</a>
+                <a href="#programs" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">Programs</a>
+                <a href="#faq" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] relative overflow-hidden min-h-[70vh] flex items-center">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full -ml-48 -mb-48"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10 w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h1 class="text-5xl md:text-6xl font-black text-white mb-4 leading-tight">Dear Future<br />Luminary</h1>
+                        <p class="text-2xl md:text-3xl font-serif text-[#facc15] mb-6 relative inline-block">
+                            For the future that's watching.
+                            <span class="absolute bottom-0 left-0 w-24 h-1 bg-[#facc15] rounded-full"></span>
+                        </p>
+                    </div>
+                    <div class="space-y-4 text-white/90 text-lg leading-relaxed">
+                        <p>Discover your direction. Build your path with clarity. Access real global opportunities.</p>
+                        <p>We're here to help you find where you belong, understand your next step, and move forward with confidence. You're not alone on this journey.</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
+                        <div class="space-y-1">
+                            <p class="text-3xl font-black text-[#facc15]">500+</p>
+                            <p class="text-sm text-white/80">Opportunities curated</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-3xl font-black text-[#facc15]">100+</p>
+                            <p class="text-sm text-white/80">Students guided</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-3xl font-black text-[#facc15]">5+</p>
+                            <p class="text-sm text-white/80">Countries reached</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex justify-center items-center">
+                    <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="Dear Future Luminary" class="w-full h-auto max-w-sm" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Are We Section -->
+    <section id="who-we-are" class="py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="lg:w-1/2 space-y-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#a488f4]/10 rounded-full text-[#a488f4] font-bold text-xs tracking-widest uppercase">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        Our Identity
+                    </div>
+                    <h2 class="text-6xl md:text-7xl font-black text-[#1e3a8a] leading-[1.1] tracking-tight">
+                        Built by Youth, <br />
+                        <span class="text-[#a488f4]">for Youth.</span>
+                    </h2>
+                    <div class="space-y-8 text-xl text-gray-600 leading-relaxed max-w-xl">
+                        <p>We're <span class="font-bold text-[#1e3a8a]">Dear Future Luminary</span>—a youth-led initiative born from the real struggles of navigating growth.</p>
+                        <p>Our mission is to empower Gen Z students, especially across MENA, with access to fully funded opportunities and self-growth resources.</p>
+                    </div>
+                    <div class="pt-4">
+                        <a href="#about" class="inline-flex items-center gap-3 px-8 py-4 bg-[#1e3a8a] text-white rounded-2xl font-black text-lg hover:bg-[#a488f4] hover:shadow-xl transition-all group">
+                            Learn about our vision
+                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-10 rounded-[3rem] border border-gray-50 slack-card bg-[#a488f4]/5">
+                        <div class="mb-6 text-[#a488f4]"><i data-lucide="users" class="w-8 h-8"></i></div>
+                        <h3 class="font-black text-[#1e3a8a] text-2xl mb-3">Youth-Led</h3>
+                        <p class="text-gray-500 text-base leading-relaxed">Built by those who understand the journey.</p>
+                    </div>
+                    <div class="p-10 rounded-[3rem] border border-gray-50 slack-card bg-[#facc15]/5">
+                        <div class="mb-6 text-[#facc15]"><i data-lucide="target" class="w-8 h-8"></i></div>
+                        <h3 class="font-black text-[#1e3a8a] text-2xl mb-3">Mission Driven</h3>
+                        <p class="text-gray-500 text-base leading-relaxed">Empowering Gen Z across the MENA region.</p>
+                    </div>
+                    <div class="p-10 rounded-[3rem] border border-gray-50 slack-card bg-[#facc15]/5">
+                        <div class="mb-6 text-[#facc15]"><i data-lucide="compass" class="w-8 h-8"></i></div>
+                        <h3 class="font-black text-[#1e3a8a] text-2xl mb-3">Guidance</h3>
+                        <p class="text-gray-500 text-base leading-relaxed">Practical tools for every step of your growth.</p>
+                    </div>
+                    <div class="p-10 rounded-[3rem] border border-gray-50 slack-card bg-[#a488f4]/5">
+                        <div class="mb-6 text-[#a488f4]"><i data-lucide="sparkles" class="w-8 h-8"></i></div>
+                        <h3 class="font-black text-[#1e3a8a] text-2xl mb-3">Impact</h3>
+                        <p class="text-gray-500 text-base leading-relaxed">Helping young people leave their unique mark.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section - Redesigned -->
+    <section id="what-we-offer" class="py-32 px-4 sm:px-6 lg:px-8 bg-[#f9f9f9]">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl mb-24">
+                <h2 class="text-6xl font-black text-[#1e3a8a] mb-8 leading-tight">
+                    What We <span class="text-[#a488f4]">Offer</span>
+                </h2>
+                <p class="text-2xl text-gray-500 leading-relaxed">
+                    Reimagine your future with tools and support designed for the modern student.
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Row 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-48 h-48 rounded-full bg-[#a488f4]/10 flex items-center justify-center text-[#a488f4] relative">
+                            <div class="absolute inset-0 border-2 border-[#a488f4]/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                            <i data-lucide="star" class="w-20 h-20"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 space-y-6">
+                        <h3 class="text-4xl font-black text-[#1e3a8a]">Personal Growth</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">For every student who's felt lost, stuck, or unsure — we help you rediscover yourself and grow with purpose.</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-48 h-48 rounded-full bg-[#facc15]/10 flex items-center justify-center text-[#facc15] relative">
+                            <div class="absolute inset-0 border-2 border-[#facc15]/30 rounded-full animate-[spin_12s_linear_infinite_reverse]"></div>
+                            <i data-lucide="globe" class="w-20 h-20"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 space-y-6 text-right">
+                        <h3 class="text-4xl font-black text-[#1e3a8a]">Opportunities</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">Because you deserve access to what's out there — scholarships, programs, and spaces that match your dreams.</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-48 h-48 rounded-full bg-[#a488f4]/10 flex items-center justify-center text-[#a488f4] relative">
+                            <div class="absolute inset-0 border-2 border-[#a488f4]/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                            <i data-lucide="map" class="w-20 h-20"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 space-y-6">
+                        <h3 class="text-4xl font-black text-[#1e3a8a]">Guides & Roadmaps</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">We don't just tell you what to do, we walk you through how to start — step by step, like a friend who's been there.</p>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-48 h-48 rounded-full bg-[#facc15]/10 flex items-center justify-center text-[#facc15] relative">
+                            <div class="absolute inset-0 border-2 border-[#facc15]/30 rounded-full animate-[spin_12s_linear_infinite_reverse]"></div>
+                            <i data-lucide="shield-check" class="w-20 h-20"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 space-y-6 text-right">
+                        <h3 class="text-4xl font-black text-[#1e3a8a]">Mentorship</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">Real guidance, honest feedback, and a community that reminds you: you're capable of more than you think.</p>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-48 h-48 rounded-full bg-[#a488f4]/10 flex items-center justify-center text-[#a488f4] relative">
+                            <div class="absolute inset-0 border-2 border-[#a488f4]/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                            <i data-lucide="handshake" class="w-20 h-20"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 space-y-6">
+                        <h3 class="text-4xl font-black text-[#1e3a8a]">Community</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">A safe, inspiring corner of the internet where you can belong, learn, and believe in your light again.</p>
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-48 h-48 rounded-full bg-[#facc15]/10 flex items-center justify-center text-[#facc15] relative">
+                            <div class="absolute inset-0 border-2 border-[#facc15]/30 rounded-full animate-[spin_12s_linear_infinite_reverse]"></div>
+                            <i data-lucide="rocket" class="w-20 h-20"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 space-y-6 text-right">
+                        <h3 class="text-4xl font-black text-[#1e3a8a]">Success Stories</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">Learn from those who made it. Real stories, real paths, and real inspiration to fuel your own journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl md:text-7xl font-black text-[#1e3a8a] mb-8">
+                    Programs We're <span class="text-[#a488f4]">Proud Of</span>
+                </h2>
+                <p class="text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                    Our community members have been accepted into world-class programs. Explore their journeys.
+                </p>
+            </div>
+            
+            <div class="carousel-container overflow-hidden py-12">
+                <div class="carousel-left flex gap-12" id="programs-carousel">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section id="about" class="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-[#1e3a8a] rounded-[4rem] p-16 md:p-32 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#facc15]/10 rounded-full -ml-40 -mb-40 blur-3xl"></div>
+                
+                <div class="relative z-10 max-w-5xl">
+                    <div class="space-y-16">
+                        <div class="space-y-8">
+                            <h2 class="text-3xl font-black text-[#facc15] uppercase tracking-[0.2em]">Our Mission</h2>
+                            <p class="text-6xl md:text-8xl font-black text-white leading-[1] tracking-tight">
+                                Talent is everywhere. <br />
+                                <span class="text-[#facc15]">Access is not.</span>
+                            </p>
+                        </div>
+                        
+                        <p class="text-3xl text-white/80 leading-relaxed max-w-4xl font-medium">
+                            Dear Future Luminary exists to close that gap. We support youth—especially those from underrepresented communities—by providing clear guidance, trusted resources, and a supportive environment.
+                        </p>
+
+                        <div class="pt-16 border-t border-white/10">
+                            <div class="grid md:grid-cols-3 gap-16">
+                                <div>
+                                    <div class="text-[#facc15] font-black text-3xl mb-4">Ambition</div>
+                                    <p class="text-white/60 text-xl leading-relaxed">Turn curiosity into focused direction.</p>
+                                </div>
+                                <div>
+                                    <div class="text-[#facc15] font-black text-3xl mb-4">Clarity</div>
+                                    <p class="text-white/60 text-xl leading-relaxed">Convert confusion into actionable steps.</p>
+                                </div>
+                                <div>
+                                    <div class="text-[#facc15] font-black text-3xl mb-4">Outcomes</div>
+                                    <p class="text-white/60 text-xl leading-relaxed">Translate potential into real global success.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-32 px-4 sm:px-6 lg:px-8 bg-[#f9f9f9]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-24 space-y-6">
+                <h2 class="text-6xl font-black text-[#1e3a8a]">Frequently Asked Questions</h2>
+                <p class="text-2xl text-gray-500">Everything you need to know about starting your journey.</p>
+            </div>
+
+            <div class="space-y-6" id="faq-container">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Join the Movement -->
+    <section class="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-gradient-to-br from-[#a488f4] to-[#8a6ef1] rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+                    <div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-10 right-10 w-96 h-96 bg-[#facc15] rounded-full blur-3xl"></div>
+                </div>
+                
+                <div class="relative z-10 space-y-12 max-w-4xl mx-auto">
+                    <h2 class="text-6xl md:text-8xl font-black text-white leading-[1] tracking-tight">
+                        Ready to find your <br />
+                        <span class="text-[#facc15]">own light?</span>
+                    </h2>
+                    <p class="text-2xl text-white/90 leading-relaxed font-medium">
+                        Join a community of students who act, grow, and support each other. Whether you want to join our team or support our mission, this is your space to thrive.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+                        <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" rel="noopener noreferrer" class="px-12 py-6 bg-white text-[#1e3a8a] rounded-2xl font-black text-xl hover:bg-[#facc15] hover:shadow-2xl transition-all duration-500 flex items-center justify-center gap-3 group">
+                            Join the Movement
+                            <i data-lucide="arrow-right" class="w-7 h-7 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="https://forms.gle/1uFr976gMZqtJHcw7" target="_blank" rel="noopener noreferrer" class="px-12 py-6 bg-transparent border-2 border-white/30 text-white rounded-2xl font-black text-xl hover:bg-white/10 transition-all duration-500 flex items-center justify-center gap-3">
+                            Sponsor Us
+                            <i data-lucide="heart" class="w-7 h-7"></i>
+                        </a>
+                    </div>
+                    
+                    <p class="text-white/60 text-base font-bold tracking-widest uppercase">
+                        No commitment required. Start your journey today.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="Dear Future Luminary" class="w-8 h-8" />
+                        <span class="font-bold text-lg">Dear Future Luminary</span>
+                    </div>
+                    <p class="text-white/70 leading-relaxed">
+                        Luminaries don't shine alone. We light the way for each other.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-[#facc15] text-lg">Quick Links</h4>
+                    <ul class="space-y-3 text-white/70">
+                        <li><a href="#" onclick="toggleModal('comingSoonModal')" class="hover:text-white transition-colors cursor-pointer">Home</a></li>
+                        <li><a href="#" onclick="toggleModal('comingSoonModal')" class="hover:text-white transition-colors cursor-pointer">Scholarships Hub</a></li>
+                        <li><a href="#" onclick="toggleModal('comingSoonModal')" class="hover:text-white transition-colors cursor-pointer">Roadmaps</a></li>
+                        <li><a href="#" onclick="toggleModal('comingSoonModal')" class="hover:text-white transition-colors cursor-pointer">Profile Building</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-[#facc15] text-lg">About</h4>
+                    <ul class="space-y-3 text-white/70">
+                        <li><a href="#about" class="hover:text-white transition-colors">Our Story & Vision</a></li>
+                        <li><a href="#" onclick="toggleModal('comingSoonModal')" class="hover:text-white transition-colors cursor-pointer">Community Space</a></li>
+                        <li><a href="#" onclick="toggleModal('comingSoonModal')" class="hover:text-white transition-colors cursor-pointer">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-[#facc15] text-lg">Connect With Us</h4>
+                    <div class="flex gap-4 mb-6">
+                        <a href="https://www.instagram.com/dear.future.luminary" target="_blank" rel="noopener noreferrer" class="hover:text-[#facc15] transition-colors" title="Instagram">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.facebook.com/dear.future.luminary" target="_blank" rel="noopener noreferrer" class="hover:text-[#facc15] transition-colors" title="Facebook">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="mailto:dear.future.luminary@gmail.com" class="hover:text-[#facc15] transition-colors" title="Email">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@malak_luminary" target="_blank" rel="noopener noreferrer" class="hover:text-[#facc15] transition-colors" title="YouTube">
+                            <i data-lucide="youtube" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12 mb-12">
+                <h4 class="font-bold mb-6 text-[#facc15] text-lg">Contact Us</h4>
+                <form id="contact-form" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" id="contact-name" placeholder="Your Name" required class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-[#facc15] transition-colors" />
+                        <input type="email" id="contact-email" placeholder="Your Email" required class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-[#facc15] transition-colors" />
+                    </div>
+                    <textarea id="contact-message" placeholder="Your Message" required rows="4" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-[#facc15] transition-colors"></textarea>
+                    <button type="submit" class="w-full md:w-auto px-8 py-3 bg-[#facc15] text-[#1e3a8a] rounded-xl font-bold hover:bg-white transition-all flex items-center justify-center gap-2 group">
+                        Send Message
+                        <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </button>
+                    <div id="contact-success" class="hidden items-center gap-2 text-[#facc15] font-bold mt-2">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        Message sent successfully!
+                    </div>
+                </form>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/50 text-sm">
+                <p>© <span id="current-year"></span> Dear Future Luminary. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <p class="text-xs text-white/40">Supporting SDGs: 4 (Quality Education), 8 (Decent Work), 10 (Reduced Inequalities)</p>
+                    <span class="hidden md:inline">|</span>
+                    <a href="https://malakemad2007.github.io/My-portfolio/" target="_blank" rel="noopener noreferrer" class="hover:text-[#facc15] transition-colors font-medium">Developed by Malak Emad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Us Modal -->
+    <div id="joinModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-[#1e3a8a]/40 backdrop-blur-md" onclick="toggleModal('joinModal')"></div>
+        <div class="bg-white rounded-[2.5rem] w-full max-w-lg relative z-10 overflow-hidden modal-content shadow-2xl">
+            <div class="bg-gradient-to-r from-[#a488f4] to-[#8a6ef1] p-8 text-white relative">
+                <button onclick="toggleModal('joinModal')" class="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                <h3 class="text-3xl font-black mb-2">Join the Luminary Team</h3>
+                <p class="text-white/80">Be part of something bigger than yourself.</p>
+            </div>
+            <div class="p-8 space-y-6">
+                <div class="space-y-4">
+                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#a488f4] hover:bg-[#a488f4]/5 transition-all group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-[#a488f4]/10 rounded-xl flex items-center justify-center text-[#a488f4]">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1e3a8a]">Become a Member</h4>
+                                <p class="text-sm text-gray-500">Join our growing community</p>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-300 group-hover:text-[#a488f4] group-hover:translate-x-1 transition-all"></i>
+                    </a>
+                    
+                    <a href="https://forms.gle/1uFr976gMZqtJHcw7" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#facc15] hover:bg-[#facc15]/5 transition-all group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-[#facc15]/10 rounded-xl flex items-center justify-center text-[#facc15]">
+                                <i data-lucide="heart" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1e3a8a]">Partner With Us</h4>
+                                <p class="text-sm text-gray-500">Sponsor or collaborate</p>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-300 group-hover:text-[#facc15] group-hover:translate-x-1 transition-all"></i>
+                    </a>
+                </div>
+                <p class="text-center text-gray-400 text-sm">
+                    Questions? <a href="mailto:dear.future.luminary@gmail.com" class="text-[#a488f4] font-bold hover:underline">Contact us</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-[#1e3a8a]/40 backdrop-blur-md" onclick="toggleModal('comingSoonModal')"></div>
+        <div class="bg-white rounded-[2.5rem] w-full max-w-md relative z-10 overflow-hidden modal-content shadow-2xl text-center">
+            <div class="p-12 space-y-6">
+                <div class="w-24 h-24 bg-[#facc15]/10 rounded-full flex items-center justify-center text-[#facc15] mx-auto mb-4">
+                    <i data-lucide="sparkles" class="w-12 h-12"></i>
+                </div>
+                <h3 class="text-4xl font-black text-[#1e3a8a]">Coming Soon</h3>
+                <p class="text-xl text-gray-500 leading-relaxed">
+                    We're currently polishing this experience to make it absolutely perfect for you. Stay tuned!
+                </p>
+                <button onclick="toggleModal('comingSoonModal')" class="w-full py-5 bg-[#1e3a8a] text-white rounded-2xl font-black text-xl hover:bg-[#a488f4] transition-all shadow-lg">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

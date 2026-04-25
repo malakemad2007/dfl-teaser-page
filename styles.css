@@ -1,0 +1,191 @@
+/* Global Styles from index.css and Home.tsx */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #a488f4;
+    --primary-foreground: #ffffff;
+    --secondary: #facc15;
+    --secondary-foreground: #1e3a8a;
+    --dark: #1e3a8a;
+    --background: #ffffff;
+    --foreground: #1e3a8a;
+    --border: #e9ecef;
+    --input: #f2f3f5;
+    --ring: #a488f4;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+/* Custom Cursor */
+* {
+    cursor: none;
+}
+
+@keyframes pulse-cursor-purple {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(164, 136, 244, 0.7), 0 0 20px 0 rgba(164, 136, 244, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(164, 136, 244, 0.2), 0 0 30px 5px rgba(164, 136, 244, 0.3);
+    }
+}
+
+@keyframes pulse-cursor-yellow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7), 0 0 20px 0 rgba(250, 204, 21, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(250, 204, 21, 0.2), 0 0 30px 5px rgba(250, 204, 21, 0.3);
+    }
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s ease;
+}
+
+.custom-cursor.purple {
+    animation: pulse-cursor-purple 1.5s infinite;
+}
+
+.custom-cursor.yellow {
+    animation: pulse-cursor-yellow 1.5s infinite;
+}
+
+/* Logos Carousel */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.carousel-left {
+    animation: scroll-left 60s linear infinite;
+}
+
+.carousel-container:hover .carousel-left {
+    animation-play-state: paused;
+}
+
+.logo-item {
+    flex-shrink-0;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.logo-item:hover {
+    border-color: #a488f4;
+    box-shadow: 0 8px 20px rgba(164, 136, 244, 0.2);
+    transform: translateY(-4px);
+}
+
+.logo-item img {
+    max-width: 90px;
+    max-height: 90px;
+    object-fit: contain;
+    /* Remove grayscale for colorful logos */
+}
+
+/* Modals */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* FAQ Accordion */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px; /* Adjust as needed */
+    }
+}
+
+.faq-answer {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Slack-like Card Hover */
+.slack-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slack-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0,0,0,0.1);
+}
+
+/* What We Offer Section Animations */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-reverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.animate-\[spin_10s_linear_infinite\] {
+    animation: spin 10s linear infinite;
+}
+
+.animate-\[spin_12s_linear_infinite_reverse\] {
+    animation: spin-reverse 12s linear infinite;
+}
+
+/* Footer link hover effect */
+.footer-link-malak:hover {
+    color: #facc15; /* Yellow color */
+}
