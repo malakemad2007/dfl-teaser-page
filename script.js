@@ -173,7 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Modals
-    window.toggleModal = (modalId) => {
+    window.toggleModal = (modalId, event) => {
+        if (event) {
+            event.preventDefault(); // Prevent page refresh for # links
+        }
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.toggle('hidden');
@@ -187,30 +190,43 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const message = document.getElementById('contact-message').value;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
 
             try {
                 const response = await fetch('https://formspree.io/f/xqaqankn', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, message })
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(data)
                 });
                 if (response.ok) {
+                    contactForm.style.display = 'none';
                     contactSuccess.classList.remove('hidden');
-                    contactSuccess.classList.add('flex');
+                    contactSuccess.classList.add('block');
                     contactForm.reset();
+                    
                     setTimeout(() => {
                         contactSuccess.classList.add('hidden');
-                        contactSuccess.classList.remove('flex');
-                    }, 3000);
+                        contactSuccess.classList.remove('block');
+                        contactForm.style.display = 'block';
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                        lucide.createIcons();
+                    }, 8000);
                 } else {
-                    alert('There was an error sending your message. Please try again.');
+                    throw new Error('Form submission failed');
                 }
             } catch (error) {
                 console.error('Error submitting form:', error);
-                alert('There was an error sending your message. Please try again.');
+                alert('Oops! There was a problem submitting your form. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                lucide.createIcons();
             }
         });
     }
