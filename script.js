@@ -154,19 +154,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqContainer) {
         faqItems.forEach((item, index) => {
             const div = document.createElement('div');
-            div.className = 'bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden transition-all hover:border-[#a488f4]/20';
+            div.className = 'border-b border-gray-100 overflow-hidden group';
             div.innerHTML = `
                 <button
-                    class="w-full px-10 py-10 flex items-center justify-between hover:bg-gray-50/50 transition-colors"
+                    class="w-full py-12 flex items-center justify-between hover:px-4 transition-all duration-500"
                     data-faq-index="${index}"
                 >
-                    <h3 class="text-2xl font-black text-[#1e3a8a] text-left">${item.question}</h3>
-                    <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center transition-all duration-500 text-gray-400">
-                        <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                    <h3 class="text-3xl font-black text-[#1e3a8a] text-left group-hover:text-[#a488f4] transition-colors">${item.question}</h3>
+                    <div class="w-12 h-12 flex items-center justify-center transition-all duration-500 text-gray-300 group-hover:text-[#a488f4]">
+                        <i data-lucide="plus" class="w-8 h-8 faq-icon"></i>
                     </div>
                 </button>
                 <div class="faq-answer">
-                    <div class="px-10 pb-10 text-gray-500 text-xl leading-relaxed">${item.answer}</div>
+                    <div class="pb-12 text-gray-500 text-2xl leading-tight max-w-3xl">${item.answer}</div>
                 </div>
             `;
             faqContainer.appendChild(div);
@@ -191,8 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!isOpen) {
                     answer.style.gridTemplateRows = '1fr';
                     answer.style.opacity = '1';
-                    iconDiv.classList.add('rotate-180', 'bg-[#a488f4]', 'text-white');
-                    iconDiv.classList.remove('text-gray-400');
+                    const icon = iconDiv.querySelector('.faq-icon');
+                    icon.setAttribute('data-lucide', 'minus');
+                    iconDiv.classList.add('text-[#a488f4]');
+                } else {
+                    const icon = iconDiv.querySelector('.faq-icon');
+                    icon.setAttribute('data-lucide', 'plus');
                 }
                 lucide.createIcons();
             }
