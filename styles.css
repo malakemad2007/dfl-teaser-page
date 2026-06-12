@@ -69,18 +69,18 @@ body {
     animation: pulse-cursor-yellow 1.5s infinite;
 }
 
-/* Logos Carousel */
+/* Marquee & Carousels */
 @keyframes scroll-left {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-.carousel-left {
+.carousel-left, .animate-marquee {
     animation: scroll-left 30s linear infinite;
     width: max-content;
 }
 
-.carousel-container:hover .carousel-left {
+.carousel-container:hover .carousel-left, .animate-marquee:hover {
     animation-play-state: paused;
 }
 
