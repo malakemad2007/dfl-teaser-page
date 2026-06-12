@@ -266,7 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Lucide Icons
     lucide.createIcons();
-});
 
     // Intersection Observer for Scroll Animations
     const observerOptions = {
@@ -301,3 +300,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+});

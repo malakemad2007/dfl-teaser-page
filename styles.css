@@ -76,7 +76,7 @@ body {
 }
 
 .carousel-left {
-    animation: scroll-left 40s linear infinite;
+    animation: scroll-left 25s linear infinite;
     width: max-content;
 }
 
