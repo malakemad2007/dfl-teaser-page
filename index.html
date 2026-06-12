@@ -42,8 +42,8 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">Home</a>
-                    <a href="#what-we-offer" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">What You'll Find</a>
-                    <a href="#about" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">Mission</a>
+                    <a href="#what-you-find" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">What You'll Find</a>
+                    <a href="#mission" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">Mission</a>
                     <a href="#programs" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">Programs</a>
                     <a href="#faq" class="text-gray-600 hover:text-[#a488f4] font-medium transition-colors">FAQ</a>
                     <button onclick="toggleModal('joinModal')" class="px-6 py-2 bg-[#1e3a8a] text-white rounded-xl font-bold hover:bg-[#a488f4] transition-all">Join the Movement</button>
@@ -60,15 +60,15 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-100 bg-white">
                 <a href="#" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">Home</a>
-                <a href="#what-we-offer" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">What You'll Find</a>
-                <a href="#about" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">Mission</a>
+                <a href="#what-you-find" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">What You'll Find</a>
+                <a href="#mission" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">Mission</a>
                 <a href="#programs" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">Programs</a>
                 <a href="#faq" class="block py-2 text-gray-600 hover:text-[#a488f4] text-sm">FAQ</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (KEEP AS IS) -->
     <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] relative overflow-hidden min-h-[70vh] flex items-center">
         <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full -ml-48 -mb-48"></div>
@@ -85,9 +85,8 @@
                     </div>
                     <div class="space-y-4 text-white/90 text-lg leading-relaxed">
                         <p class="text-2xl font-bold">Finding opportunities shouldn't feel like solving a mystery.</p>
-                        <p>I know how overwhelming it can be—hundreds of tabs open, confusing advice, opportunities you discover three days after the deadline, and that constant feeling that everyone else somehow knows something you don't.</p>
-                        <p>That's why I started Dear Future Luminary. A place to help students discover opportunities, build their profiles, explore new paths, and realize they're capable of much more than they think.</p>
-                        <p>You don't need to have everything figured out. You just need somewhere to start.</p>
+                        <p>Discover your direction. Build your path with clarity. Access real global opportunities.</p>
+                        <p>I'm here to help you find where you belong, understand your next step, and move forward with confidence. You're not alone on this journey.</p>
                     </div>
                 </div>
                 <div class="hidden md:flex justify-center items-center">
@@ -97,184 +96,210 @@
         </div>
     </section>
 
-    <!-- 2026 Invention: Identity Section -->
-    <section id="who-we-are" class="py-40 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="grid lg:grid-cols-12 gap-16 items-start">
-                <div class="lg:col-span-7">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="h-px w-12 bg-[#a488f4]"></div>
-                            <span class="text-sm font-black tracking-[0.3em] text-[#a488f4] uppercase">Built by Youth, for Youth</span>
-                        </div>
-                        <h2 class="text-[clamp(4rem,10vw,8rem)] font-black text-[#1e3a8a] leading-[0.85] tracking-tighter">
-                            Not because <br/>
-                            it sounds <br/>
-                            <span class="text-[#a488f4]">cool.</span>
-                        </h2>
-                    </div>
+    <!-- Personal Note Section (NEW) -->
+    <section class="py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto">
+            <div class="relative">
+                <div class="absolute -top-24 -left-24 text-[20rem] font-black text-gray-50 select-none pointer-events-none opacity-50">“</div>
+                <div class="relative z-10 space-y-12">
+                    <p class="text-4xl md:text-5xl font-medium text-[#1e3a8a] leading-[1.3]">
+                        I know how <span class="text-[#a488f4] font-black underline decoration-wavy decoration-[#facc15] underline-offset-8">overwhelming</span> it can be—hundreds of tabs open, confusing advice, opportunities you discover three days after the deadline, and that constant feeling that <span class="italic">everyone else somehow knows something you don't.</span>
+                    </p>
+                    <p class="text-4xl md:text-5xl font-medium text-[#1e3a8a] leading-[1.3]">
+                        That's why I started <span class="font-black text-[#1e3a8a]">Dear Future Luminary</span>. A place to help students discover opportunities, build their profiles, explore new paths, and realize they're <span class="text-[#a488f4] font-black">capable of much more</span> than they think.
+                    </p>
+                    <p class="text-3xl md:text-4xl font-bold text-[#facc15] bg-[#1e3a8a] inline-block px-8 py-4 rounded-2xl transform -rotate-1">
+                        You don't need to have everything figured out. You just need somewhere to start.
+                    </p>
                 </div>
-                <div class="lg:col-span-5 pt-12 lg:pt-32">
-                    <div class="space-y-12">
-                        <p class="text-3xl md:text-4xl font-medium text-[#1e3a8a] leading-tight">
-                            Because I'm literally a student too. I've spent years searching for opportunities, making mistakes, and trying to figure out what comes next.
-                        </p>
-                        <div class="grid grid-cols-2 gap-x-8 gap-y-12 border-t border-gray-100 pt-12">
-                            <div class="space-y-4">
-                                <span class="text-[#a488f4] font-black text-xs uppercase tracking-widest">01 / Mission</span>
-                                <p class="text-gray-500 text-lg leading-snug">Help students discover possibilities they didn't know existed.</p>
-                            </div>
-                            <div class="space-y-4">
-                                <span class="text-[#facc15] font-black text-xs uppercase tracking-widest">02 / Focus</span>
-                                <p class="text-gray-500 text-lg leading-snug">Opportunities, personal growth, and the tools to build a future you're excited about.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="absolute -bottom-24 -right-24 text-[20rem] font-black text-gray-50 select-none pointer-events-none opacity-50">”</div>
             </div>
         </div>
-        <!-- Abstract Decoration -->
-        <div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/3 w-[60vw] h-[60vw] border-[1px] border-gray-100 rounded-full pointer-events-none"></div>
     </section>
 
-    <!-- 2026 Invention: What You'll Find -->
-    <section id="what-we-offer" class="py-40 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] text-white relative overflow-hidden">
+    <!-- Built by Youth overhaul -->
+    <section id="who-we-are" class="py-40 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-32 gap-12">
-                <div class="max-w-3xl">
-                    <h2 class="text-7xl md:text-9xl font-black leading-none tracking-tighter mb-8">What You'll <br/><span class="text-[#facc15]">Find Here</span></h2>
-                    <p class="text-3xl text-white/50 font-medium max-w-xl">No magic formula. Just resources I genuinely wish someone had shown me earlier.</p>
-                </div>
-                <div class="text-right">
-                    <div class="text-8xl font-black text-white/5 select-none">2026</div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-white/10">
-                <!-- Offer Item -->
-                <div class="p-16 border-r border-b border-white/10 hover:bg-white/5 transition-colors group relative overflow-hidden">
-                    <div class="relative z-10 space-y-8">
-                        <i data-lucide="user" class="w-12 h-12 text-[#a488f4] group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-3xl font-black group-hover:text-[#facc15] transition-colors">Personal Growth</h3>
-                        <p class="text-xl text-white/40 leading-tight">Because opportunities matter—but knowing yourself matters too.</p>
+            <div class="flex flex-col lg:flex-row items-center gap-24">
+                <div class="lg:w-1/2 relative">
+                    <div class="w-full aspect-square bg-[#a488f4] rounded-[5rem] rotate-3 absolute inset-0 opacity-10"></div>
+                    <div class="relative z-10 p-12 bg-white rounded-[4rem] shadow-2xl border border-gray-100">
+                        <h2 class="text-8xl md:text-9xl font-black text-[#1e3a8a] leading-[0.8] tracking-tighter mb-12">
+                            Built by <br/>
+                            <span class="text-[#a488f4]">Youth,</span> <br/>
+                            for Youth.
+                        </h2>
+                        <div class="h-2 w-32 bg-[#facc15] rounded-full"></div>
                     </div>
                 </div>
-                <!-- Offer Item -->
-                <div class="p-16 border-r border-b border-white/10 hover:bg-white/5 transition-colors group relative overflow-hidden">
-                    <div class="relative z-10 space-y-8">
-                        <i data-lucide="globe" class="w-12 h-12 text-[#facc15] group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-3xl font-black group-hover:text-[#a488f4] transition-colors">Global Opportunities</h3>
-                        <p class="text-xl text-white/40 leading-tight">Scholarships, summer programs, competitions, exchanges, and experiences worth exploring.</p>
-                    </div>
-                </div>
-                <!-- Offer Item -->
-                <div class="p-16 border-r border-b border-white/10 hover:bg-white/5 transition-colors group relative overflow-hidden">
-                    <div class="relative z-10 space-y-8">
-                        <i data-lucide="map" class="w-12 h-12 text-[#a488f4] group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-3xl font-black group-hover:text-[#facc15] transition-colors">Guides & Roadmaps</h3>
-                        <p class="text-xl text-white/40 leading-tight">Clear steps for students who keep thinking: "Okay... but what do I actually do now?"</p>
-                    </div>
-                </div>
-                <!-- Offer Item -->
-                <div class="p-16 border-r border-b border-white/10 hover:bg-white/5 transition-colors group relative overflow-hidden">
-                    <div class="relative z-10 space-y-8">
-                        <i data-lucide="file-text" class="w-12 h-12 text-[#facc15] group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-3xl font-black group-hover:text-[#a488f4] transition-colors">Profile Building</h3>
-                        <p class="text-xl text-white/40 leading-tight">CVs, portfolios, applications, personal branding, and all the things nobody teaches in school.</p>
-                    </div>
-                </div>
-                <!-- Offer Item -->
-                <div class="p-16 border-r border-b border-white/10 hover:bg-white/5 transition-colors group relative overflow-hidden">
-                    <div class="relative z-10 space-y-8">
-                        <i data-lucide="users" class="w-12 h-12 text-[#a488f4] group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-3xl font-black group-hover:text-[#facc15] transition-colors">Community</h3>
-                        <p class="text-xl text-white/40 leading-tight">A space for students who are trying, learning, building, and figuring things out together.</p>
-                    </div>
-                </div>
-                <!-- Offer Item -->
-                <div class="p-16 border-r border-b border-white/10 hover:bg-white/5 transition-colors group relative overflow-hidden">
-                    <div class="relative z-10 space-y-8">
-                        <i data-lucide="sparkles" class="w-12 h-12 text-[#facc15] group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-3xl font-black group-hover:text-[#a488f4] transition-colors">Stories & Inspiration</h3>
-                        <p class="text-xl text-white/40 leading-tight">Proof that amazing opportunities aren't reserved for "geniuses" or "perfect students."</p>
+                <div class="lg:w-1/2 space-y-12">
+                    <div class="inline-block px-6 py-2 bg-[#a488f4]/10 text-[#a488f4] rounded-full text-sm font-black tracking-widest uppercase">The Truth</div>
+                    <p class="text-4xl font-medium text-[#1e3a8a] leading-tight">
+                        Not because it sounds cool. Because I'm literally a student too. I've spent years searching, making mistakes, and figuring it out.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
+                            <span class="text-5xl font-black text-[#a488f4]/20 group-hover:text-[#a488f4] transition-colors block mb-4">01</span>
+                            <h4 class="text-2xl font-black text-[#1e3a8a] mb-2">The Mission</h4>
+                            <p class="text-gray-500">Help students discover possibilities they didn't know existed.</p>
+                        </div>
+                        <div class="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
+                            <span class="text-5xl font-black text-[#facc15]/20 group-hover:text-[#facc15] transition-colors block mb-4">02</span>
+                            <h4 class="text-2xl font-black text-[#1e3a8a] mb-2">The Focus</h4>
+                            <p class="text-gray-500">Opportunities, personal growth, and tools for a future you're excited about.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2026 Invention: Programs Section -->
+    <!-- What You'll Find overhaul -->
+    <section id="what-you-find" class="py-40 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-32">
+                <h2 class="text-8xl md:text-[12rem] font-black text-white/5 leading-none absolute top-0 left-0 select-none">DISCOVER</h2>
+                <div class="relative pt-24">
+                    <h2 class="text-7xl md:text-9xl font-black text-white leading-none tracking-tighter mb-8">What You'll <br/><span class="text-[#facc15]">Find Here</span></h2>
+                    <p class="text-3xl text-white/40 font-medium max-w-2xl">No magic formula. Just resources I genuinely wish someone had shown me earlier.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Grid Item 1 -->
+                <div class="group cursor-default">
+                    <div class="mb-8 overflow-hidden rounded-[3rem] aspect-[4/3] bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#a488f4] transition-all relative">
+                        <i data-lucide="user" class="w-24 h-24 text-[#a488f4] opacity-20 group-hover:opacity-100 transition-all group-hover:scale-110"></i>
+                        <div class="absolute bottom-8 left-8 text-white font-black text-4xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">01</div>
+                    </div>
+                    <h3 class="text-3xl font-black text-white mb-4 group-hover:text-[#facc15] transition-colors">Personal Growth</h3>
+                    <p class="text-xl text-white/40">Because opportunities matter—but knowing yourself matters too.</p>
+                </div>
+                <!-- Grid Item 2 -->
+                <div class="group cursor-default">
+                    <div class="mb-8 overflow-hidden rounded-[3rem] aspect-[4/3] bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#facc15] transition-all relative">
+                        <i data-lucide="globe" class="w-24 h-24 text-[#facc15] opacity-20 group-hover:opacity-100 transition-all group-hover:scale-110"></i>
+                        <div class="absolute bottom-8 left-8 text-white font-black text-4xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">02</div>
+                    </div>
+                    <h3 class="text-3xl font-black text-white mb-4 group-hover:text-[#a488f4] transition-colors">Global Opportunities</h3>
+                    <p class="text-xl text-white/40">Scholarships, summer programs, and experiences worth exploring.</p>
+                </div>
+                <!-- Grid Item 3 -->
+                <div class="group cursor-default">
+                    <div class="mb-8 overflow-hidden rounded-[3rem] aspect-[4/3] bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#a488f4] transition-all relative">
+                        <i data-lucide="map" class="w-24 h-24 text-[#a488f4] opacity-20 group-hover:opacity-100 transition-all group-hover:scale-110"></i>
+                        <div class="absolute bottom-8 left-8 text-white font-black text-4xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">03</div>
+                    </div>
+                    <h3 class="text-3xl font-black text-white mb-4 group-hover:text-[#facc15] transition-colors">Guides & Roadmaps</h3>
+                    <p class="text-xl text-white/40">Clear steps for students who keep thinking: "What do I actually do now?"</p>
+                </div>
+                <!-- Grid Item 4 -->
+                <div class="group cursor-default">
+                    <div class="mb-8 overflow-hidden rounded-[3rem] aspect-[4/3] bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#facc15] transition-all relative">
+                        <i data-lucide="file-text" class="w-24 h-24 text-[#facc15] opacity-20 group-hover:opacity-100 transition-all group-hover:scale-110"></i>
+                        <div class="absolute bottom-8 left-8 text-white font-black text-4xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">04</div>
+                    </div>
+                    <h3 class="text-3xl font-black text-white mb-4 group-hover:text-[#a488f4] transition-colors">Profile Building</h3>
+                    <p class="text-xl text-white/40">CVs, portfolios, applications, and all the things nobody teaches in school.</p>
+                </div>
+                <!-- Grid Item 5 -->
+                <div class="group cursor-default">
+                    <div class="mb-8 overflow-hidden rounded-[3rem] aspect-[4/3] bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#a488f4] transition-all relative">
+                        <i data-lucide="users" class="w-24 h-24 text-[#a488f4] opacity-20 group-hover:opacity-100 transition-all group-hover:scale-110"></i>
+                        <div class="absolute bottom-8 left-8 text-white font-black text-4xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">05</div>
+                    </div>
+                    <h3 class="text-3xl font-black text-white mb-4 group-hover:text-[#facc15] transition-colors">Community</h3>
+                    <p class="text-xl text-white/40">A space for students who are trying, learning, and building together.</p>
+                </div>
+                <!-- Grid Item 6 -->
+                <div class="group cursor-default">
+                    <div class="mb-8 overflow-hidden rounded-[3rem] aspect-[4/3] bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#facc15] transition-all relative">
+                        <i data-lucide="sparkles" class="w-24 h-24 text-[#facc15] opacity-20 group-hover:opacity-100 transition-all group-hover:scale-110"></i>
+                        <div class="absolute bottom-8 left-8 text-white font-black text-4xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">06</div>
+                    </div>
+                    <h3 class="text-3xl font-black text-white mb-4 group-hover:text-[#a488f4] transition-colors">Stories & Inspiration</h3>
+                    <p class="text-xl text-white/40">Proof that amazing opportunities aren't reserved for "geniuses."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities overhaul -->
     <section id="programs" class="py-40 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col items-center text-center mb-32">
-                <h2 class="text-7xl md:text-8xl font-black text-[#1e3a8a] leading-none tracking-tighter mb-8 uppercase">Opportunities <br/><span class="text-[#a488f4]">Worth Knowing About</span></h2>
-                <div class="w-24 h-1 bg-[#facc15] mb-8"></div>
-                <p class="text-2xl text-gray-500 max-w-4xl">These are some of the programs that I got accepted into, and they completely changed how I see education, leadership, STEM, cultural exchange, and what's possible for students. All of them are fully funded, and some are life-changing. Many students never hear about them at all. That shouldn't happen. So here's a place to start.</p>
+            <div class="grid lg:grid-cols-2 gap-24 items-center mb-32">
+                <div>
+                    <h2 class="text-7xl md:text-8xl font-black text-[#1e3a8a] leading-none tracking-tighter mb-12">Opportunities <br/><span class="text-[#a488f4]">Worth Knowing</span></h2>
+                    <div class="h-2 w-32 bg-[#facc15] mb-12"></div>
+                </div>
+                <p class="text-2xl text-gray-500 font-medium leading-relaxed">
+                    These are programs I got accepted into that completely changed how I see what's possible. They're fully funded, life-changing, and yet many students never hear about them. <span class="text-[#a488f4] font-black">That shouldn't happen.</span>
+                </p>
             </div>
             
-            <div class="carousel-container relative">
-                <div class="carousel-left flex gap-16 items-center" id="programs-carousel">
+            <div class="carousel-container relative py-12">
+                <div class="carousel-left flex gap-12 items-center" id="programs-carousel">
                     <!-- Populated by JS -->
                 </div>
                 <!-- Gradient Fades -->
-                <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
-                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
+                <div class="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
             </div>
         </div>
     </section>
 
-    <!-- 2026 Invention: Our Mission -->
-    <section id="about" class="py-40 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-12 gap-24 items-center">
-                <div class="lg:col-span-8">
-                    <h2 class="text-7xl md:text-9xl font-black text-[#1e3a8a] leading-[0.85] tracking-tighter mb-16">
-                        Talent is everywhere. <br/>
-                        <span class="text-[#facc15] inline-block hover:translate-x-4 transition-transform cursor-default">Access is not.</span>
+    <!-- Our Mission overhaul -->
+    <section id="mission" class="py-40 px-4 sm:px-6 lg:px-8 bg-[#facc15] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7">
+                    <h2 class="text-8xl md:text-[10rem] font-black text-[#1e3a8a] leading-[0.8] tracking-tighter mb-12">
+                        Talent is <br/>
+                        Everywhere. <br/>
+                        <span class="text-white">Access is not.</span>
                     </h2>
-                    <div class="space-y-12 text-3xl md:text-4xl font-medium text-[#1e3a8a] leading-tight">
-                        <p>Dear Future Luminary was born from that experience. Not from a company. Not from a university. Not from a big organization. Just from one student asking: <span class="text-[#a488f4] italic underline decoration-4 underline-offset-8">"What if finding opportunities was a little less confusing?"</span></p>
-                    </div>
                 </div>
-                <div class="lg:col-span-4 space-y-16">
-                    <div class="group border-b border-gray-100 pb-8">
-                        <div class="text-6xl font-black text-gray-50 group-hover:text-[#a488f4]/10 transition-colors absolute -mt-12 select-none">01</div>
-                        <h4 class="text-3xl font-black text-[#1e3a8a] mb-4 relative z-10">Authenticity</h4>
-                        <p class="text-lg text-gray-500 leading-snug">Built by a student who knows how this feels.</p>
-                    </div>
-                    <div class="group border-b border-gray-100 pb-8">
-                        <div class="text-6xl font-black text-gray-50 group-hover:text-[#a488f4]/10 transition-colors absolute -mt-12 select-none">02</div>
-                        <h4 class="text-3xl font-black text-[#1e3a8a] mb-4 relative z-10">Clarity</h4>
-                        <p class="text-lg text-gray-500 leading-snug">Converting overwhelming confusion into simple steps.</p>
-                    </div>
-                    <div class="group border-b border-gray-100 pb-8">
-                        <div class="text-6xl font-black text-gray-50 group-hover:text-[#a488f4]/10 transition-colors absolute -mt-12 select-none">03</div>
-                        <h4 class="text-3xl font-black text-[#1e3a8a] mb-4 relative z-10">Impact</h4>
-                        <p class="text-lg text-gray-500 leading-snug">Helping you realize you're capable of more than you think.</p>
+                <div class="lg:col-span-5">
+                    <div class="p-12 bg-white rounded-[4rem] shadow-2xl space-y-8 transform lg:rotate-2">
+                        <p class="text-3xl font-medium text-[#1e3a8a] leading-tight">
+                            Dear Future Luminary was born from one student asking: <br/>
+                            <span class="text-[#a488f4] font-black italic">"What if finding opportunities was a little less confusing?"</span>
+                        </p>
+                        <div class="space-y-6 pt-8 border-t border-gray-100">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-[#a488f4] flex-shrink-0 mt-1"></div>
+                                <p class="text-xl text-gray-600"><span class="font-black text-[#1e3a8a]">Authenticity:</span> Built by a student who knows how this feels.</p>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-[#1e3a8a] flex-shrink-0 mt-1"></div>
+                                <p class="text-xl text-gray-600"><span class="font-black text-[#1e3a8a]">Clarity:</span> Converting confusion into simple steps.</p>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-[#facc15] flex-shrink-0 mt-1 border-2 border-[#1e3a8a]"></div>
+                                <p class="text-xl text-gray-600"><span class="font-black text-[#1e3a8a]">Impact:</span> Realizing you're capable of more.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2026 Invention: FAQ Section -->
+    <!-- FAQ overhaul -->
     <section id="faq" class="py-40 px-4 sm:px-6 lg:px-8 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row gap-24">
-                <div class="lg:w-1/3">
-                    <div class="sticky top-32 space-y-8">
-                        <h2 class="text-7xl font-black text-[#1e3a8a] leading-[0.9] tracking-tighter">Questions You Might Be <span class="text-[#a488f4]">Too Shy</span> to Ask</h2>
-                        <p class="text-2xl text-gray-400 font-medium">But Come on. You Ask. I Yap, Respectfully.</p>
-                    </div>
-                </div>
-                <div class="lg:w-2/3 space-y-2" id="faq-container">
-                    <!-- Populated by JS -->
-                </div>
+            <div class="text-center mb-32">
+                <div class="inline-block px-8 py-3 bg-[#1e3a8a] text-white rounded-full text-xl font-black mb-8 transform -rotate-2">Q&A</div>
+                <h2 class="text-7xl md:text-9xl font-black text-[#1e3a8a] leading-none tracking-tighter">Questions You Might <br/>Be <span class="text-[#a488f4]">Too Shy</span> to Ask</h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8" id="faq-container">
+                <!-- Populated by JS -->
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
+    <!-- Final CTA Section (KEEP AS IS) -->
     <section class="py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="bg-gradient-to-br from-[#a488f4] via-[#9377f0] to-[#8a6ef1] rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden shadow-2xl">
@@ -312,7 +337,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (RESTORE SDGs) -->
     <footer class="bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] pt-24 pb-12 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-12 mb-16">
@@ -337,7 +362,7 @@
                 <div>
                     <h4 class="font-bold mb-6 text-[#facc15] text-lg">About</h4>
                     <ul class="space-y-3 text-white/70">
-                        <li><a href="#about" class="hover:text-white transition-colors">Our Story & Vision</a></li>
+                        <li><a href="#mission" class="hover:text-white transition-colors">Our Story & Vision</a></li>
                         <li><a href="#" onclick="toggleModal('comingSoonModal', event)" class="hover:text-white transition-colors cursor-pointer">Community Space</a></li>
                         <li><a href="#" onclick="toggleModal('comingSoonModal', event)" class="hover:text-white transition-colors cursor-pointer">Blog</a></li>
                     </ul>
@@ -359,6 +384,17 @@
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <!-- SDGs RESTORED SECTION -->
+            <div class="py-12 border-t border-white/10 mb-12">
+                <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 hover:opacity-100 transition-opacity duration-500">
+                    <img src="client/public/images/sdgs/sdg4_official.jpg" alt="SDG 4" class="h-16 w-auto grayscale hover:grayscale-0 transition-all" />
+                    <img src="client/public/images/sdgs/sdg8_official.png" alt="SDG 8" class="h-16 w-auto grayscale hover:grayscale-0 transition-all" />
+                    <img src="client/public/images/sdgs/sdg10_official.png" alt="SDG 10" class="h-16 w-auto grayscale hover:grayscale-0 transition-all" />
+                    <img src="client/public/images/sdgs/sdg17_official.png" alt="SDG 17" class="h-16 w-auto grayscale hover:grayscale-0 transition-all" />
+                </div>
+                <p class="text-center text-white/40 text-xs mt-6 tracking-[0.3em] uppercase">Proudly Contributing to Global Impact</p>
             </div>
 
             <!-- Contact Form -->

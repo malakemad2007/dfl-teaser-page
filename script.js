@@ -75,24 +75,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const allPrograms = [...programs, ...programs];
         allPrograms.forEach((program, index) => {
             const div = document.createElement('div');
-            div.className = 'flex-shrink-0 w-48 h-48 bg-white border border-gray-100 rounded-[2.5rem] p-10 flex items-center justify-center hover:shadow-2xl hover:border-[#a488f4]/30 transition-all duration-500 group';
+            div.className = 'flex-shrink-0 w-64 h-64 bg-white border border-gray-100 rounded-[3rem] p-12 flex items-center justify-center hover:shadow-2xl hover:border-[#a488f4]/30 transition-all duration-500 group relative overflow-hidden';
             div.title = program.name;
             div.innerHTML = `
+                <div class="absolute inset-0 bg-gradient-to-br from-[#a488f4]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <img
                     src="client/public/images/logos/${program.logo}"
                     alt="${program.name}"
-                    class="max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110"
+                    class="max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
                 />
             `;
             programsCarousel.appendChild(div);
         });
     }
 
-    // FAQ Items Data - Updated for authenticity
+    // FAQ Items Data
     const faqItems = [
         {
             question: "What even is Dear Future Luminary?",
-            answer: "<strong>Dear Future Luminary</strong> is my corner of the internet for <strong>figuring things out</strong>—your next opportunity, your passions, your personal growth, and honestly… yourself.<br><br>I help students discover <strong>scholarships, summer programs, teams, skills, and paths</strong> I wish I knew about earlier.<br><br>Think of it as a <strong>guide</strong>, a <strong>resource hub</strong>, and a <strong>big-sis energy boost</strong> all in one."
+            answer: "<strong>Dear Future Luminary</strong> is my corner of the internet for <strong>figuring things out</strong>—your next opportunity, your passions, your personal growth, and honestly… yourself.<br><br>I help students discover <strong>scholarships, summer programs, teams, skills, and paths</strong> I wish I knew about earlier."
         },
         {
             question: "Who is this for?",
@@ -104,39 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             question: "I feel lost. Where do I even start?",
-            answer: "Honestly? That’s exactly why I built this.<br><br>Start anywhere that feels exciting: <strong>opportunities, personal growth, roadmaps, profile building…</strong> there’s no perfect order.<br><br><strong>You do not need to have your life figured out before beginning.</strong>"
+            answer: "Honestly? That’s exactly why I built this.<br><br>Start anywhere that feels exciting: <strong>opportunities, personal growth, roadmaps, profile building…</strong> there’s no perfect order."
         },
         {
-            question: "I’m not extraordinary enough for these opportunities.",
-            answer: "Respectfully… says who?<br><br>You <strong>do not need to be “the perfect student”</strong> to deserve good opportunities.<br><br>You need <strong>curiosity, effort, and the courage to try.</strong><br><br>Please don’t reject yourself before the application even can."
+            question: "I’m not extraordinary enough.",
+            answer: "Respectfully… says who?<br><br>You <strong>do not need to be “the perfect student”</strong> to deserve good opportunities. You need <strong>curiosity, effort, and the courage to try.</strong>"
         },
         {
-            question: "There’s too much information. I’m overwhelmed.",
-            answer: "Same.<br><br>That’s why I <strong>curate everything</strong>—to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take <strong>one small step</strong>. One application. One resource. One better day.<br><br><strong>That’s enough.</strong>"
-        },
-        {
-            question: "Can I trust these opportunities?",
-            answer: "I do my best to <strong>carefully curate and share legitimate opportunities</strong> and resources.<br><br>Still—always <strong>read official websites, double-check deadlines, and do your own final review.</strong><br><br><strong>Smart luminaries verify.</strong>"
-        },
-        {
-            question: "Can I suggest opportunities or resources?",
-            answer: "<strong>Please do.</strong><br><br>If you’ve found something amazing, send it our way. This space grows stronger when <strong>students help students.</strong>"
-        },
-        {
-            question: "Can I work with Dear Future Luminary?",
-            answer: "<strong>Absolutely !!</strong><br><br>I love meeting <strong>passionate students, collaborators, mentors, and organizations</strong> who believe in helping young people grow.<br><br>Reach out through the form below. <strong>Good things start with messages.</strong>"
-        },
-        {
-            question: "Who’s behind all this?",
-            answer: "<strong>A student who knows how confusing all of this can feel.</strong><br><br>Someone who spent way too much time figuring things out the hard way—and decided to make it easier for others.<br><br><strong>Built with care. Built with purpose. Built for you.</strong>"
-        },
-        {
-            question: "What does “Luminary” mean here?",
-            answer: "Someone who <strong>shines—and helps others shine too.</strong><br><br>Not because they have everything figured out.<br>Not because they’re perfect.<br><br>But because they <strong>keep learning, growing, and choosing to light the way.</strong><br><br>That can be you, too."
-        },
-        {
-            question: "Still wondering something?",
-            answer: "Ask me through the form below.<br><br>Seriously.<br><strong>No question is too small, too random, or too “I feel silly asking this.”</strong><br><br>That’s what I'm here for."
+            question: "Too much information. Overwhelmed.",
+            answer: "Same. That’s why I <strong>curate everything</strong>—to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take <strong>one small step</strong>. That’s enough."
         }
     ];
 
@@ -144,52 +121,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqContainer) {
         faqItems.forEach((item, index) => {
             const div = document.createElement('div');
-            div.className = 'border-b border-gray-100 overflow-hidden group';
+            div.className = 'p-12 bg-gray-50 rounded-[3rem] border border-gray-100 hover:border-[#a488f4] hover:bg-white transition-all group';
             div.innerHTML = `
-                <button
-                    class="w-full py-12 flex items-center justify-between hover:px-4 transition-all duration-500"
-                    data-faq-index="${index}"
-                >
-                    <h3 class="text-3xl font-black text-[#1e3a8a] text-left group-hover:text-[#a488f4] transition-colors">${item.question}</h3>
-                    <div class="w-12 h-12 flex items-center justify-center transition-all duration-500 text-gray-300 group-hover:text-[#a488f4]">
-                        <i data-lucide="plus" class="w-8 h-8 faq-icon"></i>
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 rounded-2xl bg-[#a488f4]/10 flex items-center justify-center text-[#a488f4] group-hover:bg-[#a488f4] group-hover:text-white transition-all flex-shrink-0">
+                        <i data-lucide="help-circle" class="w-6 h-6"></i>
                     </div>
-                </button>
-                <div class="faq-answer">
-                    <div class="pb-12 text-gray-500 text-2xl leading-tight max-w-3xl">${item.answer}</div>
+                    <div class="space-y-4">
+                        <h3 class="text-3xl font-black text-[#1e3a8a] leading-tight">${item.question}</h3>
+                        <div class="text-xl text-gray-500 leading-relaxed">${item.answer}</div>
+                    </div>
                 </div>
             `;
             faqContainer.appendChild(div);
-        });
-
-        faqContainer.addEventListener('click', (e) => {
-            const button = e.target.closest('button[data-faq-index]');
-            if (button) {
-                const answer = button.nextElementSibling;
-                const iconDiv = button.querySelector('div');
-                const isOpen = answer.style.gridTemplateRows === '1fr';
-
-                // Close all other open answers
-                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
-                    otherAnswer.style.gridTemplateRows = '0fr';
-                    otherAnswer.style.opacity = '0';
-                    const otherIcon = otherAnswer.previousElementSibling.querySelector('div');
-                    otherIcon.classList.remove('rotate-180', 'bg-[#a488f4]', 'text-white');
-                    otherIcon.classList.add('text-gray-400');
-                });
-
-                if (!isOpen) {
-                    answer.style.gridTemplateRows = '1fr';
-                    answer.style.opacity = '1';
-                    const icon = iconDiv.querySelector('.faq-icon');
-                    icon.setAttribute('data-lucide', 'minus');
-                    iconDiv.classList.add('text-[#a488f4]');
-                } else {
-                    const icon = iconDiv.querySelector('.faq-icon');
-                    icon.setAttribute('data-lucide', 'plus');
-                }
-                lucide.createIcons();
-            }
         });
     }
 
@@ -260,23 +204,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Lucide Icons
     lucide.createIcons();
-
-    // Intersection Observer for Scroll Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                if (entry.target.classList.contains('reveal-text')) {
-                    entry.target.style.opacity = '1';
-                }
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
 });
