@@ -101,24 +101,52 @@ document.addEventListener('DOMContentLoaded', () => {
     // FAQ Items Data
     const faqItems = [
         {
-            question: 'What is Dear Future Luminary?',
-            answer: 'Think of Dear Future Luminary as the friend who already figured things out and decided to share the map. We organize real global opportunities and explain them in a way that actually makes sense—so you stop feeling lost and start moving forward.'
+            question: "What even is Dear Future Luminary?",
+            answer: "<strong>Dear Future Luminary</strong> is your corner of the internet for <strong>figuring things out</strong>—your next opportunity, your passions, your personal growth, and honestly… yourself.<br><br>We help students discover <strong>scholarships, summer programs, teams, skills, and paths</strong> they might not even know exist yet.<br><br>Think of it as a <strong>guide</strong>, a <strong>resource hub</strong>, and a <strong>big-sis energy boost</strong> all in one."
         },
         {
-            question: 'Do I need to be "exceptional" to belong here?',
-            answer: 'Not at all. You don\'t need awards, experience, or a perfect profile. If you\'re curious, motivated, or even just trying to figure things out, you\'re exactly where you\'re supposed to be.'
+            question: "Who is this for?",
+            answer: "<strong>High school students. Early college students. Dreamers. Overthinkers. Future founders. People who feel behind. People who want more.</strong><br><br>Basically… if you’re trying to <strong>grow</strong>, <strong>build your future</strong>, or <strong>find your spark</strong>—you belong here."
         },
         {
-            question: 'Will this guarantee I get accepted into programs?',
-            answer: 'No magic promises here. But we will help you understand opportunities, prepare better, and apply with confidence instead of guessing. And honestly? That already changes everything.'
+            question: "Is this really free?",
+            answer: "<strong>Yep. Actually free.</strong><br><br>No hidden fees. No “pay to unlock the good stuff.” No weird catch.<br><br><strong>Access should never be the thing holding someone back.</strong>"
         },
         {
-            question: 'I\'m still in high school and totally confused. Is this for me?',
-            answer: 'Yes—100%. This was built for that exact phase: when you know you want more, but don\'t know where to start. Most of what you\'ll find here starts from zero and walks with you step by step.'
+            question: "I feel lost. Where do I even start?",
+            answer: "Honestly? That’s exactly why this exists.<br><br>Start anywhere that feels exciting: <strong>opportunities, personal growth, roadmaps, profile building…</strong> there’s no perfect order.<br><br><strong>You do not need to have your life figured out before beginning.</strong>"
         },
         {
-            question: 'How can I get involved?',
-            answer: 'Start by exploring. Read, learn, try things out. If you want to contribute, share your journey, or join the team, there\'s always space for people who care and want to grow—just like you.'
+            question: "I’m not extraordinary enough for these opportunities.",
+            answer: "Respectfully… says who?<br><br>You <strong>do not need to be “the perfect student”</strong> to deserve good opportunities.<br><br>You need <strong>curiosity, effort, and the courage to try.</strong><br><br>Please don’t reject yourself before the application even can."
+        },
+        {
+            question: "There’s too much information. I’m overwhelmed.",
+            answer: "Same.<br><br>That’s why we <strong>curate everything</strong>—to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take <strong>one small step</strong>. One application. One resource. One better day.<br><br><strong>That’s enough.</strong>"
+        },
+        {
+            question: "Can I trust these opportunities?",
+            answer: "We do our best to <strong>carefully curate and share legitimate opportunities</strong> and resources.<br><br>Still—always <strong>read official websites, double-check deadlines, and do your own final review.</strong><br><br><strong>Smart luminaries verify.</strong>"
+        },
+        {
+            question: "Can I suggest opportunities or resources?",
+            answer: "<strong>Please do.</strong><br><br>If you’ve found something amazing, send it our way. This space grows stronger when <strong>students help students.</strong>"
+        },
+        {
+            question: "Can I work with Dear Future Luminary?",
+            answer: "<strong>Absolutely !!</strong><br><br>We love meeting <strong>passionate students, collaborators, mentors, and organizations</strong> who believe in helping young people grow.<br><br>Reach out through the form below. <strong>Good things start with messages.</strong>"
+        },
+        {
+            question: "Who’s behind all this?",
+            answer: "<strong>A student who knows how confusing all of this can feel.</strong><br><br>Someone who spent way too much time figuring things out the hard way—and decided to make it easier for others.<br><br><strong>Built with care. Built with purpose. Built for you.</strong>"
+        },
+        {
+            question: "What does “Luminary” mean here?",
+            answer: "Someone who <strong>shines—and helps others shine too.</strong><br><br>Not because they have everything figured out.<br>Not because they’re perfect.<br><br>But because they <strong>keep learning, growing, and choosing to light the way.</strong><br><br>That can be you, too."
+        },
+        {
+            question: "Still wondering something?",
+            answer: "Ask us through the form below.<br><br>Seriously.<br><strong>No question is too small, too random, or too “I feel silly asking this.”</strong><br><br>That’s what we’re here for."
         }
     ];
 
@@ -137,8 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i data-lucide="chevron-down" class="w-6 h-6"></i>
                     </div>
                 </button>
-                <div class="px-10 pb-10 faq-answer hidden">
-                    <p class="text-gray-500 text-xl leading-relaxed">${item.answer}</p>
+                <div class="faq-answer">
+                    <div class="px-10 pb-10 text-gray-500 text-xl leading-relaxed">${item.answer}</div>
                 </div>
             `;
             faqContainer.appendChild(div);
@@ -147,27 +175,26 @@ document.addEventListener('DOMContentLoaded', () => {
         faqContainer.addEventListener('click', (e) => {
             const button = e.target.closest('button[data-faq-index]');
             if (button) {
-                const index = parseInt(button.dataset.faqIndex);
                 const answer = button.nextElementSibling;
                 const iconDiv = button.querySelector('div');
+                const isOpen = answer.style.gridTemplateRows === '1fr';
 
-                if (answer.classList.contains('hidden')) {
-                    // Close all other open answers
-                    document.querySelectorAll('.faq-answer:not(.hidden)').forEach(openAnswer => {
-                        openAnswer.classList.add('hidden');
-                        openAnswer.previousElementSibling.querySelector('div').classList.remove('rotate-180', 'bg-[#a488f4]', 'text-white');
-                        openAnswer.previousElementSibling.querySelector('div').classList.add('text-gray-400');
-                    });
+                // Close all other open answers
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    otherAnswer.style.gridTemplateRows = '0fr';
+                    otherAnswer.style.opacity = '0';
+                    const otherIcon = otherAnswer.previousElementSibling.querySelector('div');
+                    otherIcon.classList.remove('rotate-180', 'bg-[#a488f4]', 'text-white');
+                    otherIcon.classList.add('text-gray-400');
+                });
 
-                    answer.classList.remove('hidden');
+                if (!isOpen) {
+                    answer.style.gridTemplateRows = '1fr';
+                    answer.style.opacity = '1';
                     iconDiv.classList.add('rotate-180', 'bg-[#a488f4]', 'text-white');
                     iconDiv.classList.remove('text-gray-400');
-                } else {
-                    answer.classList.add('hidden');
-                    iconDiv.classList.remove('rotate-180', 'bg-[#a488f4]', 'text-white');
-                    iconDiv.classList.add('text-gray-400');
                 }
-                lucide.createIcons(); // Re-render Lucide icons
+                lucide.createIcons();
             }
         });
     }
@@ -240,3 +267,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide Icons
     lucide.createIcons();
 });
+
+    // Intersection Observer for Scroll Animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                if (entry.target.classList.contains('reveal-text')) {
+                    entry.target.style.opacity = '1';
+                }
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section, .group, .reveal-text').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.transform = 'translateY(20px)';
+        observer.observe(el);
+    });
+
+    // Custom class for visible state
+    const style = document.createElement('style');
+    style.textContent = `
+        .is-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);

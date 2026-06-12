@@ -22,6 +22,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--background);
     color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Custom Cursor */
@@ -59,88 +60,77 @@ body {
 }
 
 .custom-cursor.purple {
+    background-color: var(--primary);
     animation: pulse-cursor-purple 1.5s infinite;
 }
 
 .custom-cursor.yellow {
+    background-color: var(--secondary);
     animation: pulse-cursor-yellow 1.5s infinite;
 }
 
 /* Logos Carousel */
 @keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .carousel-left {
-    animation: scroll-left 60s linear infinite;
+    animation: scroll-left 40s linear infinite;
+    width: max-content;
 }
 
 .carousel-container:hover .carousel-left {
     animation-play-state: paused;
 }
 
-.logo-item {
-    flex-shrink-0;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.logo-item:hover {
-    border-color: #a488f4;
-    box-shadow: 0 8px 20px rgba(164, 136, 244, 0.2);
-    transform: translateY(-4px);
-}
-
-.logo-item img {
-    max-width: 90px;
-    max-height: 90px;
-    object-fit: contain;
-    /* Remove grayscale for colorful logos */
-}
-
 /* Modals */
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
 
 .modal-content {
-    animation: slideIn 0.3s ease-out;
+    animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* FAQ Accordion */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        max-height: 0;
-    }
-    to {
-        opacity: 1;
-        max-height: 500px; /* Adjust as needed */
-    }
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+    opacity: 0;
+    overflow: hidden;
 }
 
-.faq-answer {
-    animation: slideDown 0.3s ease-out;
+.faq-answer:not(.hidden) {
+    display: grid;
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.faq-answer > div {
+    min-height: 0;
+}
+
+/* Text Reveal Animation */
+.reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@keyframes reveal {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.reveal-text h2 {
+    animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Smooth Scroll */
@@ -148,44 +138,42 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Slack-like Card Hover */
-.slack-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Modern 2026 Elements */
+.text-stroke {
+    -webkit-text-stroke: 1px rgba(30, 58, 138, 0.1);
+    color: transparent;
 }
 
-.slack-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px -10px rgba(0,0,0,0.1);
+::selection {
+    background-color: var(--primary);
+    color: white;
 }
 
-/* What We Offer Section Animations */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Scroll progress indicator if needed */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--primary);
+    z-index: 100;
 }
 
-@keyframes spin-reverse {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
+/* Hide scrollbar for cleaner look but keep functionality */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.animate-\[spin_10s_linear_infinite\] {
-    animation: spin 10s linear infinite;
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-.animate-\[spin_12s_linear_infinite_reverse\] {
-    animation: spin-reverse 12s linear infinite;
+::-webkit-scrollbar-thumb {
+    background: rgba(164, 136, 244, 0.2);
+    border-radius: 10px;
 }
 
-/* Footer link hover effect */
-.footer-link-malak:hover {
-    color: #facc15; /* Yellow color */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(164, 136, 244, 0.4);
 }
