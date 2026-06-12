@@ -54,29 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Programs Carousel Data
     const programs = [
-        { name: 'Yale Young Global Scholars', logo: 'yzWmAN3cqipr.jpg' },
-        { name: 'MITES Summer', logo: 'TpB8TQlLTo0t.jpeg' },
-        { name: 'Research Science Institute', logo: 'eA2DPI2dUl9E.png' },
-        { name: 'TASS', logo: 'Gy653jScZN3s.jpg' },
-        { name: 'Summer Science Program', logo: 'K51FDFwazPo9.jpg' },
-        { name: 'Google CSSI', logo: 'S6O8ClfrudS9.png' },
-        { name: 'NASA Space Apps', logo: '7Vd2e6O0Tysj.jpg' },
-        { name: 'Kode With Klossy', logo: 'DUZWWvrt3CHC.jpg' },
-        { name: 'Stanford Pre-College', logo: 'EaqhqRnzF3qb.jpg' },
-        { name: 'TechGirls', logo: 'nRhom7EcP3cj.jpg' },
-        { name: 'Soliya', logo: 'rcJRiGtof7hd.png' },
-        { name: 'Youth Ambassadors', logo: 'z3bloNLXiQOR.png' },
-        { name: 'ICYE', logo: 'IWl65sYv3dtL.jpg' },
-        { name: 'Climate Olympiad', logo: 'Ps8nyzamqpV7.jpg' },
-        { name: 'TEDx Youth', logo: '2DwCr1MrGKbb.jpg' },
-        { name: 'AFS Intercultural', logo: 'LRsfzR5E3Tfa.jpg' },
-        { name: 'The Experiment', logo: 'nRhom7EcP3cj.jpg' },
-        { name: 'YES Abroad', logo: 'DUZWWvrt3CHC.jpg' },
-        { name: 'NSLI-Y', logo: 'EaqhqRnzF3qb.jpg' },
-        { name: 'CBYX', logo: '7Vd2e6O0Tysj.jpg' },
-        { name: 'Junior Academy', logo: 'rcJRiGtof7hd.png' },
-        { name: 'National Youth Science Camp', logo: 'z3bloNLXiQOR.png' },
-        { name: 'Dear Future Luminary', logo: 'dear.future.luminary.logo.svg.svg' },
+        { name: 'AFS Intercultural Programs', logo: 'afs.png' },
+        { name: 'Kode With Klossy', logo: 'kode_with_klossy.png' },
+        { name: 'Stanford Code in Place', logo: 'stanford_code_in_place.png' },
+        { name: 'UNICEF', logo: 'unicef.png' },
+        { name: 'Soliya', logo: 'soliya.png' },
+        { name: 'NASA Space Apps Challenge', logo: 'nasa_space_apps.png' },
+        { name: 'International Organisation of youth', logo: 'ioy.png' },
+        { name: 'Climate Olympiad', logo: 'climate_olympiad.png' },
+        { name: 'MUN', logo: 'mun.png' },
+        { name: 'Microsoft', logo: 'microsoft.png' },
+        { name: 'Girls Who Code', logo: 'girls_who_code.png' },
+        { name: 'New York Academy of Sciences', logo: 'nyas.png' },
+        { name: 'International House', logo: 'international_house.png' },
     ];
 
     const programsCarousel = document.getElementById('programs-carousel');
@@ -89,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.title = program.name;
             div.innerHTML = `
                 <img
-                    src="client/public/images/${program.logo}"
+                    src="client/public/images/logos/${program.logo}"
                     alt="${program.name}"
                     class="max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110"
                 />
@@ -98,11 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // FAQ Items Data
+    // FAQ Items Data - Updated for authenticity
     const faqItems = [
         {
             question: "What even is Dear Future Luminary?",
-            answer: "<strong>Dear Future Luminary</strong> is your corner of the internet for <strong>figuring things out</strong>—your next opportunity, your passions, your personal growth, and honestly… yourself.<br><br>We help students discover <strong>scholarships, summer programs, teams, skills, and paths</strong> they might not even know exist yet.<br><br>Think of it as a <strong>guide</strong>, a <strong>resource hub</strong>, and a <strong>big-sis energy boost</strong> all in one."
+            answer: "<strong>Dear Future Luminary</strong> is my corner of the internet for <strong>figuring things out</strong>—your next opportunity, your passions, your personal growth, and honestly… yourself.<br><br>I help students discover <strong>scholarships, summer programs, teams, skills, and paths</strong> I wish I knew about earlier.<br><br>Think of it as a <strong>guide</strong>, a <strong>resource hub</strong>, and a <strong>big-sis energy boost</strong> all in one."
         },
         {
             question: "Who is this for?",
@@ -114,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             question: "I feel lost. Where do I even start?",
-            answer: "Honestly? That’s exactly why this exists.<br><br>Start anywhere that feels exciting: <strong>opportunities, personal growth, roadmaps, profile building…</strong> there’s no perfect order.<br><br><strong>You do not need to have your life figured out before beginning.</strong>"
+            answer: "Honestly? That’s exactly why I built this.<br><br>Start anywhere that feels exciting: <strong>opportunities, personal growth, roadmaps, profile building…</strong> there’s no perfect order.<br><br><strong>You do not need to have your life figured out before beginning.</strong>"
         },
         {
             question: "I’m not extraordinary enough for these opportunities.",
@@ -122,11 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             question: "There’s too much information. I’m overwhelmed.",
-            answer: "Same.<br><br>That’s why we <strong>curate everything</strong>—to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take <strong>one small step</strong>. One application. One resource. One better day.<br><br><strong>That’s enough.</strong>"
+            answer: "Same.<br><br>That’s why I <strong>curate everything</strong>—to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take <strong>one small step</strong>. One application. One resource. One better day.<br><br><strong>That’s enough.</strong>"
         },
         {
             question: "Can I trust these opportunities?",
-            answer: "We do our best to <strong>carefully curate and share legitimate opportunities</strong> and resources.<br><br>Still—always <strong>read official websites, double-check deadlines, and do your own final review.</strong><br><br><strong>Smart luminaries verify.</strong>"
+            answer: "I do my best to <strong>carefully curate and share legitimate opportunities</strong> and resources.<br><br>Still—always <strong>read official websites, double-check deadlines, and do your own final review.</strong><br><br><strong>Smart luminaries verify.</strong>"
         },
         {
             question: "Can I suggest opportunities or resources?",
@@ -134,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             question: "Can I work with Dear Future Luminary?",
-            answer: "<strong>Absolutely !!</strong><br><br>We love meeting <strong>passionate students, collaborators, mentors, and organizations</strong> who believe in helping young people grow.<br><br>Reach out through the form below. <strong>Good things start with messages.</strong>"
+            answer: "<strong>Absolutely !!</strong><br><br>I love meeting <strong>passionate students, collaborators, mentors, and organizations</strong> who believe in helping young people grow.<br><br>Reach out through the form below. <strong>Good things start with messages.</strong>"
         },
         {
             question: "Who’s behind all this?",
@@ -146,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             question: "Still wondering something?",
-            answer: "Ask us through the form below.<br><br>Seriously.<br><strong>No question is too small, too random, or too “I feel silly asking this.”</strong><br><br>That’s what we’re here for."
+            answer: "Ask me through the form below.<br><br>Seriously.<br><strong>No question is too small, too random, or too “I feel silly asking this.”</strong><br><br>That’s what I'm here for."
         }
     ];
 
@@ -288,20 +278,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('section, .group, .reveal-text').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-        el.style.transform = 'translateY(20px)';
-        observer.observe(el);
-    });
-
-    // Custom class for visible state
-    const style = document.createElement('style');
-    style.textContent = `
-        .is-visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
+    document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
 });
