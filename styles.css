@@ -75,12 +75,12 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-.carousel-left, .animate-marquee {
+.carousel-left {
     animation: scroll-left 30s linear infinite;
     width: max-content;
 }
 
-.carousel-container:hover .carousel-left, .animate-marquee:hover {
+.carousel-container:hover .carousel-left {
     animation-play-state: paused;
 }
 

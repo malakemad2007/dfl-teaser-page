@@ -145,17 +145,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqContainer) {
         faqItems.forEach((item, index) => {
             const div = document.createElement('div');
-            div.className = 'border-b border-gray-100 last:border-0';
+            div.className = 'group border-b border-gray-100 last:border-0';
             div.innerHTML = `
-                <button class="w-full py-10 flex items-center justify-between text-left group transition-all" onclick="toggleFaq(${index})">
-                    <h3 class="text-3xl md:text-4xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
-                    <div class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center text-[#1e3a8a] group-hover:border-[#a488f4] group-hover:text-[#a488f4] transition-all flex-shrink-0">
-                        <i data-lucide="plus" class="w-6 h-6 transition-transform duration-500" id="faq-icon-${index}"></i>
+                <button class="w-full py-12 flex items-start justify-between text-left transition-all" onclick="toggleFaq(${index})">
+                    <div class="flex gap-8 items-start">
+                        <span class="text-xl font-black text-gray-200 group-hover:text-[#a488f4] transition-colors pt-2">${(index + 1).toString().padStart(2, '0')}</span>
+                        <h3 class="text-3xl md:text-5xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
+                    </div>
+                    <div class="w-16 h-16 rounded-full border-2 border-gray-100 flex items-center justify-center text-[#1e3a8a] group-hover:border-[#a488f4] group-hover:text-[#a488f4] transition-all flex-shrink-0">
+                        <i data-lucide="plus" class="w-8 h-8 transition-transform duration-500" id="faq-icon-${index}"></i>
                     </div>
                 </button>
                 <div class="faq-answer hidden overflow-hidden transition-all duration-500" id="faq-answer-${index}">
-                    <div class="pb-12 text-2xl text-gray-500 leading-relaxed max-w-4xl">
-                        ${item.answer}
+                    <div class="pl-16 md:pl-24 pb-16">
+                        <div class="text-2xl text-gray-500 leading-relaxed max-w-4xl font-medium border-l-4 border-[#a488f4]/20 pl-8">
+                            ${item.answer}
+                        </div>
                     </div>
                 </div>
             `;
