@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Instagram, Mail, Youtube, Facebook, ArrowRight, Send, Map, Sparkles, Users, Heart, Globe, User, FileText, Slack, Linkedin, MessageSquare, Twitter, Plus } from 'lucide-react';
+import { Menu, X, Instagram, Mail, Youtube, Facebook, ArrowRight, Send, Map, Sparkles, Users, Heart, Globe, User, FileText, Slack, Linkedin, MessageSquare, Twitter, Plus, Disc } from 'lucide-react';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -200,7 +200,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section (KEEP AS IS) */}
+      {/* Hero Section */}
       <section className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] relative overflow-hidden min-h-[70vh] flex items-center">
         <div className="max-w-7xl mx-auto relative z-10 w-full grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 text-white">
@@ -222,33 +222,28 @@ export default function Home() {
       </section>
 
       {/* Built by Youth Redesign */}
-      <section id="who-we-are" className="py-40 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden border-b border-gray-50">
+      <section id="who-we-are" className="py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <div className="absolute -left-20 top-0 text-[15rem] font-black text-gray-50/50 select-none pointer-events-none">01</div>
-            <div className="relative z-10">
-              <h2 className="text-8xl md:text-[10rem] font-black text-[#1e3a8a] leading-[0.85] tracking-tighter mb-16">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-6xl md:text-8xl font-black text-[#1e3a8a] leading-[0.9] tracking-tighter mb-8">
                 Built by <br/>
                 <span className="text-[#a488f4]">Youth,</span> <br/>
                 for Youth.
               </h2>
-              <div className="grid md:grid-cols-2 gap-20 items-end">
-                <div className="space-y-8">
-                  <p className="text-4xl font-medium text-[#1e3a8a] leading-tight max-w-xl">
-                    Not because it sounds cool. Because I'm literally a student too. I've spent years searching, making mistakes, and figuring it out.
-                  </p>
-                  <div className="h-1 w-40 bg-[#facc15]"></div>
-                </div>
-                <div className="space-y-12">
-                  <div className="border-l-4 border-[#a488f4] pl-8 py-2">
-                    <h4 className="text-2xl font-black text-[#1e3a8a] mb-4 uppercase tracking-widest">The Mission</h4>
-                    <p className="text-xl text-gray-500 leading-relaxed">Help students discover possibilities they didn't know existed.</p>
-                  </div>
-                  <div className="border-l-4 border-[#facc15] pl-8 py-2">
-                    <h4 className="text-2xl font-black text-[#1e3a8a] mb-4 uppercase tracking-widest">The Focus</h4>
-                    <p className="text-xl text-gray-500 leading-relaxed">Opportunities, personal growth, and tools for a future you're excited about.</p>
-                  </div>
-                </div>
+              <div className="w-24 h-2 bg-[#facc15] mb-8"></div>
+              <p className="text-2xl md:text-3xl font-medium text-gray-600 leading-tight">
+                Not because it sounds cool. Because I'm literally a student too. I've spent years searching, making mistakes, and figuring it out.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2 grid grid-cols-1 gap-8">
+              <div className="p-10 bg-gray-50 rounded-[3rem] border-l-8 border-[#a488f4] hover:shadow-xl transition-all duration-500">
+                <h4 className="text-2xl font-black text-[#1e3a8a] mb-4 uppercase tracking-widest">The Mission</h4>
+                <p className="text-xl text-gray-500 leading-relaxed">Help students discover possibilities they didn't know existed.</p>
+              </div>
+              <div className="p-10 bg-gray-50 rounded-[3rem] border-l-8 border-[#facc15] hover:shadow-xl transition-all duration-500">
+                <h4 className="text-2xl font-black text-[#1e3a8a] mb-4 uppercase tracking-widest">The Focus</h4>
+                <p className="text-xl text-gray-500 leading-relaxed">Opportunities, personal growth, and tools for a future you're excited about.</p>
               </div>
             </div>
           </div>
@@ -256,53 +251,69 @@ export default function Home() {
       </section>
 
       {/* What You'll Find Redesign */}
-      <section id="what-you-find" className="py-40 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] text-white overflow-hidden">
+      <section id="what-you-find" className="py-32 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] text-white overflow-hidden rounded-[4rem] mx-4 sm:mx-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 gap-8">
-            <div className="relative">
-              <span className="text-[#facc15] font-black tracking-[0.3em] uppercase mb-4 block">Navigation</span>
-              <h2 className="text-7xl md:text-9xl font-black leading-none tracking-tighter">What You'll <br/><span className="text-[#a488f4]">Find Here</span></h2>
-            </div>
-            <p className="text-2xl text-white/40 font-medium max-w-md leading-relaxed">
+          <div className="text-center mb-24">
+            <h2 className="text-6xl md:text-8xl font-black leading-none tracking-tighter mb-8">
+              What You'll <br/><span className="text-[#a488f4]">Find Here</span>
+            </h2>
+            <p className="text-2xl text-white/60 font-medium max-w-2xl mx-auto leading-relaxed">
               No magic formula. Just resources I genuinely wish someone had shown me earlier.
             </p>
           </div>
 
-          <div className="space-y-0 border-t border-white/10">
-            <div className="group py-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 hover:bg-white/[0.02] transition-colors px-4">
-              <div className="flex items-center gap-12">
-                <span className="text-2xl font-black text-white/20 group-hover:text-[#a488f4] transition-colors">01</span>
-                <h3 className="text-4xl md:text-5xl font-black group-hover:translate-x-4 transition-transform duration-500">Personal Growth</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { id: '01', title: 'Personal Growth', color: '#a488f4', desc: 'Because opportunities matter—but knowing yourself matters too.' },
+              { id: '02', title: 'Global Opportunities', color: '#facc15', desc: 'Scholarships, summer programs, and experiences worth exploring.' },
+              { id: '03', title: 'Guides & Roadmaps', color: '#a488f4', desc: 'Clear steps for students who keep thinking: "What do I actually do now?"' },
+              { id: '04', title: 'Profile Building', color: '#facc15', desc: 'CVs, portfolios, applications, and all the things nobody teaches in school.' }
+            ].map((item) => (
+              <div key={item.id} className="group p-12 bg-white/5 border border-white/10 rounded-[3rem] hover:bg-white/10 transition-all duration-500">
+                <div className="flex items-center gap-6 mb-6">
+                  <span className="text-4xl font-black" style={{ color: item.color }}>{item.id}</span>
+                  <h3 className="text-3xl md:text-4xl font-black">{item.title}</h3>
+                </div>
+                <p className="text-xl text-white/60 group-hover:text-white transition-colors">{item.desc}</p>
               </div>
-              <p className="text-xl text-white/40 max-w-sm group-hover:text-white transition-colors">Because opportunities matter—but knowing yourself matters too.</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet The Founder Section */}
+      <section id="founder" className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-20 items-center">
+            <div className="w-full md:w-1/2 relative">
+              <div className="absolute -inset-4 bg-[#a488f4] rounded-[4rem] rotate-3 opacity-20"></div>
+              <img src="/images/our-founder.png" alt="Malak Emad" className="relative z-10 w-full rounded-[4rem] shadow-2xl" />
+              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-[#facc15] rounded-full z-20 flex items-center justify-center rotate-12 shadow-xl">
+                <span className="text-[#1e3a8a] font-black text-center leading-tight">Our<br/>Founder</span>
+              </div>
             </div>
-            <div className="group py-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 hover:bg-white/[0.02] transition-colors px-4">
-              <div className="flex items-center gap-12">
-                <span className="text-2xl font-black text-white/20 group-hover:text-[#facc15] transition-colors">02</span>
-                <h3 className="text-4xl md:text-5xl font-black group-hover:translate-x-4 transition-transform duration-500">Global Opportunities</h3>
+            <div className="w-full md:w-1/2 space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-5xl md:text-7xl font-black text-[#1e3a8a] leading-tight">Hi, I'm Malak.</h2>
+                <p className="text-2xl md:text-3xl font-medium text-[#a488f4] leading-tight italic">
+                  And after spending years discovering opportunities by pure accident, I started wondering:
+                </p>
+                <p className="text-3xl md:text-4xl font-black text-[#1e3a8a]">Why does finding them have to be this hard?</p>
               </div>
-              <p className="text-xl text-white/40 max-w-sm group-hover:text-white transition-colors">Scholarships, summer programs, and experiences worth exploring.</p>
-            </div>
-            <div className="group py-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 hover:bg-white/[0.02] transition-colors px-4">
-              <div className="flex items-center gap-12">
-                <span className="text-2xl font-black text-white/20 group-hover:text-[#a488f4] transition-colors">03</span>
-                <h3 className="text-4xl md:text-5xl font-black group-hover:translate-x-4 transition-transform duration-500">Guides & Roadmaps</h3>
-              </div>
-              <p className="text-xl text-white/40 max-w-sm group-hover:text-white transition-colors">Clear steps for students who keep thinking: "What do I actually do now?"</p>
-            </div>
-            <div className="group py-12 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 hover:bg-white/[0.02] transition-colors px-4">
-              <div className="flex items-center gap-12">
-                <span className="text-2xl font-black text-white/20 group-hover:text-[#facc15] transition-colors">04</span>
-                <h3 className="text-4xl md:text-5xl font-black group-hover:translate-x-4 transition-transform duration-500">Profile Building</h3>
-              </div>
-              <p className="text-xl text-white/40 max-w-sm group-hover:text-white transition-colors">CVs, portfolios, applications, and all the things nobody teaches in school.</p>
+              <div className="h-1 w-32 bg-[#facc15]"></div>
+              <p className="text-xl text-gray-500 leading-relaxed">
+                A few years ago, I was the student endlessly searching Google, opening fifty tabs, and wondering how everyone else seemed to know about incredible programs, scholarships, and experiences. Over time, I found opportunities that changed my life, connected with amazing people, and discovered paths I never knew existed. But I kept thinking: "What about the students who never find these opportunities?" That's the question that led to Dear Future Luminary.
+              </p>
+              <p className="text-2xl font-medium text-[#1e3a8a] border-l-4 border-[#a488f4] pl-6 py-2">
+                If you're reading this and feeling a little lost about your future, trust me—I started there too.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-40 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <section id="programs" className="py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
             <div>
@@ -329,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="py-40 px-4 sm:px-6 lg:px-8 bg-[#facc15] relative overflow-hidden">
+      <section id="mission" className="py-32 px-4 sm:px-6 lg:px-8 bg-[#facc15] relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-7">
             <h2 className="text-8xl md:text-[10rem] font-black text-[#1e3a8a] leading-[0.8] tracking-tighter mb-12">
@@ -361,10 +372,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ overhaul */}
-      <section id="faq" className="py-40 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* FAQ Section */}
+      <section id="faq" className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-32">
+          <div className="mb-24">
             <div className="inline-block px-8 py-3 bg-[#a488f4] text-white rounded-full text-xl font-black mb-8">Q&A</div>
             <h2 className="text-7xl md:text-9xl font-black text-[#1e3a8a] leading-none tracking-tighter mb-8">Questions You Might <br/>Be <span className="text-[#a488f4]">Too Shy</span> to Ask</h2>
             <p className="text-3xl text-gray-400 font-medium">But Come on. You Ask. We Yap, Respectfully.</p>
@@ -410,27 +421,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Connect Bar */}
-      <div className="bg-[#facc15] py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6">
-          <span className="text-[#1e3a8a] text-3xl font-black uppercase tracking-widest">Connect:</span>
-          <div className="flex flex-wrap gap-8 items-center">
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="YouTube"><Youtube size={32} /></a>
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="Facebook"><Facebook size={32} /></a>
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="Instagram"><Instagram size={32} /></a>
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="Email"><Mail size={32} /></a>
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="Discord"><MessageSquare size={32} /></a>
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="Slack"><Slack size={32} /></a>
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="X"><Twitter size={32} /></a>
-            <a href="#" className="text-[#1e3a8a] hover:opacity-70 transition-opacity" title="LinkedIn"><Linkedin size={32} /></a>
+      {/* Connect Bar Redesign */}
+      <div className="bg-[#facc15] py-4 px-4 sm:px-6 lg:px-8 mx-4 sm:mx-8 rounded-full mb-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          <div className="flex flex-wrap gap-6 sm:gap-10 items-center justify-center">
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="YouTube"><Youtube size={28} /></a>
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="Facebook"><Facebook size={28} /></a>
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="Instagram"><Instagram size={28} /></a>
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="Email"><Mail size={28} /></a>
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="Discord"><Disc size={28} /></a>
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="Slack"><Slack size={28} /></a>
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="X"><Twitter size={28} /></a>
+            <a href="#" className="text-[#1e3a8a] hover:scale-125 transition-all" title="LinkedIn"><Linkedin size={28} /></a>
           </div>
         </div>
       </div>
 
       {/* Footer overhaul */}
-      <footer className="bg-white pt-24 pb-12 px-4 sm:px-6 lg:px-8 text-[#1e3a8a] border-t border-gray-100">
+      <footer className="bg-white pt-12 pb-8 px-4 sm:px-6 lg:px-8 text-[#1e3a8a]">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gray-50 rounded-[3rem] p-8 md:p-16 mb-24 grid lg:grid-cols-2 gap-16 items-start">
+          {/* Contact Section Moved into a card for better UI */}
+          <div className="bg-gray-50 rounded-[3rem] p-8 md:p-16 mb-16 grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h4 className="text-5xl font-black mb-6">Let's Talk.</h4>
               <p className="text-xl text-gray-500 leading-relaxed mb-8">Have a question, an idea, or just want to say hi? I'm all ears.</p>
@@ -452,41 +463,46 @@ export default function Home() {
               </div>
             )}
           </div>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-gray-100">
-            <p className="text-gray-400 font-medium">© 2026 Dear Future Luminary. All rights reserved.</p>
-            <p className="text-[#1e3a8a] font-black tracking-widest uppercase">Supporting SDGs: 4, 8, 10, 17</p>
-            <p className="text-gray-400 font-medium">Developed by Malak Emad</p>
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-gray-100">
+            <p className="text-gray-400 font-light text-sm">© 2026 Dear Future Luminary. All rights reserved.</p>
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+              <p className="text-[#1e3a8a] font-light text-sm">Supporting SDGs: 4, 8, 10, 17</p>
+              <p className="text-gray-400 font-light text-sm">Developed by Malak Emad</p>
+            </div>
           </div>
         </div>
       </footer>
 
       {/* Modals */}
       {showJoinModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1e3a8a]/90 backdrop-blur-sm">
-          <div className="bg-white rounded-[3rem] p-12 max-w-2xl w-full relative modal-content">
-            <button onClick={() => setShowJoinModal(false)} className="absolute top-8 right-8 text-gray-400 hover:text-[#1e3a8a]"><X size={32} /></button>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1e3a8a]/40 backdrop-blur-md">
+          <div className="bg-white rounded-[3rem] p-12 max-w-2xl w-full relative modal-content shadow-2xl">
+            <button onClick={() => setShowJoinModal(false)} className="absolute top-8 right-8 text-gray-400 hover:text-[#1e3a8a] transition-colors"><X size={32} /></button>
             <div className="space-y-8">
-              <div className="inline-block px-6 py-2 bg-[#facc15] text-[#1e3a8a] rounded-full text-sm font-black uppercase tracking-widest">The Movement</div>
-              <h3 className="text-5xl font-black text-[#1e3a8a]">Join the Future.</h3>
-              <p className="text-xl text-gray-500 leading-relaxed">We're building a space where every student has the tools to shine. Want to be part of it?</p>
-              <div className="flex flex-col gap-4">
-                <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" className="w-full py-4 bg-[#a488f4] text-white rounded-2xl font-black text-center hover:bg-[#1e3a8a] transition-all">Apply to Join</a>
-                <a href="https://forms.gle/1uFr976gMZqtJHcw7" target="_blank" className="w-full py-4 border-2 border-gray-100 text-gray-400 rounded-2xl font-black text-center hover:border-[#a488f4] hover:text-[#a488f4] transition-all">Support Us</a>
+              <div className="inline-block px-6 py-2 bg-[#facc15] text-[#1e3a8a] rounded-full font-black uppercase tracking-widest">Join Us</div>
+              <h2 className="text-5xl font-black text-[#1e3a8a]">The movement is growing.</h2>
+              <p className="text-xl text-gray-500 leading-relaxed">We're looking for students who want to build, lead, and shine. Choose how you want to be part of the story:</p>
+              <div className="grid gap-4">
+                <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" className="p-8 bg-gray-50 rounded-3xl border-2 border-transparent hover:border-[#a488f4] hover:bg-white transition-all group">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h4 className="text-2xl font-black text-[#1e3a8a]">Apply to Join the Team</h4>
+                      <p className="text-gray-500">Help us build the future of student empowerment.</p>
+                    </div>
+                    <ArrowRight className="text-[#a488f4] group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </a>
+                <a href="https://forms.gle/1uFr976gMZqtJHcw7" target="_blank" className="p-8 bg-gray-50 rounded-3xl border-2 border-transparent hover:border-[#facc15] hover:bg-white transition-all group">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h4 className="text-2xl font-black text-[#1e3a8a]">Become a Contributor</h4>
+                      <p className="text-gray-500">Share opportunities, resources, or your own story.</p>
+                    </div>
+                    <ArrowRight className="text-[#facc15] group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </a>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showComingSoonModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1e3a8a]/90 backdrop-blur-sm">
-          <div className="bg-white rounded-[3rem] p-12 max-w-xl w-full relative modal-content text-center">
-            <button onClick={() => setShowComingSoonModal(false)} className="absolute top-8 right-8 text-gray-400 hover:text-[#1e3a8a]"><X size={32} /></button>
-            <div className="space-y-8">
-              <div className="w-20 h-20 bg-[#a488f4]/10 rounded-3xl flex items-center justify-center text-[#a488f4] mx-auto"><Sparkles size={40} /></div>
-              <h3 className="text-4xl font-black text-[#1e3a8a]">Coming Soon</h3>
-              <p className="text-xl text-gray-500 leading-relaxed">I'm currently hand-crafting this section to make sure it's perfect for you. Stay tuned!</p>
-              <button onClick={() => setShowComingSoonModal(false)} className="px-12 py-4 bg-[#1e3a8a] text-white rounded-2xl font-black hover:bg-[#a488f4] transition-all">Got it!</button>
             </div>
           </div>
         </div>

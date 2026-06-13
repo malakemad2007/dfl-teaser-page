@@ -93,51 +93,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqItems = [
         {
             "question": "What even is Dear Future Luminary?",
-            "answer": "Dear Future Luminary is your corner of the internet for figuring things out\u2014your next opportunity, your passions, your personal growth, and honestly\u2026 yourself.<br><br>We help students discover scholarships, summer programs, teams, skills, and paths they might not even know exist yet.<br><br>Think of it as a guide, a resource hub, and a big-sis energy boost all in one."
+            "answer": "Dear Future Luminary is your corner of the internet for figuring things out—your next opportunity, your passions, your personal growth, and honestly… yourself.<br><br>We help students discover scholarships, summer programs, teams, skills, and paths they might not even know exist yet.<br><br>Think of it as a guide, a resource hub, and a big-sis energy boost all in one."
         },
         {
             "question": "Who is this for?",
-            "answer": "High school students. Early college students. Dreamers. Overthinkers. Future founders. People who feel behind. People who want more.<br><br>Basically\u2026 if you\u2019re trying to grow, build your future, or find your spark\u2014you belong here."
+            "answer": "High school students. Early college students. Dreamers. Overthinkers. Future founders. People who feel behind. People who want more.<br><br>Basically… if you’re trying to grow, build your future, or find your spark—you belong here."
         },
         {
             "question": "Is this really free?",
-            "answer": "Yep. Actually free.<br><br>No hidden fees. No \u201cpay to unlock the good stuff.\u201d No weird catch.<br><br>Access should never be the thing holding someone back."
+            "answer": "Yep. Actually free.<br><br>No hidden fees. No “pay to unlock the good stuff.” No weird catch.<br><br>Access should never be the thing holding someone back."
         },
         {
             "question": "I feel lost. Where do I even start?",
-            "answer": "Honestly? That\u2019s exactly why this exists.<br><br>Start anywhere that feels exciting:<br><br>opportunities, personal growth, roadmaps, profile building\u2026 there\u2019s no perfect order.<br><br>You do not need to have your life figured out before beginning."
+            "answer": "Honestly? That’s exactly why this exists.<br><br>Start anywhere that feels exciting:<br><br>opportunities, personal growth, roadmaps, profile building… there’s no perfect order.<br><br>You do not need to have your life figured out before beginning."
         },
         {
-            "question": "I\u2019m not extraordinary enough for these opportunities.",
-            "answer": "Respectfully\u2026 says who?<br><br>You do not need to be \u201cthe perfect student\u201d to deserve good opportunities.<br><br>You need curiosity, effort, and the courage to try.<br><br>Please don\u2019t reject yourself before the application even can."
+            "question": "I’m not extraordinary enough for these opportunities.",
+            "answer": "Respectfully… says who?<br><br>You do not need to be “the perfect student” to deserve good opportunities.<br><br>You need curiosity, effort, and the courage to try.<br><br>Please don’t reject yourself before the application even can."
         },
         {
-            "question": "There\u2019s too much information. I\u2019m overwhelmed.",
-            "answer": "Same.<br><br>That\u2019s why we curate everything\u2014to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take one small step. One application. One resource. One better day.<br><br>That\u2019s enough."
+            "question": "There’s too much information. I’m overwhelmed.",
+            "answer": "Same.<br><br>That’s why we curate everything—to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take one small step. One application. One resource. One better day.<br><br>That’s enough."
         },
         {
             "question": "Can I trust these opportunities?",
-            "answer": "We do our best to carefully curate and share legitimate opportunities and resources.<br><br>Still\u2014always read official websites, double-check deadlines, and do your own final review.<br><br>Smart luminaries verify."
+            "answer": "We do our best to carefully curate and share legitimate opportunities and resources.<br><br>Still—always read official websites, double-check deadlines, and do your own final review.<br><br>Smart luminaries verify."
         },
         {
             "question": "Can I suggest opportunities or resources?",
-            "answer": "Please do.<br><br>If you\u2019ve found something amazing, send it our way. This space grows stronger when students help students."
+            "answer": "Please do.<br><br>If you’ve found something amazing, send it our way. This space grows stronger when students help students."
         },
         {
             "question": "Can I work with Dear Future Luminary?",
-            "answer": "We love meeting passionate students, collaborators, mentors, and organizations who believe in helping young people grow.<br><br>Reach out through the form below. Good things start with messages."
+            "answer": "Absolutely !!<br><br>We love meeting passionate students, collaborators, mentors, and organizations who believe in helping young people grow.<br><br>Reach out through the form below. Good things start with messages."
         },
         {
-            "question": "Who\u2019s behind all this?",
-            "answer": "A student who knows how confusing all of this can feel.<br><br>Someone who spent way too much time figuring things out the hard way\u2014and decided to make it easier for others.<br><br>Built with care. Built with purpose. Built for you."
+            "question": "Who’s behind all this?",
+            "answer": "A student who knows how confusing all of this can feel.<br><br>Someone who spent way too much time figuring things out the hard way—and decided to make it easier for others.<br><br>Built with care. Built with purpose. Built for you."
         },
         {
-            "question": "What does \u201cLuminary\u201d mean here?",
-            "answer": "Someone who shines\u2014and helps others shine too.<br><br>Not because they have everything figured out.<br><br>Not because they\u2019re perfect.<br><br>But because they keep learning, growing, and choosing to light the way.<br><br>That can be you, too."
+            "question": "What does “Luminary” mean here?",
+            "answer": "Someone who shines—and helps others shine too.<br><br>Not because they have everything figured out.<br><br>Not because they’re perfect.<br><br>But because they keep learning, growing, and choosing to light the way.<br><br>That can be you, too."
         },
         {
             "question": "Still wondering something?",
-            "answer": "Ask us through the form below.<br><br>Seriously.<br><br>No question is too small, too random, or too \u201cI feel silly asking this.\u201d<br><br>That\u2019s what we\u2019re here for."
+            "answer": "Ask us through the form below.<br><br>Seriously.<br><br>No question is too small, too random, or too “I feel silly asking this.”<br><br>That’s what we’re here for."
         }
     ];
 
@@ -148,14 +148,14 @@ document.addEventListener('DOMContentLoaded', () => {
             div.className = 'border-b border-gray-100 last:border-0';
             div.innerHTML = `
                 <div class="group">
-                    <button class="w-full py-8 flex items-center justify-between text-left transition-all" onclick="toggleFaq(${index})">
-                        <h3 class="text-xl md:text-2xl font-bold text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
-                        <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#1e3a8a] group-hover:bg-[#a488f4]/10 group-hover:text-[#a488f4] transition-all flex-shrink-0">
-                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-500" id="faq-icon-${index}"></i>
+                    <button class="w-full py-10 flex items-center justify-between text-left transition-all" onclick="toggleFaq(${index})">
+                        <h3 class="text-3xl md:text-4xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
+                        <div class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center text-[#1e3a8a] group-hover:border-[#a488f4] group-hover:text-[#a488f4] transition-all flex-shrink-0" id="faq-icon-container-${index}">
+                            <i data-lucide="plus" class="w-6 h-6 transition-transform duration-500" id="faq-icon-${index}"></i>
                         </div>
                     </button>
                     <div class="faq-answer hidden overflow-hidden transition-all duration-500" id="faq-answer-${index}">
-                        <div class="pb-10 text-lg text-gray-500 leading-relaxed max-w-2xl">
+                        <div class="pb-12 text-2xl text-gray-500 leading-relaxed max-w-4xl">
                             ${item.answer}
                         </div>
                     </div>
@@ -167,17 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.toggleFaq = (index) => {
         const answer = document.getElementById(`faq-answer-${index}`);
-        const icon = document.getElementById(`faq-icon-${index}`);
+        const iconContainer = document.getElementById(`faq-icon-container-${index}`);
         const allAnswers = document.querySelectorAll('.faq-answer');
-        const allIcons = document.querySelectorAll('[id^="faq-icon-"]');
+        const allIconContainers = document.querySelectorAll('[id^="faq-icon-container-"]');
 
         allAnswers.forEach((ans, i) => {
             if (i !== index) {
                 ans.classList.add('hidden');
-                const otherIcon = document.getElementById(`faq-icon-${i}`);
-                if (otherIcon) {
-                    otherIcon.style.transform = 'rotate(0deg)';
-                    otherIcon.setAttribute('data-lucide', 'chevron-down');
+                const otherContainer = document.getElementById(`faq-icon-container-${i}`);
+                if (otherContainer) {
+                    otherContainer.style.transform = 'rotate(0deg)';
                 }
             }
         });
@@ -185,14 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const isHidden = answer.classList.contains('hidden');
         if (isHidden) {
             answer.classList.remove('hidden');
-            icon.style.transform = 'rotate(180deg)';
-            icon.setAttribute('data-lucide', 'chevron-up');
+            iconContainer.style.transform = 'rotate(45deg)';
         } else {
             answer.classList.add('hidden');
-            icon.style.transform = 'rotate(0deg)';
-            icon.setAttribute('data-lucide', 'chevron-down');
+            iconContainer.style.transform = 'rotate(0deg)';
         }
-        lucide.createIcons();
     };
 
     // Modals
@@ -209,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact Form Submission
     const contactForm = document.getElementById('contact-form');
-    const contactSuccess = document.getElementById('contact-success');
+    const contactContainer = document.getElementById('contact-form-container');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -228,19 +224,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(data)
                 });
                 if (response.ok) {
-                    contactForm.style.display = 'none';
-                    contactSuccess.classList.remove('hidden');
-                    contactSuccess.classList.add('block');
-                    contactForm.reset();
-                    
-                    setTimeout(() => {
-                        contactSuccess.classList.add('hidden');
-                        contactSuccess.classList.remove('block');
-                        contactForm.style.display = 'block';
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalText;
-                        lucide.createIcons();
-                    }, 8000);
+                    contactContainer.innerHTML = `
+                        <div class="p-12 bg-[#a488f4]/10 rounded-[3rem] text-center animate-in fade-in zoom-in duration-500">
+                            <h3 class="text-3xl font-black text-[#1e3a8a] mb-4">Message Sent!</h3>
+                            <p class="text-xl text-gray-600">Thank you so much! 💜 I'll reply as soon as I can.</p>
+                        </div>
+                    `;
                 } else {
                     throw new Error('Form submission failed');
                 }
@@ -252,12 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 lucide.createIcons();
             }
         });
-    }
-
-    // Set current year in footer
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
     }
 
     // Initialize Lucide Icons
