@@ -144,22 +144,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqContainer = document.getElementById('faq-container');
     if (faqContainer) {
         faqItems.forEach((item, index) => {
+            const isEven = index % 2 === 0;
+            const accentColor = isEven ? '#a488f4' : '#facc15';
             const div = document.createElement('div');
-            div.className = 'group border-b border-gray-100 last:border-0';
+            div.className = 'group mb-4';
             div.innerHTML = `
-                <button class="w-full py-12 flex items-start justify-between text-left transition-all" onclick="toggleFaq(${index})">
-                    <div class="flex gap-8 items-start">
-                        <span class="text-xl font-black text-gray-200 group-hover:text-[#a488f4] transition-colors pt-2">${(index + 1).toString().padStart(2, '0')}</span>
-                        <h3 class="text-3xl md:text-5xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
-                    </div>
-                    <div class="w-16 h-16 rounded-full border-2 border-gray-100 flex items-center justify-center text-[#1e3a8a] group-hover:border-[#a488f4] group-hover:text-[#a488f4] transition-all flex-shrink-0">
-                        <i data-lucide="plus" class="w-8 h-8 transition-transform duration-500" id="faq-icon-${index}"></i>
-                    </div>
-                </button>
-                <div class="faq-answer hidden overflow-hidden transition-all duration-500" id="faq-answer-${index}">
-                    <div class="pl-16 md:pl-24 pb-16">
-                        <div class="text-2xl text-gray-500 leading-relaxed max-w-4xl font-medium border-l-4 border-[#a488f4]/20 pl-8">
-                            ${item.answer}
+                <div class="bg-gray-50 rounded-[2.5rem] overflow-hidden border border-transparent hover:border-${isEven ? '[#a488f4]' : '[#facc15]'}/30 transition-all duration-500">
+                    <button class="w-full p-10 md:p-12 flex items-center justify-between text-left transition-all" onclick="toggleFaq(${index})">
+                        <div class="flex gap-8 items-center">
+                            <span class="text-2xl font-black opacity-20 group-hover:opacity-100 transition-opacity" style="color: ${accentColor}">${(index + 1).toString().padStart(2, '0')}</span>
+                            <h3 class="text-2xl md:text-3xl font-black text-[#1e3a8a] group-hover:translate-x-2 transition-transform duration-500">${item.question}</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500" style="background-color: ${accentColor}10; color: ${accentColor}">
+                            <i data-lucide="chevron-down" class="w-8 h-8 transition-transform duration-500" id="faq-icon-${index}"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden overflow-hidden transition-all duration-700" id="faq-answer-${index}">
+                        <div class="px-10 md:px-12 pb-12">
+                            <div class="h-px w-full bg-gray-100 mb-10"></div>
+                            <div class="text-xl md:text-2xl text-gray-500 leading-relaxed font-medium max-w-3xl">
+                                ${item.answer}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,19 +182,23 @@ document.addEventListener('DOMContentLoaded', () => {
         allAnswers.forEach((ans, i) => {
             if (i !== index) {
                 ans.classList.add('hidden');
-                allIcons[i].style.transform = 'rotate(0deg)';
-                allIcons[i].setAttribute('data-lucide', 'plus');
+                const otherIcon = document.getElementById(`faq-icon-${i}`);
+                if (otherIcon) {
+                    otherIcon.style.transform = 'rotate(0deg)';
+                    otherIcon.setAttribute('data-lucide', 'chevron-down');
+                }
             }
         });
 
         const isHidden = answer.classList.contains('hidden');
         if (isHidden) {
             answer.classList.remove('hidden');
-            icon.style.transform = 'rotate(45deg)';
-            icon.setAttribute('data-lucide', 'plus'); // Keep plus but rotate it
+            icon.style.transform = 'rotate(180deg)';
+            icon.setAttribute('data-lucide', 'chevron-up');
         } else {
             answer.classList.add('hidden');
             icon.style.transform = 'rotate(0deg)';
+            icon.setAttribute('data-lucide', 'chevron-down');
         }
         lucide.createIcons();
     };
