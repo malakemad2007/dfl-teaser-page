@@ -145,19 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqContainer) {
         faqItems.forEach((item, index) => {
             const div = document.createElement('div');
-            div.className = 'border-b border-gray-100 last:border-0';
+            div.className = 'border-b-2 border-gray-100 group';
             div.innerHTML = `
-                <div class="group">
-                    <button class="w-full py-10 flex items-center justify-between text-left transition-all" onclick="toggleFaq(${index})">
-                        <h3 class="text-3xl md:text-4xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
-                        <div class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center text-[#1e3a8a] group-hover:border-[#a488f4] group-hover:text-[#a488f4] transition-all flex-shrink-0" id="faq-icon-container-${index}">
-                            <i data-lucide="plus" class="w-6 h-6 transition-transform duration-500" id="faq-icon-${index}"></i>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden overflow-hidden transition-all duration-500" id="faq-answer-${index}">
-                        <div class="pb-12 text-2xl text-gray-500 leading-relaxed max-w-4xl">
-                            ${item.answer}
-                        </div>
+                <button class="w-full py-12 flex items-center justify-between text-left transition-all hover:px-4 duration-500" onclick="toggleFaq(${index})">
+                    <h3 class="text-3xl md:text-4xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-all duration-500 pr-8 leading-tight uppercase tracking-tight">${item.question}</h3>
+                    <div class="w-16 h-16 rounded-full border-2 border-gray-100 flex items-center justify-center text-[#1e3a8a] group-hover:bg-[#a488f4] group-hover:border-[#a488f4] group-hover:text-white transition-all duration-500 flex-shrink-0" id="faq-icon-container-${index}">
+                        <i data-lucide="plus" class="w-8 h-8 transition-transform duration-500" id="faq-icon-${index}"></i>
+                    </div>
+                </button>
+                <div class="faq-answer hidden overflow-hidden transition-all duration-500 bg-gray-50/50 rounded-3xl" id="faq-answer-${index}">
+                    <div class="p-12 text-2xl text-gray-500 font-bold leading-relaxed max-w-4xl">
+                        ${item.answer}
                     </div>
                 </div>
             `;

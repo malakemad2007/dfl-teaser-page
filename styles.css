@@ -159,3 +159,66 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Premium Gen Z Polish */
+.font-black {
+    letter-spacing: -0.04em;
+}
+
+.tracking-tighter {
+    letter-spacing: -0.06em;
+}
+
+/* Custom Selection for Branding */
+::selection {
+    background-color: #a488f4;
+    color: white;
+}
+
+/* Section Transitions */
+section {
+    position: relative;
+    z-index: 10;
+}
+
+/* Magnetic Hover Effect for Icons */
+.hover\:scale-125:hover {
+    transform: scale(1.25) translateY(-4px);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Accordion Polish */
+.faq-answer {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer:not(.hidden) {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Sticky Header Shadow on Scroll */
+.lg\:sticky {
+    transition: all 0.3s ease;
+}
+
+/* Modern Link Underline */
+.hover-underline {
+    position: relative;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
