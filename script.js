@@ -144,27 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqContainer = document.getElementById('faq-container');
     if (faqContainer) {
         faqItems.forEach((item, index) => {
-            const isEven = index % 2 === 0;
-            const accentColor = isEven ? '#a488f4' : '#facc15';
             const div = document.createElement('div');
-            div.className = 'group mb-4';
+            div.className = 'border-b border-gray-100 last:border-0';
             div.innerHTML = `
-                <div class="bg-gray-50 rounded-[2.5rem] overflow-hidden border border-transparent hover:border-${isEven ? '[#a488f4]' : '[#facc15]'}/30 transition-all duration-500">
-                    <button class="w-full p-10 md:p-12 flex items-center justify-between text-left transition-all" onclick="toggleFaq(${index})">
-                        <div class="flex gap-8 items-center">
-                            <span class="text-2xl font-black opacity-20 group-hover:opacity-100 transition-opacity" style="color: ${accentColor}">${(index + 1).toString().padStart(2, '0')}</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-[#1e3a8a] group-hover:translate-x-2 transition-transform duration-500">${item.question}</h3>
-                        </div>
-                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500" style="background-color: ${accentColor}10; color: ${accentColor}">
-                            <i data-lucide="chevron-down" class="w-8 h-8 transition-transform duration-500" id="faq-icon-${index}"></i>
+                <div class="group">
+                    <button class="w-full py-8 flex items-center justify-between text-left transition-all" onclick="toggleFaq(${index})">
+                        <h3 class="text-xl md:text-2xl font-bold text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
+                        <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#1e3a8a] group-hover:bg-[#a488f4]/10 group-hover:text-[#a488f4] transition-all flex-shrink-0">
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-500" id="faq-icon-${index}"></i>
                         </div>
                     </button>
-                    <div class="faq-answer hidden overflow-hidden transition-all duration-700" id="faq-answer-${index}">
-                        <div class="px-10 md:px-12 pb-12">
-                            <div class="h-px w-full bg-gray-100 mb-10"></div>
-                            <div class="text-xl md:text-2xl text-gray-500 leading-relaxed font-medium max-w-3xl">
-                                ${item.answer}
-                            </div>
+                    <div class="faq-answer hidden overflow-hidden transition-all duration-500" id="faq-answer-${index}">
+                        <div class="pb-10 text-lg text-gray-500 leading-relaxed max-w-2xl">
+                            ${item.answer}
                         </div>
                     </div>
                 </div>
