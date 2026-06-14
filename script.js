@@ -145,16 +145,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqContainer) {
         faqItems.forEach((item, index) => {
             const div = document.createElement('div');
-            div.className = 'border-b border-[#1e3a8a]/10 group';
+            div.className = 'group py-4';
             div.innerHTML = `
-                <button class="w-full py-10 flex items-center justify-between text-left transition-all group-hover:pl-4 duration-500" onclick="toggleFaq(${index})">
-                    <h3 class="text-2xl md:text-3xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-all duration-500 pr-8 leading-tight uppercase tracking-tight italic">${item.question}</h3>
-                    <div class="w-12 h-12 flex items-center justify-center text-[#1e3a8a]/30 group-hover:text-[#a488f4] transition-all duration-500 flex-shrink-0" id="faq-icon-container-${index}">
-                        <i data-lucide="arrow-down-right" class="w-8 h-8 transition-transform duration-500" id="faq-icon-${index}"></i>
+                <button class="w-full py-12 flex items-center justify-between text-left transition-all group-hover:px-8 duration-700 rounded-3xl group-hover:bg-gray-50" onclick="toggleFaq(${index})">
+                    <h3 class="text-2xl md:text-3xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-all duration-700 pr-8 leading-tight uppercase italic tracking-tighter">${item.question}</h3>
+                    <div class="w-16 h-16 flex items-center justify-center text-[#1e3a8a]/20 group-hover:text-[#a488f4] group-hover:rotate-180 transition-all duration-700 flex-shrink-0" id="faq-icon-container-${index}">
+                        <i data-lucide="chevron-down" class="w-10 h-10 transition-transform duration-700" id="faq-icon-${index}"></i>
                     </div>
                 </button>
-                <div class="faq-answer hidden overflow-hidden transition-all duration-500" id="faq-answer-${index}">
-                    <div class="pb-12 text-xl text-gray-500 font-medium leading-relaxed max-w-2xl pl-0 md:pl-4">
+                <div class="faq-answer hidden overflow-hidden transition-all duration-700" id="faq-answer-${index}">
+                    <div class="p-12 text-xl text-gray-500 font-medium leading-relaxed max-w-2xl border-l-2 border-[#a488f4]/20 ml-8">
                         ${item.answer}
                     </div>
                 </div>

@@ -100,62 +100,69 @@
         </div>
     </section>
 
-    <!-- Built by Youth: Manifesto Layout -->
-    <section id="who-we-are" class="py-32 md:py-48 px-4 sm:px-6 lg:px-8 bg-white relative">
-        <div class="max-w-7xl mx-auto">
-            <!-- Manifesto Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-                <!-- Column 1: Vertical Title -->
-                <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
-                    <h2 class="text-6xl md:text-8xl font-black text-[#1e3a8a] leading-[0.85] tracking-tighter uppercase italic mb-8">
-                        Built by<br/>
-                        <span class="text-[#a488f4]">Youth,</span><br/>
-                        for <span class="text-[#facc15]">Youth.</span>
-                    </h2>
-                    <div class="hidden lg:block w-full h-px bg-[#1e3a8a]/10 relative">
-                        <div class="absolute top-0 left-0 w-1/4 h-1 bg-[#a488f4]"></div>
+    <!-- Built by Youth: Kinetic Manifesto -->
+    <section id="who-we-are" class="py-32 md:py-56 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        <!-- Subtle background accent -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 border-[40px] border-[#a488f4] rounded-full"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 border-[40px] border-[#facc15] rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-32">
+                <!-- Left: Bold Title Block -->
+                <div class="lg:col-span-5">
+                    <div class="sticky top-32 space-y-12">
+                        <h2 class="text-6xl md:text-[7.5rem] font-black text-[#1e3a8a] leading-[0.8] tracking-tighter uppercase italic">
+                            Built by<br/>
+                            <span class="text-[#a488f4]">Youth,</span><br/>
+                            for <span class="text-[#facc15]">Youth.</span>
+                        </h2>
+                        <div class="space-y-4">
+                            <div class="h-1 w-24 bg-[#1e3a8a]"></div>
+                            <p class="text-sm font-black uppercase tracking-[0.3em] text-[#1e3a8a]/40">Est. 2026 / The Movement</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Column 2: Content Stream -->
-                <div class="lg:col-span-8 space-y-24">
-                    <!-- Manifesto Text -->
-                    <div class="space-y-12">
-                        <p class="text-3xl md:text-4xl font-black text-[#1e3a8a] leading-tight max-w-2xl">
+                <!-- Right: Content Flow -->
+                <div class="lg:col-span-7 space-y-32">
+                    <div class="space-y-16">
+                        <p class="text-3xl md:text-5xl font-black text-[#1e3a8a] leading-[1.1] tracking-tight">
                             No big company. No fancy office. No people in suits making decisions.
                         </p>
-                        <div class="grid md:grid-cols-2 gap-12 items-start">
-                            <p class="text-lg text-gray-500 font-medium leading-relaxed">
+                        <div class="grid md:grid-cols-2 gap-12">
+                            <p class="text-xl text-gray-500 font-medium leading-relaxed">
                                 Just a student who spent way too many hours searching for opportunities, getting confused, making mistakes, and figuring things out the hard way.
                             </p>
-                            <p class="text-2xl font-black text-[#a488f4] italic leading-tight pt-2">
+                            <p class="text-2xl font-black text-[#a488f4] italic leading-tight pt-2 border-l-2 border-[#a488f4]/20 pl-8">
                                 So I built the thing I wish I had when I started.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Mission/Vision: Non-Card Layout -->
-                    <div class="grid md:grid-cols-2 gap-16 lg:gap-24 pt-16 border-t border-gray-100">
-                        <div class="space-y-8">
-                            <div class="flex items-center gap-4">
-                                <span class="text-sm font-black text-[#a488f4] uppercase tracking-widest">01 / Mission</span>
+                    <!-- Split Pillars -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 pt-24 border-t border-gray-100">
+                        <div class="space-y-8 group">
+                            <div class="w-12 h-12 rounded-2xl bg-[#a488f4]/10 flex items-center justify-center text-[#a488f4] group-hover:bg-[#a488f4] group-hover:text-white transition-all duration-500">
+                                <i data-lucide="compass" class="w-6 h-6"></i>
                             </div>
                             <div class="space-y-4">
-                                <h3 class="text-2xl font-black text-[#1e3a8a]">Make opportunities easier to find.</h3>
-                                <p class="text-gray-500 font-medium leading-relaxed">
+                                <h3 class="text-2xl font-black text-[#1e3a8a] uppercase italic">The Mission</h3>
+                                <p class="text-lg text-gray-500 font-medium leading-relaxed">
                                     Because talent is everywhere, but information isn't. Everyone deserves access to scholarships, programs, resources, and guidance—regardless of where they come from.
                                 </p>
                             </div>
                         </div>
 
-                        <div class="space-y-8">
-                            <div class="flex items-center gap-4">
-                                <span class="text-sm font-black text-[#facc15] uppercase tracking-widest">02 / Vision</span>
+                        <div class="space-y-8 group">
+                            <div class="w-12 h-12 rounded-2xl bg-[#facc15]/10 flex items-center justify-center text-[#facc15] group-hover:bg-[#facc15] group-hover:text-[#1e3a8a] transition-all duration-500">
+                                <i data-lucide="zap" class="w-6 h-6"></i>
                             </div>
                             <div class="space-y-4">
-                                <h3 class="text-2xl font-black text-[#1e3a8a]">A future where students feel less lost.</h3>
-                                <p class="text-gray-500 font-medium leading-relaxed">
-                                    A future where finding opportunities doesn't depend on luck or connections. A future where more young people discover what they're capable of.
+                                <h3 class="text-2xl font-black text-[#1e3a8a] uppercase italic">The Vision</h3>
+                                <p class="text-lg text-gray-500 font-medium leading-relaxed">
+                                    A future where students feel less lost. A future where finding opportunities doesn't depend on luck or connections. A future where more young people discover what they're capable of.
                                 </p>
                             </div>
                         </div>
@@ -165,64 +172,82 @@
         </div>
     </section>
 
-    <!-- What You'll Find: Visual Index -->
-    <section id="what-you-find" class="py-32 md:py-48 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] text-white relative overflow-hidden">
+    <!-- What You'll Find: Kinetic Discovery -->
+    <section id="what-you-find" class="py-32 md:py-64 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] text-white relative overflow-hidden">
+        <!-- Floating Kinetic Background -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
+            <div class="absolute -top-1/4 -right-1/4 w-[80vw] h-[80vw] border border-white/20 rounded-full animate-[spin_60s_linear_infinite]"></div>
+            <div class="absolute -bottom-1/4 -left-1/4 w-[60vw] h-[60vw] border border-white/20 rounded-full animate-[spin_40s_linear_infinite_reverse]"></div>
+        </div>
+
         <div class="max-w-7xl mx-auto relative z-10">
-            <!-- Elegant Title & Subtitle -->
-            <div class="max-w-3xl mb-32">
-                <h2 class="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic mb-10">
-                    What You'll<br/>
-                    <span class="text-[#a488f4]">Find Here</span>
-                </h2>
-                <p class="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
-                    Everything I wish someone had shown me sooner. Resources, opportunities, roadmaps, and tools designed to help you learn, grow, and take your next step with confidence.
-                </p>
+            <!-- Header: High-End Minimalist -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-40 items-start">
+                <div class="lg:col-span-8">
+                    <h2 class="text-7xl md:text-[9rem] font-black leading-[0.8] tracking-tighter uppercase italic">
+                        What You'll<br/>
+                        <span class="text-[#a488f4]">Find Here</span>
+                    </h2>
+                </div>
+                <div class="lg:col-span-4 pt-4 lg:pt-12">
+                    <p class="text-xl md:text-2xl text-white/50 font-medium leading-relaxed border-l border-white/20 pl-8">
+                        Everything I wish someone had shown me sooner. <span class="text-white">Resources, roadmaps, and tools</span> to help you take your next step with confidence.
+                    </p>
+                </div>
             </div>
 
-            <!-- Visual Index: Minimalist Rows -->
-            <div class="border-t border-white/10">
-                <!-- Row 01 -->
-                <div class="group py-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8 transition-all duration-500 hover:bg-white/[0.02]">
-                    <div class="flex items-center gap-8">
-                        <span class="text-sm font-black text-[#a488f4] tracking-widest">01</span>
-                        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight group-hover:text-[#a488f4] transition-colors">Personal Growth</h3>
+            <!-- Discovery Grid: Non-Linear Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                <!-- Item 01 -->
+                <div class="group relative bg-[#1e3a8a] p-12 md:p-20 overflow-hidden transition-all duration-700 hover:bg-[#a488f4]">
+                    <div class="relative z-10 space-y-12">
+                        <span class="text-sm font-black tracking-[0.5em] text-white/30 group-hover:text-white/60 transition-colors uppercase italic">Discovery 01</span>
+                        <h3 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-none">Personal<br/>Growth</h3>
+                        <p class="text-xl text-white/50 group-hover:text-white transition-all duration-500 max-w-xs leading-relaxed">
+                            Build confidence. Learn new skills. Become the person your future self will thank you for being.
+                        </p>
                     </div>
-                    <p class="text-lg text-white/40 font-medium max-w-md group-hover:text-white/80 transition-colors">
-                        Build confidence. Learn new skills. Become the person your future self will thank you for being.
-                    </p>
+                    <!-- Kinetic Accent -->
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full group-hover:scale-[3] group-hover:bg-white/10 transition-all duration-700"></div>
                 </div>
 
-                <!-- Row 02 -->
-                <div class="group py-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8 transition-all duration-500 hover:bg-white/[0.02]">
-                    <div class="flex items-center gap-8">
-                        <span class="text-sm font-black text-[#facc15] tracking-widest">02</span>
-                        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight group-hover:text-[#facc15] transition-colors">Global Opportunities</h3>
+                <!-- Item 02 -->
+                <div class="group relative bg-[#1e3a8a] p-12 md:p-20 overflow-hidden transition-all duration-700 hover:bg-[#facc15]">
+                    <div class="relative z-10 space-y-12">
+                        <span class="text-sm font-black tracking-[0.5em] text-white/30 group-hover:text-[#1e3a8a]/60 transition-colors uppercase italic">Discovery 02</span>
+                        <h3 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-none group-hover:text-[#1e3a8a]">Global<br/>Opps</h3>
+                        <p class="text-xl text-white/50 group-hover:text-[#1e3a8a]/80 transition-all duration-500 max-w-xs leading-relaxed">
+                            Scholarships, summer programs, and opportunities you probably haven't heard about yet.
+                        </p>
                     </div>
-                    <p class="text-lg text-white/40 font-medium max-w-md group-hover:text-white/80 transition-colors">
-                        Scholarships, summer programs, competitions, exchanges, internships, and opportunities you probably haven't heard about yet.
-                    </p>
+                    <!-- Kinetic Accent -->
+                    <div class="absolute -top-10 -right-10 w-40 h-40 border-2 border-white/5 rounded-full group-hover:scale-[4] group-hover:border-[#1e3a8a]/10 transition-all duration-700"></div>
                 </div>
 
-                <!-- Row 03 -->
-                <div class="group py-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8 transition-all duration-500 hover:bg-white/[0.02]">
-                    <div class="flex items-center gap-8">
-                        <span class="text-sm font-black text-[#a488f4] tracking-widest">03</span>
-                        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight group-hover:text-[#a488f4] transition-colors">Roadmaps</h3>
+                <!-- Item 03 -->
+                <div class="group relative bg-[#1e3a8a] p-12 md:p-20 overflow-hidden transition-all duration-700 hover:bg-[#facc15]">
+                    <div class="relative z-10 space-y-12">
+                        <span class="text-sm font-black tracking-[0.5em] text-white/30 group-hover:text-[#1e3a8a]/60 transition-colors uppercase italic">Discovery 03</span>
+                        <h3 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-none group-hover:text-[#1e3a8a]">Roadmaps</h3>
+                        <p class="text-xl text-white/50 group-hover:text-[#1e3a8a]/80 transition-all duration-500 max-w-xs leading-relaxed">
+                            Not sure where to start? These guides help you explore fields and figure out your next move.
+                        </p>
                     </div>
-                    <p class="text-lg text-white/40 font-medium max-w-md group-hover:text-white/80 transition-colors">
-                        Not sure where to start? These guides help you explore different fields, build skills, and figure out your next move.
-                    </p>
+                    <!-- Kinetic Accent -->
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full group-hover:scale-[3] group-hover:bg-[#1e3a8a]/10 transition-all duration-700"></div>
                 </div>
 
-                <!-- Row 04 -->
-                <div class="group py-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8 transition-all duration-500 hover:bg-white/[0.02]">
-                    <div class="flex items-center gap-8">
-                        <span class="text-sm font-black text-[#facc15] tracking-widest">04</span>
-                        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight group-hover:text-[#facc15] transition-colors">Profile Building</h3>
+                <!-- Item 04 -->
+                <div class="group relative bg-[#1e3a8a] p-12 md:p-20 overflow-hidden transition-all duration-700 hover:bg-[#a488f4]">
+                    <div class="relative z-10 space-y-12">
+                        <span class="text-sm font-black tracking-[0.5em] text-white/30 group-hover:text-white/60 transition-colors uppercase italic">Discovery 04</span>
+                        <h3 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-none">Profile<br/>Building</h3>
+                        <p class="text-xl text-white/50 group-hover:text-white transition-all duration-500 max-w-xs leading-relaxed">
+                            Learn how to write a strong CV, create a portfolio, and tell your story to the world.
+                        </p>
                     </div>
-                    <p class="text-lg text-white/40 font-medium max-w-md group-hover:text-white/80 transition-colors">
-                        Learn how to write a strong CV, create a portfolio, tell your story, and show the world what you're capable of.
-                    </p>
+                    <!-- Kinetic Accent -->
+                    <div class="absolute -top-10 -left-10 w-40 h-40 border-2 border-white/5 rounded-full group-hover:scale-[4] group-hover:border-white/10 transition-all duration-700"></div>
                 </div>
             </div>
         </div>
@@ -315,28 +340,32 @@
         </div>
     </section>
 
-    <!-- FAQ: Sticky Sidebar & Minimalist Accordion -->
-    <section id="faq" class="py-32 md:py-48 px-4 sm:px-6 lg:px-8 bg-white relative">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-            <!-- Sticky Sidebar Title -->
-            <div class="lg:col-span-4 lg:sticky lg:top-32">
-                <div class="space-y-8">
-                    <h2 class="text-5xl md:text-7xl font-black text-[#1e3a8a] leading-[0.85] tracking-tighter uppercase italic">
-                        Questions<br/>
-                        You Might<br/>
-                        Be <span class="text-[#a488f4]">Too Shy</span><br/>
-                        to Ask
-                    </h2>
-                    <p class="text-xl font-bold text-gray-400 leading-tight">
-                        But come on. You ask.<br/>We yap, respectfully.
-                    </p>
-                    <div class="w-12 h-1.5 bg-[#facc15]"></div>
+    <!-- FAQ: Minimalist Discovery -->
+    <section id="faq" class="py-32 md:py-64 px-4 sm:px-6 lg:px-8 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-24 items-start">
+                <!-- Left: Static Header with kinetic underline -->
+                <div class="lg:w-2/5 lg:sticky lg:top-40">
+                    <div class="space-y-12">
+                        <h2 class="text-6xl md:text-8xl font-black text-[#1e3a8a] leading-[0.85] tracking-tighter uppercase italic">
+                            Questions<br/>
+                            You Might<br/>
+                            Be <span class="text-[#a488f4]">Too Shy</span><br/>
+                            to Ask
+                        </h2>
+                        <div class="relative w-full h-px bg-gray-100 overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-full bg-[#facc15] -translate-x-full animate-[shimmer_3s_infinite]"></div>
+                        </div>
+                        <p class="text-2xl font-black text-gray-300 leading-tight">
+                            But come on. You ask.<br/>We yap, respectfully.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Line-based Accordion -->
-            <div class="lg:col-span-8 border-t border-[#1e3a8a]/10" id="faq-container">
-                <!-- Populated by JS with refined items -->
+                
+                <!-- Right: High-End Accordion -->
+                <div class="lg:w-3/5 w-full divide-y divide-gray-100" id="faq-container">
+                    <!-- Populated by JS -->
+                </div>
             </div>
         </div>
     </section>
