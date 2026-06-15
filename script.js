@@ -1,248 +1,222 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Custom Cursor
-    const customCursor = document.getElementById('custom-cursor');
-    let cursorPos = { x: 0, y: 0 };
-    let cursorColor = 'purple'; // Default color
+// Initialize Lucide Icons
+lucide.createIcons();
 
-    document.addEventListener('mousemove', (e) => {
-        cursorPos = { x: e.clientX, y: e.clientY };
-        customCursor.style.left = `${cursorPos.x}px`;
-        customCursor.style.top = `${cursorPos.y}px`;
-
-        const target = e.target;
-        const isInteractive = target.closest('button, a, input, textarea, [role="button"]');
-        const newColor = isInteractive ? 'yellow' : 'purple';
-        if (newColor !== cursorColor) {
-            customCursor.classList.remove(cursorColor);
-            customCursor.classList.add(newColor);
-            cursorColor = newColor;
-        }
-    });
-
-    // Sticky Navbar
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('top-4', 'left-4', 'right-4', 'bg-white/95', 'backdrop-blur-xl', 'shadow-xl', 'border', 'border-gray-100', 'rounded-2xl');
-            navbar.style.maxWidth = 'calc(100% - 32px)';
-            navbar.style.margin = '0 auto';
-            navbar.style.left = '16px';
-            navbar.style.right = '16px';
-            navbar.classList.remove('bg-white/80', 'border-b', 'border-gray-100/50', 'rounded-none');
-        } else {
-            navbar.classList.remove('top-4', 'left-4', 'right-4', 'bg-white/95', 'backdrop-blur-xl', 'shadow-xl', 'border', 'border-gray-100', 'rounded-2xl');
-            navbar.style.maxWidth = '';
-            navbar.style.margin = '';
-            navbar.style.left = '';
-            navbar.style.right = '';
-            navbar.classList.add('bg-white/80', 'backdrop-blur-xl', 'rounded-none', 'border-b', 'border-gray-100/50');
-        }
-    });
-
-    // Mobile Menu Toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    window.toggleMobileMenu = () => {
-        mobileMenu.classList.toggle('hidden');
-        if (mobileMenu.classList.contains('hidden')) {
-            menuIcon.setAttribute('data-lucide', 'menu');
-        } else {
-            menuIcon.setAttribute('data-lucide', 'x');
-        }
-        lucide.createIcons(); // Re-render Lucide icons
-    };
-
-    // Programs Carousel Data
-    const programs = [
-        { name: 'AFS Intercultural Programs', logo: 'afs.png' },
-        { name: 'Kode With Klossy', logo: 'kode_with_klossy.png' },
-        { name: 'Stanford Code in Place', logo: 'stanford_code_in_place.png' },
-        { name: 'UNICEF', logo: 'unicef.png' },
-        { name: 'Soliya', logo: 'soliya.png' },
-        { name: 'NASA Space Apps Challenge', logo: 'nasa_space_apps.png' },
-        { name: 'International Organisation of youth', logo: 'ioy.png' },
-        { name: 'Climate Olympiad', logo: 'climate_olympiad.png' },
-        { name: 'MUN', logo: 'mun.png' },
-        { name: 'Microsoft', logo: 'microsoft.png' },
-        { name: 'Girls Who Code', logo: 'girls_who_code.png' },
-        { name: 'New York Academy of Sciences', logo: 'nyas.png' },
-        { name: 'International House', logo: 'international_house.png' },
-    ];
-
-    const programsCarousel = document.getElementById('programs-carousel');
-    if (programsCarousel) {
-        // Duplicate programs for seamless scrolling effect
-        const allPrograms = [...programs, ...programs];
-        allPrograms.forEach((program, index) => {
-            const div = document.createElement('div');
-            div.className = 'flex-shrink-0 w-64 h-64 bg-white border border-gray-100 rounded-[3rem] p-12 flex items-center justify-center hover:shadow-2xl hover:border-[#a488f4]/30 transition-all duration-500 group relative overflow-hidden';
-            div.title = program.name;
-            div.innerHTML = `
-                <div class="absolute inset-0 bg-gradient-to-br from-[#a488f4]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <img
-                    src="client/public/images/logos/${program.logo}"
-                    alt="${program.name}"
-                    class="max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
-                />
-            `;
-            programsCarousel.appendChild(div);
-        });
+// FAQ Data - Exact text from user
+const faqData = [
+    {
+        question: "WHAT EVEN IS DEAR FUTURE LUMINARY?",
+        answer: "Dear Future Luminary is a student-led initiative designed to help you navigate opportunities, build your profile, and discover your direction—without the confusion. Think of it as a guide, not a directory."
+    },
+    {
+        question: "WHO IS THIS FOR?",
+        answer: "If you're ambitious, curious, and feeling a bit lost about your future—this is for you. Whether you're in high school, early university, or just figuring things out, DFL is here to help you understand yourself and your options better."
+    },
+    {
+        question: "IS THIS REALLY FREE?",
+        answer: "Yes. Completely free. No hidden fees, no premium tiers, no catch. Everything on Dear Future Luminary is accessible to every student, regardless of their background or financial situation."
+    },
+    {
+        question: "I FEEL LOST. WHERE DO I EVEN START?",
+        answer: "Start with the Roadmaps section. Pick a field or interest that resonates with you, and follow the step-by-step guides. There's no 'perfect' starting point—just pick something and begin. You'll figure it out as you go."
+    },
+    {
+        question: "I'M NOT EXTRAORDINARY ENOUGH FOR THESE OPPORTUNITIES.",
+        answer: "Stop right there. Talent doesn't look one way. The opportunities on DFL are designed for real students—not just the 'perfect' ones. Your background, your perspective, your story—that's what makes you valuable. Apply anyway."
+    },
+    {
+        question: "THERE'S TOO MUCH INFORMATION. I'M OVERWHELMED.",
+        answer: "That's exactly why DFL exists. Instead of dumping everything on you, we organize, filter, and explain. Start small. Pick one opportunity or one skill to focus on. You don't need to do everything at once."
+    },
+    {
+        question: "CAN I TRUST THESE OPPORTUNITIES?",
+        answer: "Every opportunity on DFL has been personally vetted or is from a trusted, established organization. These are programs I've been part of or thoroughly researched. If it's here, it's legitimate."
+    },
+    {
+        question: "CAN I SUGGEST OPPORTUNITIES OR RESOURCES?",
+        answer: "Absolutely. DFL is built by students, for students—and we want your input. If you've found something amazing or have a resource to share, reach out through the contact form. Let's build this together."
+    },
+    {
+        question: "CAN I WORK WITH DEAR FUTURE LUMINARY?",
+        answer: "Yes! Whether you want to contribute content, help with outreach, partner with us, or collaborate in any way—we'd love to have you. Fill out the 'Join the Movement' form and let's talk."
+    },
+    {
+        question: "WHO'S BEHIND ALL THIS?",
+        answer: "I'm Malak, a high school student who got tired of searching for opportunities the hard way. I built DFL because I wished it existed when I was starting out. Now it's growing into something bigger with help from amazing people like you."
+    },
+    {
+        question: "WHAT DOES 'LUMINARY' MEAN HERE?",
+        answer: "A luminary is someone who shines—who lights the way. But here's the thing: luminaries don't shine alone. We light the way for each other. That's what DFL is about—helping each other discover our potential and move forward together."
+    },
+    {
+        question: "STILL WONDERING SOMETHING?",
+        answer: "Drop your question in the contact form below. I read every message and I'll get back to you as soon as I can. No question is too small or too weird—ask away."
     }
+];
 
-    // FAQ Section
-    const faqItems = [
-        {
-            "question": "What even is Dear Future Luminary?",
-            "answer": "Dear Future Luminary is your corner of the internet for figuring things out—your next opportunity, your passions, your personal growth, and honestly… yourself.<br><br>We help students discover scholarships, summer programs, teams, skills, and paths they might not even know exist yet.<br><br>Think of it as a guide, a resource hub, and a big-sis energy boost all in one."
-        },
-        {
-            "question": "Who is this for?",
-            "answer": "High school students. Early college students. Dreamers. Overthinkers. Future founders. People who feel behind. People who want more.<br><br>Basically… if you’re trying to grow, build your future, or find your spark—you belong here."
-        },
-        {
-            "question": "Is this really free?",
-            "answer": "Yep. Actually free.<br><br>No hidden fees. No “pay to unlock the good stuff.” No weird catch.<br><br>Access should never be the thing holding someone back."
-        },
-        {
-            "question": "I feel lost. Where do I even start?",
-            "answer": "Honestly? That’s exactly why this exists.<br><br>Start anywhere that feels exciting:<br><br>opportunities, personal growth, roadmaps, profile building… there’s no perfect order.<br><br>You do not need to have your life figured out before beginning."
-        },
-        {
-            "question": "I’m not extraordinary enough for these opportunities.",
-            "answer": "Respectfully… says who?<br><br>You do not need to be “the perfect student” to deserve good opportunities.<br><br>You need curiosity, effort, and the courage to try.<br><br>Please don’t reject yourself before the application even can."
-        },
-        {
-            "question": "There’s too much information. I’m overwhelmed.",
-            "answer": "Same.<br><br>That’s why we curate everything—to save you from ten hours of chaotic searching and fifteen open tabs.<br><br>Take one small step. One application. One resource. One better day.<br><br>That’s enough."
-        },
-        {
-            "question": "Can I trust these opportunities?",
-            "answer": "We do our best to carefully curate and share legitimate opportunities and resources.<br><br>Still—always read official websites, double-check deadlines, and do your own final review.<br><br>Smart luminaries verify."
-        },
-        {
-            "question": "Can I suggest opportunities or resources?",
-            "answer": "Please do.<br><br>If you’ve found something amazing, send it our way. This space grows stronger when students help students."
-        },
-        {
-            "question": "Can I work with Dear Future Luminary?",
-            "answer": "Absolutely !!<br><br>We love meeting passionate students, collaborators, mentors, and organizations who believe in helping young people grow.<br><br>Reach out through the form below. Good things start with messages."
-        },
-        {
-            "question": "Who’s behind all this?",
-            "answer": "A student who knows how confusing all of this can feel.<br><br>Someone who spent way too much time figuring things out the hard way—and decided to make it easier for others.<br><br>Built with care. Built with purpose. Built for you."
-        },
-        {
-            "question": "What does “Luminary” mean here?",
-            "answer": "Someone who shines—and helps others shine too.<br><br>Not because they have everything figured out.<br><br>Not because they’re perfect.<br><br>But because they keep learning, growing, and choosing to light the way.<br><br>That can be you, too."
-        },
-        {
-            "question": "Still wondering something?",
-            "answer": "Ask us through the form below.<br><br>Seriously.<br><br>No question is too small, too random, or too “I feel silly asking this.”<br><br>That’s what we’re here for."
-        }
-    ];
-
+// Render FAQ
+function renderFAQ() {
     const faqContainer = document.getElementById('faq-container');
-    if (faqContainer) {
-        faqItems.forEach((item, index) => {
-            const div = document.createElement('div');
-            div.className = 'border-b border-gray-100 last:border-0';
-            div.innerHTML = `
-                <div class="group">
-                    <button class="w-full py-10 flex items-center justify-between text-left transition-all" onclick="toggleFaq(${index})">
-                        <h3 class="text-3xl md:text-4xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors pr-8">${item.question}</h3>
-                        <div class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center text-[#1e3a8a] group-hover:border-[#a488f4] group-hover:text-[#a488f4] transition-all flex-shrink-0" id="faq-icon-container-${index}">
-                            <i data-lucide="plus" class="w-6 h-6 transition-transform duration-500" id="faq-icon-${index}"></i>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden overflow-hidden transition-all duration-500" id="faq-answer-${index}">
-                        <div class="pb-12 text-2xl text-gray-500 leading-relaxed max-w-4xl">
-                            ${item.answer}
-                        </div>
-                    </div>
+    faqContainer.innerHTML = faqData.map((item, index) => `
+        <div class="faq-item border-b-2 border-gray-100 last:border-b-0">
+            <button 
+                class="faq-button w-full py-8 px-0 flex items-start justify-between gap-6 hover:text-[#a488f4] transition-colors group text-left"
+                onclick="toggleFAQ(this)"
+            >
+                <span class="flex-1">
+                    <span class="text-4xl md:text-5xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight">
+                        ${item.question}
+                    </span>
+                </span>
+                <span class="flex-shrink-0 mt-2">
+                    <i data-lucide="chevron-down" class="w-8 h-8 text-[#facc15] group-hover:rotate-180 transition-transform duration-500"></i>
+                </span>
+            </button>
+            <div class="faq-answer hidden overflow-hidden">
+                <div class="pb-8 px-0">
+                    <p class="text-2xl md:text-3xl text-gray-600 font-medium leading-relaxed">
+                        ${item.answer}
+                    </p>
                 </div>
-            `;
-            faqContainer.appendChild(div);
-        });
+            </div>
+        </div>
+    `).join('');
+    lucide.createIcons();
+}
+
+// Toggle FAQ
+function toggleFAQ(button) {
+    const answer = button.nextElementSibling;
+    const isOpen = !answer.classList.contains('hidden');
+    
+    // Close all other FAQs
+    document.querySelectorAll('.faq-answer').forEach(el => {
+        el.classList.add('hidden');
+    });
+    document.querySelectorAll('.faq-button i').forEach(icon => {
+        icon.classList.remove('rotate-180');
+    });
+    
+    // Toggle current
+    if (!isOpen) {
+        answer.classList.remove('hidden');
+        button.querySelector('i').classList.add('rotate-180');
     }
+}
 
-    window.toggleFaq = (index) => {
-        const answer = document.getElementById(`faq-answer-${index}`);
-        const iconContainer = document.getElementById(`faq-icon-container-${index}`);
-        const allAnswers = document.querySelectorAll('.faq-answer');
-        const allIconContainers = document.querySelectorAll('[id^="faq-icon-container-"]');
+// Programs Carousel
+const programsData = [
+    { name: 'AFS Intercultural Programs', logo: 'client/public/images/logos/afs.png' },
+    { name: 'Kode With Klossy', logo: 'client/public/images/logos/kode_with_klossy.png' },
+    { name: 'Stanford Code in Place', logo: 'client/public/images/logos/stanford_code_in_place.png' },
+    { name: 'UNICEF', logo: 'client/public/images/logos/unicef.png' },
+    { name: 'Soliya', logo: 'client/public/images/logos/soliya.png' },
+    { name: 'NASA Space Apps Challenge', logo: 'client/public/images/logos/nasa_space_apps.png' },
+    { name: 'International Organisation of youth', logo: 'client/public/images/logos/ioy.png' },
+    { name: 'Climate Olympiad', logo: 'client/public/images/logos/climate_olympiad.png' },
+    { name: 'MUN', logo: 'client/public/images/logos/mun.png' },
+    { name: 'Microsoft', logo: 'client/public/images/logos/microsoft.png' },
+    { name: 'Girls Who Code', logo: 'client/public/images/logos/girls_who_code.png' },
+    { name: 'New York Academy of Sciences', logo: 'client/public/images/logos/nyas.png' },
+    { name: 'International House', logo: 'client/public/images/logos/international_house.png' },
+];
 
-        allAnswers.forEach((ans, i) => {
-            if (i !== index) {
-                ans.classList.add('hidden');
-                const otherContainer = document.getElementById(`faq-icon-container-${i}`);
-                if (otherContainer) {
-                    otherContainer.style.transform = 'rotate(0deg)';
-                }
-            }
-        });
+function renderProgramsCarousel() {
+    const carousel = document.getElementById('programs-carousel');
+    carousel.innerHTML = programsData.map(program => `
+        <div class="flex-shrink-0 group">
+            <div class="w-40 h-40 bg-white border-2 border-gray-100 rounded-3xl flex items-center justify-center p-6 group-hover:border-[#a488f4] group-hover:shadow-lg transition-all duration-500">
+                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain" />
+            </div>
+            <p class="mt-4 text-center text-sm font-bold text-gray-600 group-hover:text-[#a488f4] transition-colors">${program.name}</p>
+        </div>
+    `).join('');
+}
 
-        const isHidden = answer.classList.contains('hidden');
-        if (isHidden) {
-            answer.classList.remove('hidden');
-            iconContainer.style.transform = 'rotate(45deg)';
-        } else {
-            answer.classList.add('hidden');
-            iconContainer.style.transform = 'rotate(0deg)';
-        }
-    };
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
 
-    // Modals
-    window.toggleModal = (modalId, event) => {
-        if (event) {
-            event.preventDefault(); // Prevent page refresh for # links
-        }
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
-        }
-    };
+// Modal Functions
+function toggleModal(modalId, event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById(modalId);
+    modal.classList.toggle('hidden');
+    modal.classList.toggle('flex');
+}
 
-    // Contact Form Submission
+// Contact Form
+document.addEventListener('DOMContentLoaded', function() {
+    renderFAQ();
+    renderProgramsCarousel();
+    
     const contactForm = document.getElementById('contact-form');
-    const contactContainer = document.getElementById('contact-form-container');
     if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending...';
-
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
+            
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+            
+            // Simulate form submission
             try {
-                const response = await fetch('https://formspree.io/f/xqaqankn', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                if (response.ok) {
-                    contactContainer.innerHTML = `
-                        <div class="p-12 bg-[#a488f4]/10 rounded-[3rem] text-center animate-in fade-in zoom-in duration-500">
-                            <h3 class="text-3xl font-black text-[#1e3a8a] mb-4">Message Sent!</h3>
-                            <p class="text-xl text-gray-600">Thank you so much! 💜 I'll reply as soon as I can.</p>
-                        </div>
-                    `;
-                } else {
-                    throw new Error('Form submission failed');
-                }
+                // Here you would normally send to a backend
+                console.log('Form submitted:', { name, email, message });
+                
+                // Show success message
+                document.getElementById('contact-form').classList.add('hidden');
+                document.getElementById('contact-success').classList.remove('hidden');
+                
+                // Reset after 5 seconds
+                setTimeout(() => {
+                    contactForm.reset();
+                    document.getElementById('contact-form').classList.remove('hidden');
+                    document.getElementById('contact-success').classList.add('hidden');
+                }, 5000);
             } catch (error) {
                 console.error('Error submitting form:', error);
-                alert('Oops! There was a problem submitting your form. Please try again.');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-                lucide.createIcons();
             }
         });
     }
+    
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('fixed')) {
+            e.target.classList.add('hidden');
+            e.target.classList.remove('flex');
+        }
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+});
 
-    // Initialize Lucide Icons
-    lucide.createIcons();
+// Custom Cursor
+const cursor = document.getElementById('custom-cursor');
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+    } else {
+        navbar.classList.remove('shadow-md');
+    }
 });
