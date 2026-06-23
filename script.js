@@ -2,56 +2,58 @@
 lucide.createIcons();
 
 // FAQ Data - Exact text from user
+
 const faqData = [
     {
         question: "WHAT EVEN IS DEAR FUTURE LUMINARY?",
-        answer: "Dear Future Luminary is a student-led initiative designed to help you navigate opportunities, build your profile, and discover your direction—without the confusion. Think of it as a guide, not a directory."
+        answer: "Dear Future Luminary is your corner of the internet for figuring things out—your next opportunity, your passions, your personal growth, and honestly… yourself. We help students discover scholarships, summer programs, teams, skills, and paths they might not even know exist yet."
     },
     {
         question: "WHO IS THIS FOR?",
-        answer: "If you're ambitious, curious, and feeling a bit lost about your future—this is for you. Whether you're in high school, early university, or just figuring things out, DFL is here to help you understand yourself and your options better."
+        answer: "High school students. Early college students. Dreamers. Overthinkers. Future founders. People who feel behind. People who want more. Basically… if you're trying to grow, build your future, or find your spark, you do belong here."
     },
     {
         question: "IS THIS REALLY FREE?",
-        answer: "Yes. Completely free. No hidden fees, no premium tiers, no catch. Everything on Dear Future Luminary is accessible to every student, regardless of their background or financial situation."
+        answer: "Yep. Actually free. No hidden fees. No 'pay to unlock the good stuff.' No weird catch. Access should never be the thing holding someone back."
     },
     {
         question: "I FEEL LOST. WHERE DO I EVEN START?",
-        answer: "Start with the Roadmaps section. Pick a field or interest that resonates with you, and follow the step-by-step guides. There's no 'perfect' starting point—just pick something and begin. You'll figure it out as you go."
+        answer: "That's exactly why this exists. Start anywhere that feels exciting: opportunities, personal growth, roadmaps, profile building… there's no perfect order. You do not need to have your life figured out before beginning."
     },
     {
         question: "I'M NOT EXTRAORDINARY ENOUGH FOR THESE OPPORTUNITIES.",
-        answer: "Stop right there. Talent doesn't look one way. The opportunities on DFL are designed for real students—not just the 'perfect' ones. Your background, your perspective, your story—that's what makes you valuable. Apply anyway."
+        answer: "Respectfully… says who? You do not need to be 'the perfect student' to deserve good opportunities. You need curiosity, effort, and the courage to try. Please don't reject yourself before the application even can."
     },
     {
         question: "THERE'S TOO MUCH INFORMATION. I'M OVERWHELMED.",
-        answer: "That's exactly why DFL exists. Instead of dumping everything on you, we organize, filter, and explain. Start small. Pick one opportunity or one skill to focus on. You don't need to do everything at once."
+        answer: "Same. That's why we curate everything—to save you from ten hours of chaotic searching and fifteen open tabs. Take one small step. One application. One resource. One better day. That's enough."
     },
     {
         question: "CAN I TRUST THESE OPPORTUNITIES?",
-        answer: "Every opportunity on DFL has been personally vetted or is from a trusted, established organization. These are programs I've been part of or thoroughly researched. If it's here, it's legitimate."
+        answer: "We do our best to carefully curate and share legitimate opportunities and resources. Still—always read official websites, double-check deadlines, and do your own final review. Smart luminaries verify."
     },
     {
         question: "CAN I SUGGEST OPPORTUNITIES OR RESOURCES?",
-        answer: "Absolutely. DFL is built by students, for students—and we want your input. If you've found something amazing or have a resource to share, reach out through the contact form. Let's build this together."
+        answer: "Please do. If you've found something amazing, send it our way. This space grows stronger when students help students."
     },
     {
         question: "CAN I WORK WITH DEAR FUTURE LUMINARY?",
-        answer: "Yes! Whether you want to contribute content, help with outreach, partner with us, or collaborate in any way—we'd love to have you. Fill out the 'Join the Movement' form and let's talk."
+        answer: "Absolutely!! We love meeting passionate students, collaborators, mentors, and organizations who believe in helping young people grow. Reach out through the form below. Good things start with messages."
     },
     {
         question: "WHO'S BEHIND ALL THIS?",
-        answer: "I'm Malak, a high school student who got tired of searching for opportunities the hard way. I built DFL because I wished it existed when I was starting out. Now it's growing into something bigger with help from amazing people like you."
+        answer: "A student who knows how confusing all of this can feel. Someone who spent way too much time figuring things out the hard way—and decided to make it easier for others. Built with care. Built with purpose. Built for you."
     },
     {
         question: "WHAT DOES 'LUMINARY' MEAN HERE?",
-        answer: "A luminary is someone who shines—who lights the way. But here's the thing: luminaries don't shine alone. We light the way for each other. That's what DFL is about—helping each other discover our potential and move forward together."
+        answer: "Someone who shines—and helps others shine too. Not because they have everything figured out. Not because they're perfect. But because they keep learning, growing, and choosing to light the way. That can be you, too."
     },
     {
         question: "STILL WONDERING SOMETHING?",
-        answer: "Drop your question in the contact form below. I read every message and I'll get back to you as soon as I can. No question is too small or too weird—ask away."
+        answer: "Ask us through the form below. Seriously. No question is too small, too random, or too 'I feel silly asking this.' That's what we're here for."
     }
 ];
+
 
 // Render FAQ
 function renderFAQ() {
