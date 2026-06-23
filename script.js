@@ -1,8 +1,7 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// FAQ Data - Exact text from user
-
+// FAQ Data - Full text as requested
 const faqData = [
     {
         question: "WHAT EVEN IS DEAR FUTURE LUMINARY?",
@@ -54,28 +53,27 @@ const faqData = [
     }
 ];
 
-
-// Render FAQ
+// Render FAQ with 2026 Invention Level UI
 function renderFAQ() {
     const faqContainer = document.getElementById('faq-container');
+    if (!faqContainer) return;
+
     faqContainer.innerHTML = faqData.map((item, index) => `
-        <div class="faq-item border-b-2 border-gray-100 last:border-b-0">
-            <button 
-                class="faq-button w-full py-8 px-0 flex items-start justify-between gap-6 hover:text-[#a488f4] transition-colors group text-left"
-                onclick="toggleFAQ(this)"
-            >
-                <span class="flex-1">
-                    <span class="text-4xl md:text-5xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight">
-                        ${item.question}
-                    </span>
-                </span>
-                <span class="flex-shrink-0 mt-2">
-                    <i data-lucide="chevron-down" class="w-8 h-8 text-[#facc15] group-hover:rotate-180 transition-transform duration-500"></i>
-                </span>
-            </button>
-            <div class="faq-answer hidden overflow-hidden">
-                <div class="pb-8 px-0">
-                    <p class="text-2xl md:text-3xl text-gray-600 font-medium leading-relaxed">
+        <div class="faq-item-wrapper group">
+            <div class="faq-content flex flex-col gap-8">
+                <div class="w-full">
+                    <button 
+                        class="w-full text-left focus:outline-none group"
+                        onclick="toggleFAQ(this)"
+                    >
+                        <h3 class="text-4xl md:text-6xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-none tracking-tighter uppercase mb-6">
+                            ${item.question}
+                        </h3>
+                        <div class="w-20 h-2 bg-[#facc15] group-hover:w-full transition-all duration-500"></div>
+                    </button>
+                </div>
+                <div class="faq-answer-container hidden overflow-hidden transition-all duration-700">
+                    <p class="text-2xl md:text-3xl text-gray-500 font-bold leading-relaxed py-8">
                         ${item.answer}
                     </p>
                 </div>
@@ -87,21 +85,15 @@ function renderFAQ() {
 
 // Toggle FAQ
 function toggleFAQ(button) {
-    const answer = button.nextElementSibling;
-    const isOpen = !answer.classList.contains('hidden');
-    
-    // Close all other FAQs
-    document.querySelectorAll('.faq-answer').forEach(el => {
-        el.classList.add('hidden');
-    });
-    document.querySelectorAll('.faq-button i').forEach(icon => {
-        icon.classList.remove('rotate-180');
-    });
+    const container = button.parentElement.nextElementSibling;
+    const isOpen = !container.classList.contains('hidden');
     
     // Toggle current
-    if (!isOpen) {
-        answer.classList.remove('hidden');
-        button.querySelector('i').classList.add('rotate-180');
+    if (isOpen) {
+        container.classList.add('hidden');
+    } else {
+        container.classList.remove('hidden');
+        container.classList.add('fade-in');
     }
 }
 
@@ -114,23 +106,24 @@ const programsData = [
     { name: 'Mentor', logo: 'client/public/images/logos/soliya.png' },
     { name: 'Pre-Finalist', logo: 'client/public/images/logos/nasa_space_apps.png' },
     { name: 'Youth Advocate', logo: 'client/public/images/ioy-logo.svg' },
-    { name: 'Gold medalist '23', logo: 'client/public/images/logos/climate_olympiad.png' },
+    { name: 'Gold medalist \'23', logo: 'client/public/images/logos/climate_olympiad.png' },
     { name: 'Ambassador', logo: 'client/public/images/OIP.webp' },
     { name: 'Girls Who Code', logo: 'client/public/images/logos/girls_who_code.png' },
     { name: 'Researcher', logo: 'client/public/images/NYAS-Swirl-Featured-Image.png' },
     { name: 'Trainee', logo: 'client/public/images/images.png' },
     { name: 'Founder & Ceo', logo: 'client/public/images/images.png' },
-
 ];
 
 function renderProgramsCarousel() {
     const carousel = document.getElementById('programs-carousel');
+    if (!carousel) return;
+    
     carousel.innerHTML = programsData.map(program => `
         <div class="flex-shrink-0 group">
-            <div class="w-40 h-40 bg-white border-2 border-gray-100 rounded-3xl flex items-center justify-center p-6 group-hover:border-[#a488f4] group-hover:shadow-lg transition-all duration-500">
+            <div class="w-40 h-40 bg-white border-2 border-gray-100 rounded-[2rem] flex items-center justify-center p-6 group-hover:border-[#a488f4] group-hover:shadow-2xl transition-all duration-500 transform group-hover:-rotate-6">
                 <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain" />
             </div>
-            <p class="mt-4 text-center text-sm font-bold text-gray-600 group-hover:text-[#a488f4] transition-colors">${program.name}</p>
+            <p class="mt-4 text-center text-sm font-black text-[#1e3a8a] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">${program.name}</p>
         </div>
     `).join('');
 }
@@ -145,8 +138,15 @@ function toggleMobileMenu() {
 function toggleModal(modalId, event) {
     if (event) event.preventDefault();
     const modal = document.getElementById(modalId);
-    modal.classList.toggle('hidden');
-    modal.classList.toggle('flex');
+    if (!modal) return;
+    
+    if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
 }
 
 // Contact Form
@@ -163,16 +163,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.getElementById('contact-email').value;
             const message = document.getElementById('contact-message').value;
             
-            // Simulate form submission
             try {
-                // Here you would normally send to a backend
                 console.log('Form submitted:', { name, email, message });
-                
-                // Show success message
                 document.getElementById('contact-form').classList.add('hidden');
                 document.getElementById('contact-success').classList.remove('hidden');
                 
-                // Reset after 5 seconds
                 setTimeout(() => {
                     contactForm.reset();
                     document.getElementById('contact-form').classList.remove('hidden');
@@ -186,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close modals when clicking outside
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('fixed')) {
+        if (e.target.classList.contains('fixed') && e.target.id !== 'navbar') {
             e.target.classList.add('hidden');
             e.target.classList.remove('flex');
         }
@@ -196,11 +191,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href !== '#') {
+            if (href !== '#' && href.startsWith('#')) {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    const offset = 100;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = target.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             }
         });
@@ -209,17 +213,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Custom Cursor
 const cursor = document.getElementById('custom-cursor');
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('shadow-md');
-    } else {
-        navbar.classList.remove('shadow-md');
-    }
-});
+if (cursor) {
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+}
