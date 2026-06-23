@@ -105,19 +105,20 @@ function toggleFAQ(button) {
 
 // Programs Carousel
 const programsData = [
-    { name: 'AFS Intercultural Programs', logo: 'client/public/images/logos/afs.png' },
-    { name: 'Kode With Klossy', logo: 'client/public/images/logos/kode_with_klossy.png' },
-    { name: 'Stanford Code in Place', logo: 'client/public/images/logos/stanford_code_in_place.png' },
-    { name: 'UNICEF', logo: 'client/public/images/logos/unicef.png' },
-    { name: 'Soliya', logo: 'client/public/images/logos/soliya.png' },
-    { name: 'NASA Space Apps Challenge', logo: 'client/public/images/logos/nasa_space_apps.png' },
-    { name: 'International Organisation of youth', logo: 'client/public/images/logos/ioy.png' },
-    { name: 'Climate Olympiad', logo: 'client/public/images/logos/climate_olympiad.png' },
-    { name: 'MUN', logo: 'client/public/images/logos/mun.png' },
-    { name: 'Microsoft', logo: 'client/public/images/logos/microsoft.png' },
+    { name: 'Scholar', logo: 'client/public/images/logos/afs.png' },
+    { name: 'Intern & Project Manager', logo: 'client/public/images/kode with klossy.png' },
+    { name: 'Scholar', logo: 'client/public/images/logos/stanford_code_in_place.png' },
+    { name: 'Reporter', logo: 'client/public/images/logos/unicef.png' },
+    { name: 'Mentor', logo: 'client/public/images/logos/soliya.png' },
+    { name: 'Pre-Finalist', logo: 'client/public/images/logos/nasa_space_apps.png' },
+    { name: 'Youth Advocate', logo: 'client/public/images/ioy-logo.svg' },
+    { name: 'Gold medalist '23', logo: 'client/public/images/logos/climate_olympiad.png' },
+    { name: 'Ambassador', logo: 'client/public/images/OIP.webp' },
     { name: 'Girls Who Code', logo: 'client/public/images/logos/girls_who_code.png' },
-    { name: 'New York Academy of Sciences', logo: 'client/public/images/logos/nyas.png' },
-    { name: 'International House', logo: 'client/public/images/logos/international_house.png' },
+    { name: 'Researcher', logo: 'client/public/images/NYAS-Swirl-Featured-Image.png' },
+    { name: 'Trainee', logo: 'client/public/images/images.png' },
+    { name: 'Founder & Ceo', logo: 'client/public/images/images.png' },
+
 ];
 
 function renderProgramsCarousel() {
