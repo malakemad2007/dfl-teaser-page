@@ -119,9 +119,35 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Section Animations */
+/* Section Transitions & Reveal */
 section {
-    animation: fadeInUp 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .text-7xl { font-size: 3.5rem; }
+    .text-8xl { font-size: 4rem; }
+    .text-9xl { font-size: 4.5rem; }
+    .py-32 { py-16; }
+    .px-12 { px-6; }
+    
+    #faq {
+        flex-direction: column;
+    }
+    
+    #faq > div:first-child {
+        height: auto;
+        position: relative;
+        padding: 4rem 1.5rem;
+    }
 }
 
 /* Button Styles */
@@ -235,7 +261,7 @@ nav a:hover::after, nav button:hover::after {
 
 /* Carousel */
 .carousel-left {
-    animation: scroll-left 30s linear infinite;
+    animation: scroll-left 20s linear infinite;
 }
 
 @keyframes scroll-left {
@@ -243,7 +269,7 @@ nav a:hover::after, nav button:hover::after {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-100% - 48px));
+        transform: translateX(-33.33%);
     }
 }
 

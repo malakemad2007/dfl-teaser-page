@@ -105,7 +105,7 @@
                     <a href="#what-you-find" class="text-gray-600 hover:text-[#a488f4] font-bold transition-colors">What You'll Find</a>
                     <a href="#mission" class="text-gray-600 hover:text-[#a488f4] font-bold transition-colors">Mission</a>
                     <a href="#faq" class="text-gray-600 hover:text-[#a488f4] font-bold transition-colors">FAQ</a>
-                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="px-8 py-3 bg-[#1e3a8a] text-white rounded-full font-black hover:bg-[#a488f4] transition-all hover:scale-105">Join Us</a>
+                    <button onclick="toggleModal('joinUsModal')" class="px-8 py-3 bg-[#1e3a8a] text-white rounded-full font-black hover:bg-[#a488f4] transition-all hover:scale-105">Join Us</button>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
@@ -307,6 +307,7 @@
                 </div>
                 <div class="w-full md:w-1/2 space-y-8">
                     <div class="space-y-4">
+                        <span class="inline-block px-6 py-2 bg-[#a488f4] text-white rounded-full font-black text-sm uppercase tracking-widest mb-4">The Founder</span>
                         <h2 class="text-5xl md:text-7xl font-black text-[#1e3a8a] leading-tight">Hi, I'm Malak.</h2>
                         <p class="text-2xl md:text-3xl font-medium text-[#a488f4] leading-tight italic">
                             And after spending years discovering opportunities by pure accident, I started wondering:
@@ -342,8 +343,7 @@
                 <div class="carousel-left flex gap-12 items-center" id="programs-carousel">
                     <!-- Populated by JS -->
                 </div>
-                <div class="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
-                <div class="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+                <!-- Removed white overlays for a cleaner look -->
             </div>
         </div>
     </section>
@@ -412,7 +412,7 @@
                         <p class="text-3xl font-black text-[#facc15]">Let's figure it out together.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-                        <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="px-12 py-6 bg-white text-[#1e3a8a] rounded-2xl font-black text-xl hover:bg-[#facc15] hover:shadow-2xl transition-all duration-500 flex items-center justify-center gap-3 group">Join the Movement <i data-lucide="arrow-right" class="group-hover:translate-x-1 transition-transform"></i></a>
+                        <button onclick="toggleModal('joinUsModal')" class="px-12 py-6 bg-white text-[#1e3a8a] rounded-2xl font-black text-xl hover:bg-[#facc15] hover:shadow-2xl transition-all duration-500 flex items-center justify-center gap-3 group">Join the Movement <i data-lucide="arrow-right" class="group-hover:translate-x-1 transition-transform"></i></button>
                         <a href="https://forms.gle/1uFr976gMZqtJHcw7" target="_blank" class="px-12 py-6 bg-transparent border-2 border-white/30 text-white rounded-2xl font-black text-xl hover:bg-white/10 transition-all duration-500 flex items-center justify-center gap-3"><i data-lucide="heart"></i> Support the Mission</a>
                     </div>
                     <p class="text-white/60 text-base font-bold tracking-widest uppercase">No pressure. No perfect timing. Just one step forward.</p>
@@ -502,14 +502,48 @@
             </div>
 
             <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/50 text-sm font-bold uppercase tracking-widest">
-                <p>&copy; 2026 Dear Future Luminary. All rights reserved.</p>
-                <div class="flex gap-8">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                </div>
+                <p class="md:w-1/3 text-left">&copy; 2026 Dear Future Luminary. All rights reserved.</p>
+                <p class="md:w-1/3 text-center">Supporting SDGs: 4, 8, 10, 17</p>
+                <p class="md:w-1/3 text-right">Developed by Malak Emad</p>
             </div>
         </div>
     </footer>
+
+    <!-- Join Us Modal -->
+    <div id="joinUsModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-[#1e3a8a]/90 backdrop-blur-xl">
+        <div class="bg-white rounded-[3rem] p-12 max-w-2xl w-full text-center space-y-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-[#facc15]/20 rounded-full -mr-16 -mt-16"></div>
+            <div class="relative z-10 space-y-8">
+                <div class="w-24 h-24 bg-[#a488f4]/10 rounded-full flex items-center justify-center mx-auto">
+                    <i data-lucide="sparkles" class="w-12 h-12 text-[#a488f4]"></i>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-5xl font-black text-[#1e3a8a] uppercase leading-none">Become a Luminary</h3>
+                    <p class="text-xl text-gray-500 font-bold">Choose how you want to start your journey with us.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="p-8 bg-gray-50 rounded-3xl border-2 border-transparent hover:border-[#a488f4] hover:bg-white transition-all group text-left">
+                        <div class="w-12 h-12 bg-[#a488f4] text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h4 class="text-2xl font-black text-[#1e3a8a] mb-2">Join the Community</h4>
+                        <p class="text-gray-500 font-medium">Connect with other students and share opportunities.</p>
+                    </a>
+                    
+                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="p-8 bg-gray-50 rounded-3xl border-2 border-transparent hover:border-[#facc15] hover:bg-white transition-all group text-left">
+                        <div class="w-12 h-12 bg-[#facc15] text-[#1e3a8a] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <h4 class="text-2xl font-black text-[#1e3a8a] mb-2">Early Access</h4>
+                        <p class="text-gray-500 font-medium">Be the first to know when we launch new roadmaps.</p>
+                    </a>
+                </div>
+
+                <button onclick="toggleModal('joinUsModal')" class="w-full py-4 bg-[#1e3a8a] text-white rounded-2xl font-black text-xl hover:bg-[#a488f4] transition-all">Maybe Later</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Coming Soon Modal -->
     <div id="comingSoonModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-[#1e3a8a]/90 backdrop-blur-xl">

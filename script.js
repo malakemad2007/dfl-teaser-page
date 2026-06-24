@@ -59,24 +59,22 @@ function renderFAQ() {
     if (!faqContainer) return;
 
     faqContainer.innerHTML = faqData.map((item, index) => `
-        <div class="faq-item-wrapper group">
-            <div class="faq-content flex flex-col gap-8">
-                <div class="w-full">
-                    <button 
-                        class="w-full text-left focus:outline-none group"
-                        onclick="toggleFAQ(this)"
-                    >
-                        <h3 class="text-4xl md:text-6xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-none tracking-tighter uppercase mb-6">
-                            ${item.question}
-                        </h3>
-                        <div class="w-20 h-2 bg-[#facc15] group-hover:w-full transition-all duration-500"></div>
-                    </button>
+        <div class="faq-item-wrapper border-b border-gray-100 last:border-0 py-8">
+            <button 
+                class="w-full text-left focus:outline-none group flex justify-between items-center gap-8"
+                onclick="toggleFAQ(this)"
+            >
+                <h3 class="text-2xl md:text-4xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight uppercase">
+                    ${item.question}
+                </h3>
+                <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-[#1e3a8a] group-hover:border-[#a488f4] flex items-center justify-center transition-all duration-300 transform group-data-[open=true]:rotate-45">
+                    <i data-lucide="plus" class="w-6 h-6 text-[#1e3a8a] group-hover:text-[#a488f4]"></i>
                 </div>
-                <div class="faq-answer-container hidden overflow-hidden transition-all duration-700">
-                    <p class="text-2xl md:text-3xl text-gray-500 font-bold leading-relaxed py-8">
-                        ${item.answer}
-                    </p>
-                </div>
+            </button>
+            <div class="faq-answer-container max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <p class="text-xl md:text-2xl text-gray-500 font-bold leading-relaxed pt-6">
+                    ${item.answer}
+                </p>
             </div>
         </div>
     `).join('');
@@ -85,15 +83,28 @@ function renderFAQ() {
 
 // Toggle FAQ
 function toggleFAQ(button) {
-    const container = button.parentElement.nextElementSibling;
-    const isOpen = !container.classList.contains('hidden');
+    const container = button.nextElementSibling;
+    const iconContainer = button.querySelector('div');
+    const isOpen = button.getAttribute('data-open') === 'true';
     
+    // Close all other FAQs
+    document.querySelectorAll('.faq-item-wrapper button').forEach(btn => {
+        if (btn !== button) {
+            btn.setAttribute('data-open', 'false');
+            btn.nextElementSibling.style.maxHeight = '0';
+            btn.querySelector('div').style.transform = 'rotate(0deg)';
+        }
+    });
+
     // Toggle current
     if (isOpen) {
-        container.classList.add('hidden');
+        button.setAttribute('data-open', 'false');
+        container.style.maxHeight = '0';
+        iconContainer.style.transform = 'rotate(0deg)';
     } else {
-        container.classList.remove('hidden');
-        container.classList.add('fade-in');
+        button.setAttribute('data-open', 'true');
+        container.style.maxHeight = container.scrollHeight + 'px';
+        iconContainer.style.transform = 'rotate(45deg)';
     }
 }
 
@@ -118,7 +129,10 @@ function renderProgramsCarousel() {
     const carousel = document.getElementById('programs-carousel');
     if (!carousel) return;
     
-    carousel.innerHTML = programsData.map(program => `
+    // Duplicate data for infinite scroll effect
+    const extendedData = [...programsData, ...programsData, ...programsData];
+    
+    carousel.innerHTML = extendedData.map(program => `
         <div class="flex-shrink-0 group">
             <div class="w-40 h-40 bg-white border-2 border-gray-100 rounded-[2rem] flex items-center justify-center p-6 group-hover:border-[#a488f4] group-hover:shadow-2xl transition-all duration-500 transform group-hover:-rotate-6">
                 <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain" />
@@ -149,10 +163,28 @@ function toggleModal(modalId, event) {
     }
 }
 
+// Section Reveal Observer
+const revealSection = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+        }
+    });
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.1
+});
+
 // Contact Form
 document.addEventListener('DOMContentLoaded', function() {
     renderFAQ();
     renderProgramsCarousel();
+    
+    document.querySelectorAll('section').forEach(section => {
+        sectionObserver.observe(section);
+    });
     
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
