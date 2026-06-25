@@ -1,7 +1,7 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// FAQ Data - Full text from Home.tsx
+// FAQ Data
 const faqData = [
     {
         question: "What even is Dear Future Luminary?",
@@ -53,26 +53,26 @@ const faqData = [
     }
 ];
 
-// Render FAQ
+// Render FAQ (COMPACT & PROFESSIONAL)
 function renderFAQ() {
     const faqContainer = document.getElementById('faq-container');
     if (!faqContainer) return;
 
     faqContainer.innerHTML = faqData.map((item, index) => `
-        <div class="faq-item border-b border-[#1e3a8a]/10 py-10 md:py-16 transition-all duration-500">
+        <div class="faq-item border-b border-gray-100 py-6 transition-all duration-300">
             <button 
-                class="w-full text-left focus:outline-none group flex justify-between items-start gap-8"
+                class="w-full text-left focus:outline-none group flex justify-between items-center gap-6"
                 onclick="toggleFAQ(this)"
             >
-                <h3 class="text-3xl md:text-5xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight uppercase tracking-tighter">
+                <h3 class="text-lg md:text-xl font-bold text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight uppercase tracking-tight">
                     ${item.question}
                 </h3>
-                <div class="flex-shrink-0 mt-2 w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-[#1e3a8a] group-hover:border-[#a488f4] flex items-center justify-center transition-all duration-500">
-                    <i data-lucide="plus" class="w-6 h-6 md:w-8 md:h-8 text-[#1e3a8a] group-hover:text-[#a488f4] transition-transform duration-500"></i>
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-[#1e3a8a] group-hover:border-[#a488f4] flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="plus" class="w-4 h-4 text-[#1e3a8a] group-hover:text-[#a488f4] transition-transform duration-300"></i>
                 </div>
             </button>
-            <div class="faq-answer-container max-h-0 overflow-hidden transition-all duration-700 ease-in-out">
-                <div class="text-xl md:text-3xl text-gray-500 font-medium leading-relaxed pt-8 md:pt-12 max-w-4xl">
+            <div class="faq-answer-container max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <div class="text-base md:text-lg text-gray-500 font-medium leading-relaxed pt-6 max-w-3xl">
                     ${item.answer}
                 </div>
             </div>
@@ -93,7 +93,6 @@ function toggleFAQ(button) {
             btn.setAttribute('data-open', 'false');
             btn.nextElementSibling.style.maxHeight = '0';
             btn.querySelector('i').style.transform = 'rotate(0deg)';
-            btn.closest('.faq-item').classList.remove('active');
         }
     });
 
@@ -102,12 +101,10 @@ function toggleFAQ(button) {
         button.setAttribute('data-open', 'false');
         container.style.maxHeight = '0';
         icon.style.transform = 'rotate(0deg)';
-        button.closest('.faq-item').classList.remove('active');
     } else {
         button.setAttribute('data-open', 'true');
         container.style.maxHeight = container.scrollHeight + 'px';
         icon.style.transform = 'rotate(45deg)';
-        button.closest('.faq-item').classList.add('active');
     }
 }
 
@@ -132,7 +129,6 @@ function renderProgramsCarousel() {
     const carousel = document.getElementById('programs-carousel');
     if (!carousel) return;
     
-    // Duplicate data for infinite scroll effect
     const extendedData = [...programsData, ...programsData, ...programsData];
     
     carousel.innerHTML = extendedData.map(program => `
@@ -205,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');

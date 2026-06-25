@@ -167,7 +167,7 @@
                 </div>
                 <div class="relative">
                     <span class="text-[12rem] font-black text-black/5 leading-none absolute top-0 right-0 select-none">02</span>
-                    <h3 class="text-7xl md:text-9xl font-black text-[#1e3a8a] uppercase mb-12 leading-none tracking-tighter">Global<br>Opps</h3>
+                    <h3 class="text-7xl md:text-9xl font-black text-[#1e3a8a] uppercase mb-12 leading-none tracking-tighter">Global<br>Opportunities</h3>
                     <p class="text-2xl md:text-4xl font-bold text-[#1e3a8a]/80 leading-tight max-w-xl">
                         Scholarships, summer programs, and experiences worth exploring. Handpicked for you.
                     </p>
@@ -216,7 +216,7 @@
                     <div class="absolute -inset-4 bg-[#a488f4] rounded-[4rem] rotate-3 opacity-10"></div>
                     <img src="client/public/images/our-founder.png" alt="Malak Emad" class="relative z-10 w-full rounded-[4rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)]" />
                     <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#facc15] rounded-full z-20 flex items-center justify-center rotate-12 shadow-2xl border-8 border-white">
-                        <span class="text-[#1e3a8a] font-black text-xl text-center leading-tight">The<br>Founder</span>
+                        <span class="text-[#1e3a8a] font-black text-xl text-center leading-tight uppercase">The<br>Founder</span>
                     </div>
                 </div>
                 <div class="w-full md:w-1/2 space-y-12">
@@ -246,7 +246,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-24 items-center mb-32">
                 <div>
-                    <h2 class="text-7xl md:text-8xl font-black text-[#1e3a8a] leading-none tracking-tighter mb-12 uppercase">Opps <br/><span class="text-[#a488f4]">Worth Knowing</span></h2>
+                    <h2 class="text-7xl md:text-8xl font-black text-[#1e3a8a] leading-none tracking-tighter mb-12 uppercase">Opportunities <br/><span class="text-[#a488f4]">Worth Knowing</span></h2>
                     <div class="h-2 w-32 bg-[#facc15]"></div>
                 </div>
                 <p class="text-2xl md:text-3xl text-gray-400 font-bold leading-tight">
@@ -291,24 +291,25 @@
         </div>
     </section>
 
-    <!-- Redesigned FAQ Section: 2026 Invention Level -->
-    <section id="faq" class="min-h-screen bg-white relative flex flex-col md:flex-row border-t border-gray-100">
-        <!-- Left: Sticky Title -->
-        <div class="md:w-2/5 md:h-screen md:sticky md:top-0 p-12 lg:p-24 flex flex-col justify-center bg-white z-20">
-            <span class="inline-block px-8 py-3 bg-[#a488f4] text-white rounded-full text-xl font-black mb-12 w-fit">Q&A</span>
-            <h2 class="text-7xl lg:text-9xl font-black text-[#1e3a8a] leading-[0.85] tracking-tighter uppercase mb-12">
-                Questions<br>You Might<br>Be Too Shy<br>to Ask
-            </h2>
-            <div class="p-10 border-l-8 border-[#a488f4] bg-gray-50">
-                <p class="text-3xl font-black text-[#1e3a8a] italic leading-tight">
-                    You Ask. We Yap, Respectfully.
-                </p>
+    <!-- Redesigned FAQ Section: 2026 Invention Level (COMPACT) -->
+    <section id="faq" class="py-24 px-6 lg:px-12 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-12 md:gap-24">
+                <!-- Left: Title -->
+                <div class="md:w-1/3">
+                    <h2 class="text-5xl lg:text-6xl font-black text-[#1e3a8a] leading-[1] tracking-tighter uppercase mb-6">
+                        Questions You Might<br>Be Too Shy to Ask
+                    </h2>
+                    <p class="text-xl font-black text-[#a488f4] italic uppercase tracking-widest">
+                        You Ask. We Yap, Respectfully.
+                    </p>
+                </div>
+                
+                <!-- Right: Questions -->
+                <div class="md:w-2/3 space-y-2" id="faq-container">
+                    <!-- Populated by JS -->
+                </div>
             </div>
-        </div>
-        
-        <!-- Right: Scrollable Q&A -->
-        <div class="md:w-3/5 py-24 px-6 lg:px-24" id="faq-container">
-            <!-- Populated by JS -->
         </div>
     </section>
 
@@ -351,97 +352,69 @@
         </div>
     </div>
 
-    <!-- Footer (KEEP AS IS but update text) -->
-    <footer class="bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] pt-32 pb-16 px-6 lg:px-12 text-white relative overflow-hidden">
+    <!-- Footer (CLEANED) -->
+    <footer class="bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] pt-24 pb-12 px-6 lg:px-12 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-20 mb-24">
-                <div class="space-y-8">
-                    <div class="flex items-center gap-4">
-                        <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="Logo" class="w-12 h-12" />
-                        <span class="font-black text-2xl tracking-tighter">Dear Future Luminary</span>
-                    </div>
-                    <p class="text-white/70 text-lg leading-relaxed font-medium">
-                        Luminaries don't shine alone. We light the way for each other.
-                    </p>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
+                <div class="flex items-center gap-4">
+                    <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="Logo" class="w-12 h-12" />
+                    <span class="font-black text-2xl tracking-tighter">Dear Future Luminary</span>
                 </div>
-                <div>
-                    <h4 class="font-black mb-8 text-[#facc15] text-xl uppercase tracking-widest">Quick Links</h4>
-                    <ul class="space-y-4 text-white/70 text-lg font-bold">
-                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#what-you-find" class="hover:text-white transition-colors">Roadmaps</a></li>
-                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-black mb-8 text-[#facc15] text-xl uppercase tracking-widest">About</h4>
-                    <ul class="space-y-4 text-white/70 text-lg font-bold">
-                        <li><a href="#founder" class="hover:text-white transition-colors">Our Founder</a></li>
-                        <li><a href="#mission" class="hover:text-white transition-colors">Our Mission</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-black mb-8 text-[#facc15] text-xl uppercase tracking-widest">Vision</h4>
-                    <p class="text-white/60 text-lg leading-relaxed font-medium">
-                        To empower every student with the tools, clarity, and opportunities they need to light their own path forward.
-                    </p>
-                </div>
+                <p class="text-white/70 text-lg font-medium max-w-md text-center md:text-right">
+                    Luminaries don't shine alone. We light the way for each other.
+                </p>
             </div>
 
-            <div class="pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-white/50 text-sm font-black uppercase tracking-[0.2em]">
+            <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-white/50 text-sm font-black uppercase tracking-[0.2em]">
                 <p>&copy; 2026 Dear Future Luminary. All rights reserved.</p>
-                <p>Supporting SDGs: 4, 8, 10, 17</p>
                 <p>Developed by Malak Emad</p>
+                <p class="md:ml-auto">Supporting SDGs: 4, 8, 10, 17</p>
             </div>
         </div>
     </footer>
 
-    <!-- Join Us Modal -->
+    <!-- Join Us Modal (SMALLER & PROFESSIONAL) -->
     <div id="joinUsModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-[#1e3a8a]/95 backdrop-blur-2xl">
-        <div class="modal-content bg-white rounded-[4rem] p-12 md:p-20 max-w-4xl w-full text-center space-y-12 relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-[#facc15]/10 rounded-full -mr-32 -mt-32"></div>
-            <div class="relative z-10 space-y-12">
-                <div class="w-24 h-24 bg-[#a488f4]/10 rounded-full flex items-center justify-center mx-auto">
-                    <i data-lucide="sparkles" class="w-12 h-12 text-[#a488f4]"></i>
-                </div>
-                <div class="space-y-6">
-                    <h3 class="text-5xl md:text-7xl font-black text-[#1e3a8a] uppercase leading-none tracking-tighter">Become a Luminary</h3>
-                    <p class="text-2xl text-gray-400 font-bold">Choose how you want to start your journey with us.</p>
+        <div class="modal-content bg-white rounded-[3rem] p-10 md:p-16 max-w-2xl w-full text-center space-y-10 relative overflow-hidden shadow-2xl">
+            <div class="relative z-10 space-y-10">
+                <div class="space-y-4">
+                    <h3 class="text-4xl md:text-5xl font-black text-[#1e3a8a] uppercase leading-none tracking-tighter">Become a Luminary</h3>
+                    <p class="text-xl text-gray-400 font-bold">Choose how you want to start.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="p-10 bg-gray-50 rounded-[3rem] border-4 border-transparent hover:border-[#a488f4] hover:bg-white transition-all group text-left">
-                        <div class="w-16 h-16 bg-[#a488f4] text-white rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-[#a488f4]/20">
-                            <i data-lucide="users" class="w-8 h-8"></i>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="p-8 bg-gray-50 rounded-[2rem] border-2 border-transparent hover:border-[#a488f4] hover:bg-white transition-all group text-left">
+                        <div class="w-12 h-12 bg-[#a488f4] text-white rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="users" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-3xl font-black text-[#1e3a8a] mb-4 uppercase tracking-tight">Community</h4>
-                        <p class="text-gray-500 text-lg font-medium leading-relaxed">Connect with other students and share opportunities.</p>
+                        <h4 class="text-xl font-black text-[#1e3a8a] mb-2 uppercase">Community</h4>
+                        <p class="text-gray-500 text-sm font-medium">Connect with others.</p>
                     </a>
                     
-                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="p-10 bg-gray-50 rounded-[3rem] border-4 border-transparent hover:border-[#facc15] hover:bg-white transition-all group text-left">
-                        <div class="w-16 h-16 bg-[#facc15] text-[#1e3a8a] rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-[#facc15]/20">
-                            <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                    <a href="https://forms.gle/pLqpSodiuMmB36Ei8" target="_blank" class="p-8 bg-gray-50 rounded-[2rem] border-2 border-transparent hover:border-[#facc15] hover:bg-white transition-all group text-left">
+                        <div class="w-12 h-12 bg-[#facc15] text-[#1e3a8a] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-3xl font-black text-[#1e3a8a] mb-4 uppercase tracking-tight">Early Access</h4>
-                        <p class="text-gray-500 text-lg font-medium leading-relaxed">Be the first to know when we launch new roadmaps.</p>
+                        <h4 class="text-xl font-black text-[#1e3a8a] mb-2 uppercase">Early Access</h4>
+                        <p class="text-gray-500 text-sm font-medium">Get updates first.</p>
                     </a>
                 </div>
 
-                <button onclick="toggleModal('joinUsModal')" class="w-full py-6 bg-[#1e3a8a] text-white rounded-3xl font-black text-2xl hover:bg-[#a488f4] transition-all uppercase tracking-widest">Maybe Later</button>
+                <button onclick="toggleModal('joinUsModal')" class="w-full py-4 bg-[#1e3a8a] text-white rounded-2xl font-black text-lg hover:bg-[#a488f4] transition-all uppercase tracking-widest">Maybe Later</button>
             </div>
         </div>
     </div>
 
-    <!-- Coming Soon Modal -->
+    <!-- Coming Soon Modal (SMALLER & PROFESSIONAL) -->
     <div id="comingSoonModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-[#1e3a8a]/95 backdrop-blur-2xl">
-        <div class="modal-content bg-white rounded-[4rem] p-16 max-w-2xl w-full text-center space-y-12 relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-[#facc15]/10 rounded-full -mr-32 -mt-32"></div>
-            <div class="relative z-10 space-y-10">
-                <div class="w-24 h-24 bg-[#a488f4]/10 rounded-full flex items-center justify-center mx-auto">
-                    <i data-lucide="rocket" class="w-12 h-12 text-[#a488f4]"></i>
+        <div class="modal-content bg-white rounded-[3rem] p-12 max-w-lg w-full text-center space-y-10 relative overflow-hidden shadow-2xl">
+            <div class="relative z-10 space-y-8">
+                <div class="w-20 h-20 bg-[#a488f4]/10 rounded-full flex items-center justify-center mx-auto">
+                    <i data-lucide="rocket" class="w-10 h-10 text-[#a488f4]"></i>
                 </div>
-                <h3 class="text-5xl md:text-6xl font-black text-[#1e3a8a] uppercase leading-none tracking-tighter">Something Great <br>is Coming</h3>
-                <p class="text-2xl text-gray-400 font-bold leading-relaxed">I'm currently building this part of the experience. It'll be worth the wait.</p>
-                <button onclick="toggleModal('comingSoonModal')" class="w-full py-6 bg-[#1e3a8a] text-white rounded-3xl font-black text-2xl hover:bg-[#a488f4] transition-all uppercase tracking-widest">Got it!</button>
+                <h3 class="text-4xl font-black text-[#1e3a8a] uppercase leading-none tracking-tighter">Something Great <br>is Coming</h3>
+                <p class="text-lg text-gray-400 font-bold leading-relaxed">I'm currently building this part. It'll be worth the wait.</p>
+                <button onclick="toggleModal('comingSoonModal')" class="w-full py-4 bg-[#1e3a8a] text-white rounded-2xl font-black text-lg hover:bg-[#a488f4] transition-all uppercase tracking-widest">Got it!</button>
             </div>
         </div>
     </div>
