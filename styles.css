@@ -69,32 +69,45 @@ body {
 section {
     position: relative;
     z-index: 1;
+    scroll-behavior: smooth;
 }
 
-/* Built by Youth Typography */
-.built-by-youth-text {
-    line-height: 0.85;
-    letter-spacing: -0.05em;
+/* Premium Typography */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
 }
 
 /* FAQ Layout */
-.faq-item.active {
-    border-color: var(--primary);
+.faq-item:last-child {
+    border-bottom: none;
 }
 
-/* Infinite Scroll Carousel */
-@keyframes scroll-infinite {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+.faq-answer-container {
+    overflow: hidden;
 }
 
-#programs-carousel {
-    animation: scroll-infinite 40s linear infinite;
-    width: max-content;
+/* Carousel Styling */
+.carousel-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
-#programs-carousel:hover {
-    animation-play-state: paused;
+.carousel-wrapper::-webkit-scrollbar {
+    height: 4px;
+}
+
+.carousel-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.carousel-wrapper::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.carousel-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--dark);
 }
 
 /* Modal Animations */
@@ -107,11 +120,22 @@ section {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* Section Transitions */
+section {
+    animation: section-fade-in 0.8s ease-out;
+}
+
+@keyframes section-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive Utilities */
 @media (max-width: 640px) {
-    .text-7xl { font-size: 3.5rem; }
-    .text-8xl { font-size: 4rem; }
-    .text-9xl { font-size: 4.5rem; }
+    .text-6xl { font-size: 2.5rem; }
+    .text-7xl { font-size: 3rem; }
+    .text-8xl { font-size: 3.5rem; }
+    .text-9xl { font-size: 4rem; }
     .py-32 { padding-top: 5rem; padding-bottom: 5rem; }
     .px-12 { padding-left: 1.5rem; padding-right: 1.5rem; }
 }
@@ -132,4 +156,14 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--dark);
+}
+
+/* Smooth Transitions */
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* Premium Spacing */
+section {
+    scroll-margin-top: 100px;
 }
