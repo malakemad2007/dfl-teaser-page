@@ -1,6 +1,21 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
+// Intersection Observer for Reveal Animations
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+function initRevealAnimations() {
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+        revealObserver.observe(el);
+    });
+}
+
 // FAQ Data
 const faqData = [
     {
@@ -59,26 +74,27 @@ function renderFAQ() {
     if (!faqContainer) return;
 
     faqContainer.innerHTML = faqData.map((item, index) => `
-        <div class="faq-item border-b border-gray-100 py-8 transition-all duration-300">
+        <div class="faq-item border-b border-gray-100 py-10 transition-all duration-500 hover:bg-gray-50/50 px-6 rounded-2xl reveal">
             <button 
-                class="w-full text-left focus:outline-none group flex justify-between items-start gap-6"
+                class="w-full text-left focus:outline-none group flex justify-between items-center gap-6"
                 onclick="toggleFAQ(this)"
             >
                 <h3 class="text-xl md:text-2xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight uppercase tracking-tight flex-1">
                     ${item.question}
                 </h3>
-                <div class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-[#1e3a8a] group-hover:border-[#a488f4] flex items-center justify-center transition-all duration-300 mt-1">
-                    <i data-lucide="plus" class="w-5 h-5 text-[#1e3a8a] group-hover:text-[#a488f4] transition-transform duration-300"></i>
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 group-hover:bg-[#a488f4] flex items-center justify-center transition-all duration-500">
+                    <i data-lucide="plus" class="w-6 h-6 text-[#1e3a8a] group-hover:text-white transition-transform duration-500"></i>
                 </div>
             </button>
-            <div class="faq-answer-container max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                <div class="text-lg text-gray-600 font-bold leading-relaxed pt-8 max-w-2xl">
+            <div class="faq-answer-container max-h-0 overflow-hidden transition-all duration-700 ease-in-out">
+                <div class="text-lg text-gray-500 font-medium leading-relaxed pt-8 max-w-2xl">
                     ${item.answer}
                 </div>
             </div>
         </div>
     `).join('');
     lucide.createIcons();
+    initRevealAnimations();
 }
 
 // Toggle FAQ
@@ -101,10 +117,12 @@ function toggleFAQ(button) {
         button.setAttribute('data-open', 'false');
         container.style.maxHeight = '0';
         icon.style.transform = 'rotate(0deg)';
+        button.parentElement.classList.remove('bg-gray-50/50');
     } else {
         button.setAttribute('data-open', 'true');
         container.style.maxHeight = container.scrollHeight + 'px';
         icon.style.transform = 'rotate(45deg)';
+        button.parentElement.classList.add('bg-gray-50/50');
     }
 }
 
@@ -132,19 +150,34 @@ function renderProgramsCarousel() {
     const extendedData = [...programsData, ...programsData, ...programsData];
     
     carousel.innerHTML = extendedData.map(program => `
-        <div class="flex-shrink-0 group snap-center">
-            <div class="w-56 h-56 bg-white border-2 border-gray-100 rounded-2xl flex items-center justify-center p-8 group-hover:border-[#a488f4] group-hover:shadow-[0_30px_60px_rgba(164,136,244,0.2)] transition-all duration-700 transform group-hover:-translate-y-4">
-                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain transition-all duration-500 group-hover:scale-110" />
+        <div class="flex-shrink-0 group snap-center reveal">
+            <div class="w-64 h-64 bg-white border border-gray-100 rounded-[2.5rem] flex items-center justify-center p-12 group-hover:border-[#a488f4] group-hover:shadow-[0_40px_80px_rgba(164,136,244,0.15)] transition-all duration-700 transform group-hover:-translate-y-6 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#a488f4]/0 to-[#a488f4]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain transition-all duration-700 group-hover:scale-110 relative z-10" />
             </div>
-            <p class="mt-6 text-center text-sm font-black text-[#1e3a8a] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">${program.name}</p>
+            <div class="mt-8 text-center space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0">
+                <p class="text-[10px] font-black text-[#a488f4] uppercase tracking-[0.3em]">Experience</p>
+                <p class="text-sm font-black text-[#1e3a8a] uppercase tracking-widest">${program.name}</p>
+            </div>
         </div>
     `).join('');
+    initRevealAnimations();
 }
 
 // Mobile Menu Toggle
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
+    const icon = document.getElementById('menu-icon');
+    
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        menu.classList.add('animate-modal-slide-up');
+        if (icon) icon.setAttribute('data-lucide', 'x');
+    } else {
+        menu.classList.add('hidden');
+        if (icon) icon.setAttribute('data-lucide', 'menu');
+    }
+    lucide.createIcons();
 }
 
 // Modal Functions
@@ -187,6 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderFAQ();
     renderProgramsCarousel();
     setupContactForm();
+    initRevealAnimations();
     
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('fixed') && !e.target.closest('.modal-content') && e.target.id !== 'navbar') {
@@ -234,5 +268,10 @@ if (cursor) {
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, button, .cursor-pointer').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
     });
 }
