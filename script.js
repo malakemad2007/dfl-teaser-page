@@ -108,7 +108,7 @@ function toggleFAQ(button) {
     }
 }
 
-// Programs Carousel (COLORFUL - NO GRAYSCALE)
+// Programs Carousel (COLORFUL)
 const programsData = [
     { name: 'Scholar', logo: 'client/public/images/logos/afs.png' },
     { name: 'Intern & Project Manager', logo: 'client/public/images/kode with klossy.png' },
@@ -133,7 +133,7 @@ function renderProgramsCarousel() {
     
     carousel.innerHTML = extendedData.map(program => `
         <div class="flex-shrink-0 group snap-center">
-            <div class="w-56 h-56 bg-white border-2 border-gray-100 rounded-[2.5rem] flex items-center justify-center p-8 group-hover:border-[#a488f4] group-hover:shadow-[0_30px_60px_rgba(164,136,244,0.2)] transition-all duration-700 transform group-hover:-translate-y-4">
+            <div class="w-56 h-56 bg-white border-2 border-gray-100 rounded-2xl flex items-center justify-center p-8 group-hover:border-[#a488f4] group-hover:shadow-[0_30px_60px_rgba(164,136,244,0.2)] transition-all duration-700 transform group-hover:-translate-y-4">
                 <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain transition-all duration-500 group-hover:scale-110" />
             </div>
             <p class="mt-6 text-center text-sm font-black text-[#1e3a8a] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">${program.name}</p>
