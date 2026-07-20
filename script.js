@@ -1,22 +1,5 @@
-// Initialize Lucide Icons
 lucide.createIcons();
 
-// Intersection Observer for Reveal Animations
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.1 });
-
-function initRevealAnimations() {
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-        revealObserver.observe(el);
-    });
-}
-
-// FAQ Data
 const faqData = [
     {
         question: "What even is Dear Future Luminary?",
@@ -28,7 +11,7 @@ const faqData = [
     },
     {
         question: "Is this really free?",
-        answer: "Yep. Actually free.<br><br>No hidden fees. No "pay to unlock the good stuff." No weird catch.<br><br>Access should never be the thing holding someone back."
+        answer: "Yep. Actually free.<br><br>No hidden fees. No \"pay to unlock the good stuff.\" No weird catch.<br><br>Access should never be the thing holding someone back."
     },
     {
         question: "I feel lost. Where do I even start?",
@@ -36,7 +19,7 @@ const faqData = [
     },
     {
         question: "I'm not extraordinary enough for these opportunities.",
-        answer: "Respectfully… says who?<br><br>You do not need to be "the perfect student" to deserve good opportunities.<br><br>You need curiosity, effort, and the courage to try.<br><br>Please don't reject yourself before the application even can."
+        answer: "Respectfully… says who?<br><br>You do not need to be \"the perfect student\" to deserve good opportunities.<br><br>You need curiosity, effort, and the courage to try.<br><br>Please don't reject yourself before the application even can."
     },
     {
         question: "There's too much information. I'm overwhelmed.",
@@ -59,74 +42,73 @@ const faqData = [
         answer: "A student who knows how confusing all of this can feel.<br><br>Someone who spent way too much time figuring things out the hard way—and decided to make it easier for others.<br><br>Built with care. Built with purpose. Built for you."
     },
     {
-        question: "What does "Luminary" mean here?",
+        question: "What does \"Luminary\" mean here?",
         answer: "Someone who shines—and helps others shine too.<br><br>Not because they have everything figured out. Not because they're perfect.<br><br>But because they keep learning, growing, and choosing to light the way.<br><br>That can be you, too."
     },
     {
         question: "Still wondering something?",
-        answer: "Ask us through the form below. Seriously. No question is too small, too random, or too "I feel silly asking this." That's what we're here for."
+        answer: "Ask us through the form below. Seriously. No question is too small, too random, or too \"I feel silly asking this.\" That's what we're here for."
     }
 ];
 
-// Render FAQ
 function renderFAQ() {
     const faqContainer = document.getElementById('faq-container');
     if (!faqContainer) return;
 
     faqContainer.innerHTML = faqData.map((item, index) => `
-        <div class="faq-item border-b border-gray-100 py-10 transition-all duration-500 hover:bg-gray-50/50 px-6 rounded-2xl reveal">
+        <div class="faq-item" role="region" aria-expanded="false">
             <button 
-                class="w-full text-left focus:outline-none group flex justify-between items-center gap-6"
+                class="w-full focus:outline-none group flex justify-between items-start gap-6"
                 onclick="toggleFAQ(this)"
+                aria-controls="faq-answer-${index}"
             >
-                <h3 class="text-xl md:text-2xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight uppercase tracking-tight flex-1">
+                <h3 class="text-lg md:text-2xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight uppercase tracking-tight flex-1">
                     ${item.question}
                 </h3>
-                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 group-hover:bg-[#a488f4] flex items-center justify-center transition-all duration-500">
-                    <i data-lucide="plus" class="w-6 h-6 text-[#1e3a8a] group-hover:text-white transition-transform duration-500"></i>
+                <div class="icon-wrapper">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full border-3 border-[#1e3a8a] group-hover:border-[#a488f4] flex items-center justify-center transition-all duration-300">
+                        <i data-lucide="plus" class="w-5 h-5 text-[#1e3a8a] group-hover:text-[#a488f4] transition-transform duration-300"></i>
+                    </div>
                 </div>
             </button>
-            <div class="faq-answer-container max-h-0 overflow-hidden transition-all duration-700 ease-in-out">
-                <div class="text-lg text-gray-500 font-medium leading-relaxed pt-8 max-w-2xl">
+            <div class="faq-answer-container" id="faq-answer-${index}">
+                <div class="text-base md:text-lg text-gray-600 font-medium leading-relaxed">
                     ${item.answer}
                 </div>
             </div>
         </div>
     `).join('');
     lucide.createIcons();
-    initRevealAnimations();
 }
 
-// Toggle FAQ
 function toggleFAQ(button) {
     const container = button.nextElementSibling;
     const icon = button.querySelector('i');
     const isOpen = button.getAttribute('data-open') === 'true';
+    const parentItem = button.closest('.faq-item');
     
-    // Close all other FAQs
     document.querySelectorAll('.faq-item button').forEach(btn => {
         if (btn !== button) {
             btn.setAttribute('data-open', 'false');
             btn.nextElementSibling.style.maxHeight = '0';
             btn.querySelector('i').style.transform = 'rotate(0deg)';
+            btn.closest('.faq-item').classList.remove('active');
         }
     });
 
-    // Toggle current
     if (isOpen) {
         button.setAttribute('data-open', 'false');
         container.style.maxHeight = '0';
         icon.style.transform = 'rotate(0deg)';
-        button.parentElement.classList.remove('bg-gray-50/50');
+        parentItem.classList.remove('active');
     } else {
         button.setAttribute('data-open', 'true');
         container.style.maxHeight = container.scrollHeight + 'px';
         icon.style.transform = 'rotate(45deg)';
-        button.parentElement.classList.add('bg-gray-50/50');
+        parentItem.classList.add('active');
     }
 }
 
-// Programs Carousel (COLORFUL)
 const programsData = [
     { name: 'Scholar', logo: 'client/public/images/logos/afs.png' },
     { name: 'Intern & Project Manager', logo: 'client/public/images/kode with klossy.png' },
@@ -147,40 +129,23 @@ function renderProgramsCarousel() {
     const carousel = document.getElementById('programs-carousel');
     if (!carousel) return;
     
-    const extendedData = [...programsData, ...programsData, ...programsData];
+    const extendedData = [...programsData, ...programsData];
     
-    carousel.innerHTML = extendedData.map(program => `
-        <div class="flex-shrink-0 group snap-center reveal">
-            <div class="w-64 h-64 bg-white border border-gray-100 rounded-[2.5rem] flex items-center justify-center p-12 group-hover:border-[#a488f4] group-hover:shadow-[0_40px_80px_rgba(164,136,244,0.15)] transition-all duration-700 transform group-hover:-translate-y-6 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-[#a488f4]/0 to-[#a488f4]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain transition-all duration-700 group-hover:scale-110 relative z-10" />
+    carousel.innerHTML = extendedData.map((program, index) => `
+        <div class="flex-shrink-0 group snap-start">
+            <div class="w-48 h-48 sm:w-56 sm:h-56 bg-white/10 border-2 border-white/30 rounded-2xl flex items-center justify-center p-6 group-hover:border-[#facc15] group-hover:bg-white/20 transition-all duration-500 transform group-hover:scale-110">
+                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain transition-all duration-500" />
             </div>
-            <div class="mt-8 text-center space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0">
-                <p class="text-[10px] font-black text-[#a488f4] uppercase tracking-[0.3em]">Experience</p>
-                <p class="text-sm font-black text-[#1e3a8a] uppercase tracking-widest">${program.name}</p>
-            </div>
+            <p class="mt-6 text-center text-sm font-black text-white/80 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500">${program.name}</p>
         </div>
     `).join('');
-    initRevealAnimations();
 }
 
-// Mobile Menu Toggle
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    const icon = document.getElementById('menu-icon');
-    
-    if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        menu.classList.add('animate-modal-slide-up');
-        if (icon) icon.setAttribute('data-lucide', 'x');
-    } else {
-        menu.classList.add('hidden');
-        if (icon) icon.setAttribute('data-lucide', 'menu');
-    }
-    lucide.createIcons();
+    menu.classList.toggle('hidden');
 }
 
-// Modal Functions
 function toggleModal(modalId, event) {
     if (event) event.preventDefault();
     const modal = document.getElementById(modalId);
@@ -197,30 +162,34 @@ function toggleModal(modalId, event) {
     }
 }
 
-// Contact Form Success Logic
-function setupContactForm() {
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('contact-success');
-    if (form && success) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            form.classList.add('hidden');
-            success.classList.remove('hidden');
-            setTimeout(() => {
-                form.reset();
-                form.classList.remove('hidden');
-                success.classList.add('hidden');
-            }, 5000);
-        });
+function handleContactSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    
+    const name = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const message = form.querySelector('textarea').value;
+    
+    if (name && email && message) {
+        alert('Thank you for reaching out! We\'ll get back to you soon.');
+        form.reset();
+    } else {
+        alert('Please fill in all fields.');
     }
 }
 
-// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     renderFAQ();
     renderProgramsCarousel();
-    setupContactForm();
-    initRevealAnimations();
+    
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
     
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('fixed') && !e.target.closest('.modal-content') && e.target.id !== 'navbar') {
@@ -262,16 +231,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Custom Cursor
 const cursor = document.getElementById('custom-cursor');
 if (cursor) {
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
     });
-
-    document.querySelectorAll('a, button, .cursor-pointer').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-    });
 }
+
+document.addEventListener('touchmove', function(e) {
+}, { passive: true });

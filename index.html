@@ -22,36 +22,29 @@
         }
     </script>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="client/public/images/dear.future.luminary.logo.svg.svg">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="min-h-screen bg-white overflow-x-hidden font-sans">
-    <!-- Custom Cursor -->
-    <div id="custom-cursor" class="custom-cursor"></div>
+    <div id="custom-cursor" class="custom-cursor purple"></div>
 
-    <!-- Non-sticky Navbar -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/50 transition-all duration-500">
-        <div class="px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="Dear Future Luminary" class="h-12 w-12" />
-                    <span class="font-black text-xl text-[#1e3a8a] hidden sm:inline tracking-tighter">Dear Future Luminary</span>
+    <nav id="navbar" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/50 transition-all duration-500 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                    <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="Dear Future Luminary" class="h-10 sm:h-12 w-10 sm:w-12" />
+                    <span class="font-black text-base sm:text-xl text-[#1e3a8a] hidden sm:inline tracking-tighter whitespace-nowrap">Dear Future Luminary</span>
                 </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-10">
-                    <a href="#" class="text-gray-600 hover:text-[#a488f4] font-bold transition-colors">Home</a>
-                    <a href="#what-you-find" class="text-gray-600 hover:text-[#a488f4] font-bold transition-colors">What You'll Find</a>
-                    <a href="#mission" class="text-gray-600 hover:text-[#a488f4] font-bold transition-colors">Mission</a>
-                    <a href="#faq" class="text-gray-600 hover:text-[#a488f4] font-bold transition-colors">FAQ</a>
+                <div class="hidden md:flex items-center gap-6 lg:gap-10">
+                    <a href="#" class="text-gray-600 hover:text-[#a488f4] font-bold text-sm lg:text-base transition-colors">Home</a>
+                    <a href="#what-you-find" class="text-gray-600 hover:text-[#a488f4] font-bold text-sm lg:text-base transition-colors">What You'll Find</a>
+                    <a href="#mission" class="text-gray-600 hover:text-[#a488f4] font-bold text-sm lg:text-base transition-colors">Mission</a>
+                    <a href="#faq" class="text-gray-600 hover:text-[#a488f4] font-bold text-sm lg:text-base transition-colors">FAQ</a>
+                    <a href="#contact" class="px-6 sm:px-8 py-2 sm:py-3 bg-[#1e3a8a] text-white rounded-full font-black text-sm lg:text-base hover:bg-[#a488f4] transition-all hover:scale-105">Contact</a>
                 </div>
 
-                <!-- Mobile Menu Toggle -->
                 <div class="md:hidden">
                     <button onclick="toggleMobileMenu()" class="p-2 text-gray-600 hover:text-[#1e3a8a]">
                         <i data-lucide="menu" id="menu-icon"></i>
@@ -59,44 +52,32 @@
                 </div>
             </div>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden py-6 border-t border-gray-100 bg-white rounded-b-3xl">
-                <a href="#" class="block py-3 text-gray-600 hover:text-[#a488f4] font-bold px-4">Home</a>
-                <a href="#what-you-find" class="block py-3 text-gray-600 hover:text-[#a488f4] font-bold px-4">What You'll Find</a>
-                <a href="#mission" class="block py-3 text-gray-600 hover:text-[#a488f4] font-bold px-4">Mission</a>
-                <a href="#faq" class="block py-3 text-gray-600 hover:text-[#a488f4] font-bold px-4">FAQ</a>
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-gray-100 bg-white rounded-b-3xl">
+                <a href="#" class="block py-2 text-gray-600 hover:text-[#a488f4] font-bold text-sm px-4">Home</a>
+                <a href="#what-you-find" class="block py-2 text-gray-600 hover:text-[#a488f4] font-bold text-sm px-4">What You'll Find</a>
+                <a href="#mission" class="block py-2 text-gray-600 hover:text-[#a488f4] font-bold text-sm px-4">Mission</a>
+                <a href="#faq" class="block py-2 text-gray-600 hover:text-[#a488f4] font-bold text-sm px-4">FAQ</a>
+                <a href="#contact" class="block py-2 text-[#1e3a8a] font-black text-sm px-4">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Mini Sub-nav -->
-    <div id="sub-nav" class="fixed top-24 left-1/2 -translate-x-1/2 z-40 bg-[#1e3a8a] text-white px-8 py-3 rounded-full shadow-2xl hidden md:flex items-center gap-8 border border-white/10 opacity-0 transform -translate-y-4">
-        <a href="#find-01" class="text-xs font-black uppercase tracking-widest hover:text-[#facc15] transition-colors">Growth</a>
-        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
-        <a href="#find-02" class="text-xs font-black uppercase tracking-widest hover:text-[#facc15] transition-colors">Opportunities</a>
-        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
-        <a href="#find-03" class="text-xs font-black uppercase tracking-widest hover:text-[#facc15] transition-colors">Roadmaps</a>
-        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
-        <a href="#find-04" class="text-xs font-black uppercase tracking-widest hover:text-[#facc15] transition-colors">Profile</a>
-    </div>
-
-    <!-- Hero Section (KEEP AS IS) -->
-    <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] relative overflow-hidden min-h-[70vh] flex items-center">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full -ml-48 -mb-48"></div>
+    <section class="pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] relative overflow-hidden min-h-[60vh] sm:min-h-[70vh] flex items-center">
+        <div class="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full -mr-32 sm:-mr-48 -mt-32 sm:-mt-48"></div>
+        <div class="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/5 rounded-full -ml-32 sm:-ml-48 -mb-32 sm:-mb-48"></div>
 
         <div class="max-w-7xl mx-auto relative z-10 w-full">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div class="space-y-6 sm:space-y-8">
                     <div>
-                        <h1 class="text-5xl md:text-6xl font-black text-white mb-4 leading-tight">Dear Future<br />Luminary</h1>
-                        <p class="text-2xl md:text-3xl font-serif text-[#facc15] mb-6 relative inline-block">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-3 sm:mb-4 leading-tight">Dear Future<br />Luminary</h1>
+                        <p class="text-xl sm:text-2xl md:text-3xl font-serif text-[#facc15] mb-4 sm:mb-6 relative inline-block">
                             For the future that's watching.
-                            <span class="absolute bottom-0 left-0 w-24 h-1 bg-[#facc15] rounded-full"></span>
+                            <span class="absolute bottom-0 left-0 w-20 sm:w-24 h-1 bg-[#facc15] rounded-full"></span>
                         </p>
                     </div>
-                    <div class="space-y-4 text-white/90 text-lg leading-relaxed">
-                        <p class="text-2xl font-bold">Finding opportunities shouldn't feel like solving a mystery.</p>
+                    <div class="space-y-3 sm:space-y-4 text-white/90 text-base sm:text-lg leading-relaxed">
+                        <p class="text-lg sm:text-2xl font-bold">Finding opportunities shouldn't feel like solving a mystery.</p>
                         <p>Discover your direction. Build your path with clarity. Access real global opportunities.</p>
                         <p>I'm here to help you find where you belong, understand your next step, and move forward with confidence. You're not alone on this journey.</p>
                     </div>
@@ -108,147 +89,112 @@
         </div>
     </section>
 
-    <!-- Built by Youth, for Youth -->
-    <section id="who-we-are" class="py-40 px-6 lg:px-12 bg-white relative overflow-hidden">
+    <section id="who-we-are" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-12 gap-16">
-                <div class="lg:col-span-7 space-y-12">
-                    <div class="reveal">
-                        <h2 class="section-title-large font-black text-[#1e3a8a] uppercase">
-                            Built by<br><span class="text-[#a488f4]">Youth,</span><br><span class="text-outline">for</span> <span class="text-[#facc15]">Youth.</span>
-                        </h2>
-                    </div>
-                    
-                    <div class="reveal space-y-8">
-                        <p class="text-3xl md:text-4xl font-black text-[#1e3a8a] leading-tight uppercase tracking-tight">Not because it sounds nice on a poster.</p>
-                        <p class="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed max-w-2xl">
-                            Because I genuinely needed this website when I was younger. I spent years discovering opportunities completely by accident.
-                        </p>
-                    </div>
-
-                    <div class="reveal grid sm:grid-cols-2 gap-12 pt-12 border-t border-gray-100">
-                        <div class="space-y-6">
-                            <p class="text-sm font-black text-[#a488f4] uppercase tracking-[0.2em]">Discovery Sources</p>
-                            <ul class="space-y-4 text-gray-800 font-bold">
-                                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#facc15] rounded-full"></span> Random Instagram posts</li>
-                                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#facc15] rounded-full"></span> Friends sharing links</li>
-                                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#facc15] rounded-full"></span> Deadlines almost missed</li>
-                                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#facc15] rounded-full"></span> 1 a.m. Google page seven</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-col justify-end">
-                            <div class="p-8 bg-[#1e3a8a] text-white rounded-3xl space-y-4 hover-lift">
-                                <p class="text-xl font-black italic leading-tight">Every opportunity opened another door.</p>
-                                <p class="text-sm text-white/70 font-bold">But finding them always felt harder than it should have been.</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid lg:grid-cols-2 gap-16 sm:gap-20 md:gap-32 items-start">
+                <div class="relative">
+                    <h2 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e3a8a] leading-[0.9] tracking-tighter uppercase mb-12">
+                        Built by<br><span class="text-[#a488f4]">Youth.</span>
+                    </h2>
+                    <div class="w-32 sm:w-40 h-3 bg-[#a488f4] rounded-full"></div>
                 </div>
-                
-                <div class="lg:col-span-5 hidden lg:flex items-center justify-center">
-                    <div class="relative w-full aspect-square reveal-right">
-                        <div class="absolute inset-0 bg-[#a488f4]/5 rounded-full animate-pulse"></div>
-                        <div class="absolute inset-12 border-2 border-[#1e3a8a]/10 rounded-full"></div>
-                        <div class="absolute inset-24 border border-[#facc15]/20 rounded-full"></div>
-                        <img src="client/public/images/dear.future.luminary.logo.svg.svg" alt="DFL" class="absolute inset-0 m-auto w-1/2 h-1/2 object-contain opacity-20" />
+                <div class="space-y-12 sm:space-y-16">
+                    <p class="text-2xl sm:text-3xl md:text-4xl font-black text-[#1e3a8a] leading-tight">
+                        Not because it sounds nice on a poster. Because I genuinely needed this when I was younger.
+                    </p>
+                    <div class="space-y-6 sm:space-y-8 text-base sm:text-lg text-gray-600 leading-relaxed font-medium">
+                        <p>I spent years discovering opportunities completely by accident. A random Instagram post. A friend sharing a link. A deadline I almost missed.</p>
+                        <p>Every opportunity opened another door. But finding them always felt harder than it should have been.</p>
+                        <p>So I built the resource I wish I'd had from the beginning.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What You'll Find Here -->
-    <div id="what-you-find" class="relative">
-        <!-- Section 01: Personal Growth -->
-        <section id="find-01" class="min-h-screen flex items-center py-40 px-6 lg:px-12 bg-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="grid lg:grid-cols-2 gap-24 items-center">
-                    <div class="reveal-left space-y-12">
-                        <div class="space-y-6">
-                            <span class="inline-block text-xs font-black uppercase tracking-[0.4em] text-[#a488f4]">01 / Discovery</span>
-                            <h3 class="section-title-large font-black text-[#1e3a8a] uppercase">Personal<br>Growth</h3>
+    <section class="py-20 sm:py-32 md:py-40 bg-[#1e3a8a] text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter uppercase">
+                What You'll<br><span class="text-[#facc15]">Find Here</span>
+            </h2>
+        </div>
+    </section>
+
+    <div id="what-you-find" class="relative bg-white">
+        <section id="find-01" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 items-center">
+                    <div class="space-y-8 sm:space-y-12">
+                        <div>
+                            <span class="inline-block text-xs sm:text-sm font-black text-[#facc15] uppercase tracking-[0.3em] mb-6">01</span>
+                            <h3 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter">Personal<br>Growth</h3>
                         </div>
-                        <div class="space-y-8 max-w-xl">
-                            <p class="text-2xl font-bold text-[#1e3a8a] leading-tight">Opportunities are great. But they're way more useful when you know how to communicate your ideas, lead a team, handle rejection, stay curious, and believe you're capable of more than you think.</p>
-                            <p class="text-lg font-bold text-gray-400 italic">Nobody is born knowing how to do that. The good news? You can learn.</p>
+                        <div class="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed font-medium">
+                            <p>Opportunities are great. But they're way more useful when you know how to communicate, lead, handle rejection, and believe in yourself.</p>
+                            <p>Nobody is born knowing that. The good news? You can learn.</p>
                         </div>
                     </div>
-                    <div class="reveal-right relative group">
-                        <div class="absolute -inset-4 bg-[#a488f4]/10 rounded-[2rem] blur-2xl group-hover:bg-[#a488f4]/20 transition-all duration-700"></div>
-                        <div class="relative aspect-square rounded-[2rem] bg-[#1e3a8a] flex items-center justify-center overflow-hidden">
-                            <img src="client/public/images/summer program.svg" alt="Personal Growth" class="w-1/2 h-1/2 object-contain filter invert opacity-80 group-hover:scale-110 transition-transform duration-700" />
+                    <div class="flex justify-center md:justify-end">
+                        <img src="client/public/images/summer program.svg" alt="Personal Growth" class="w-full max-w-xs sm:max-w-sm h-auto rounded-2xl" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="find-02" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#facc15] text-[#1e3a8a] relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 items-center">
+                    <div class="flex justify-center md:justify-start">
+                        <img src="client/public/images/Teams.svg" alt="Global Opportunities" class="w-full max-w-xs sm:max-w-sm h-auto rounded-2xl" />
+                    </div>
+                    <div class="space-y-8 sm:space-y-12">
+                        <div>
+                            <span class="inline-block text-xs sm:text-sm font-black text-[#1e3a8a] uppercase tracking-[0.3em] mb-6">02</span>
+                            <h3 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter">Global<br>Opportunities</h3>
+                        </div>
+                        <div class="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed font-medium">
+                            <p>The internet is full of incredible programs. The problem is that they're scattered everywhere.</p>
+                            <p>This section exists to make those opportunities easier to find—and harder to miss.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 02: Global Opportunities -->
-        <section id="find-02" class="min-h-screen flex items-center py-40 px-6 lg:px-12 bg-[#facc15] text-[#1e3a8a] relative overflow-hidden">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="grid lg:grid-cols-2 gap-24 items-center">
-                    <div class="reveal-left order-2 lg:order-1 relative group">
-                        <div class="absolute -inset-4 bg-[#1e3a8a]/10 rounded-[2rem] blur-2xl group-hover:bg-[#1e3a8a]/20 transition-all duration-700"></div>
-                        <div class="relative aspect-square rounded-[2rem] bg-white flex items-center justify-center overflow-hidden">
-                            <img src="client/public/images/Teams.svg" alt="Global Opportunities" class="w-1/2 h-1/2 object-contain group-hover:scale-110 transition-transform duration-700" />
+        <section id="find-03" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#a488f4] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 items-center">
+                    <div class="space-y-8 sm:space-y-12">
+                        <div>
+                            <span class="inline-block text-xs sm:text-sm font-black text-white/80 uppercase tracking-[0.3em] mb-6">03</span>
+                            <h3 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter">Clear<br>Roadmaps</h3>
+                        </div>
+                        <div class="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed font-medium">
+                            <p>One of the most frustrating feelings is wanting to learn something and having no clue where to start.</p>
+                            <p>These roadmaps cut through the noise and give you an actual starting point.</p>
                         </div>
                     </div>
-                    <div class="reveal-right order-1 lg:order-2 space-y-12">
-                        <div class="space-y-6">
-                            <span class="inline-block text-xs font-black uppercase tracking-[0.4em] text-[#1e3a8a]/60">02 / Access</span>
-                            <h3 class="section-title-large font-black text-[#1e3a8a] uppercase">Global<br>Opportunities</h3>
-                        </div>
-                        <div class="space-y-8 max-w-xl">
-                            <p class="text-2xl font-bold text-[#1e3a8a] leading-tight">The internet is full of incredible programs. The problem is that they're scattered everywhere. One is hidden on a university website. Another is buried in someone's LinkedIn post.</p>
-                            <p class="text-lg font-bold text-[#1e3a8a]/60 italic">This section exists to make those opportunities easier to find—and harder to miss.</p>
-                        </div>
+                    <div class="flex justify-center md:justify-end">
+                        <img src="client/public/images/road map.svg" alt="Roadmaps" class="w-full max-w-xs sm:max-w-sm h-auto rounded-2xl" />
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 03: Clear Roadmaps -->
-        <section id="find-03" class="min-h-screen flex items-center py-40 px-6 lg:px-12 bg-[#1e3a8a] text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="grid lg:grid-cols-2 gap-24 items-center">
-                    <div class="reveal-left space-y-12">
-                        <div class="space-y-6">
-                            <span class="inline-block text-xs font-black uppercase tracking-[0.4em] text-[#facc15]">03 / Strategy</span>
-                            <h3 class="section-title-large font-black text-white uppercase">Clear<br>Roadmaps</h3>
-                        </div>
-                        <div class="space-y-8 max-w-xl">
-                            <p class="text-2xl font-bold text-white leading-tight">One of the most frustrating feelings in the world is wanting to learn something and having no clue where to start. Coding. Research. Medicine. Sustainability.</p>
-                            <p class="text-lg font-bold text-white/50 italic">These roadmaps cut through the noise and give you an actual starting point.</p>
-                        </div>
+        <section id="find-04" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-white text-[#1e3a8a] relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 items-center">
+                    <div class="flex justify-center md:justify-start">
+                        <img src="client/public/images/Personal Profile.svg" alt="Profile Building" class="w-full max-w-xs sm:max-w-sm h-auto rounded-2xl" />
                     </div>
-                    <div class="reveal-right relative group">
-                        <div class="absolute -inset-4 bg-white/5 rounded-[2rem] blur-2xl group-hover:bg-white/10 transition-all duration-700"></div>
-                        <div class="relative aspect-square rounded-[2rem] bg-[#a488f4] flex items-center justify-center overflow-hidden">
-                            <img src="client/public/images/road map.svg" alt="Roadmaps" class="w-1/2 h-1/2 object-contain filter invert group-hover:scale-110 transition-transform duration-700" />
+                    <div class="space-y-8 sm:space-y-12">
+                        <div>
+                            <span class="inline-block text-xs sm:text-sm font-black text-[#a488f4] uppercase tracking-[0.3em] mb-6">04</span>
+                            <h3 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter">Profile<br>Building</h3>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 04: Profile Building -->
-        <section id="find-04" class="min-h-screen flex items-center py-40 px-6 lg:px-12 bg-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="grid lg:grid-cols-2 gap-24 items-center">
-                    <div class="reveal-left order-2 lg:order-1 relative group">
-                        <div class="absolute -inset-4 bg-[#a488f4]/10 rounded-[2rem] blur-2xl group-hover:bg-[#a488f4]/20 transition-all duration-700"></div>
-                        <div class="relative aspect-square rounded-[2rem] bg-[#facc15] flex items-center justify-center overflow-hidden">
-                            <img src="client/public/images/Personal Profile.svg" alt="Profile Building" class="w-1/2 h-1/2 object-contain group-hover:scale-110 transition-transform duration-700" />
-                        </div>
-                    </div>
-                    <div class="reveal-right order-1 lg:order-2 space-y-12">
-                        <div class="space-y-6">
-                            <span class="inline-block text-xs font-black uppercase tracking-[0.4em] text-[#a488f4]">04 / Presence</span>
-                            <h3 class="section-title-large font-black text-[#1e3a8a] uppercase">Profile<br>Building</h3>
-                        </div>
-                        <div class="space-y-8 max-w-xl">
-                            <p class="text-2xl font-bold text-[#1e3a8a] leading-tight">At some point, you'll need to introduce yourself. On a CV. In an application. On LinkedIn. Maybe even in an interview.</p>
-                            <p class="text-lg font-bold text-gray-400 italic">And somehow nobody teaches that in school. This section does.</p>
+                        <div class="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed font-medium">
+                            <p>At some point, you'll need to introduce yourself. On a CV. In an application. On LinkedIn.</p>
+                            <p>And somehow nobody teaches that in school. This section does.</p>
                         </div>
                     </div>
                 </div>
@@ -256,77 +202,82 @@
         </section>
     </div>
 
-    <!-- Meet The Founder Section -->
-    <section id="founder" class="py-40 px-6 lg:px-12 bg-white relative overflow-hidden">
+    <section id="founder" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-24 items-center">
-                <div class="relative reveal-left group">
-                    <div class="absolute -inset-4 bg-[#facc15]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <img src="client/public/images/our-founder.png" alt="Malak Emad" class="relative w-full rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
-                    <div class="absolute bottom-8 left-8 p-6 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl reveal">
-                        <p class="text-xs font-black text-[#a488f4] uppercase tracking-widest mb-1">Founder</p>
-                        <p class="text-xl font-black text-[#1e3a8a]">Malak Emad</p>
+            <div class="grid md:grid-cols-2 gap-12 sm:gap-16 md:gap-24 items-start">
+                <div class="relative">
+                    <div class="relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[#1e3a8a]/10">
+                        <img src="client/public/images/our-founder.png" alt="Malak Emad" class="w-full h-auto block" />
+                    </div>
+                    <div class="absolute -bottom-8 sm:-bottom-10 -right-8 sm:-right-10 w-32 sm:w-40 h-32 sm:h-40 bg-[#facc15] rounded-full z-20 flex items-center justify-center shadow-2xl border-4 border-white">
+                        <span class="text-[#1e3a8a] font-black text-sm sm:text-base text-center leading-tight px-4">The<br>Founder</span>
                     </div>
                 </div>
-                <div class="space-y-12 reveal-right">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <span class="w-12 h-[2px] bg-[#facc15]"></span>
-                            <span class="text-sm font-black text-[#1e3a8a] uppercase tracking-[0.3em]">The Vision</span>
+
+                <div class="space-y-8 sm:space-y-12 md:space-y-16">
+                    <div class="space-y-6 sm:space-y-8">
+                        <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e3a8a] leading-[0.9] tracking-tighter uppercase">Hi, I'm<br>Malak.</h2>
+                        <div class="space-y-4 sm:space-y-6">
+                            <p class="text-lg sm:text-xl md:text-2xl font-black text-[#a488f4] italic">And Dear Future Luminary started with a question I couldn't stop asking:</p>
+                            <p class="text-2xl sm:text-3xl md:text-4xl font-black text-[#1e3a8a] leading-tight">
+                                Why does finding opportunities have to be this hard?
+                            </p>
                         </div>
-                        <h2 class="text-6xl md:text-7xl font-black text-[#1e3a8a] leading-tight tracking-tighter uppercase">Hi, I'm Malak.</h2>
-                        <p class="text-3xl font-bold text-[#a488f4] italic leading-tight">
-                            And Dear Future Luminary started with a question I couldn't stop asking:
-                        </p>
                     </div>
-                    <div class="space-y-8 border-l-4 border-[#facc15] pl-8 py-4">
-                        <p class="text-4xl font-black text-[#1e3a8a] leading-tight uppercase tracking-tight">Why are so many incredible opportunities hiding in random corners of the internet?</p>
-                        <p class="text-xl text-gray-500 font-medium leading-relaxed">Over the years, I joined programs, met inspiring people, traveled virtually across the world, learned new skills, and discovered paths I never knew existed. Not because I had some special advantage. Mostly because I kept searching. A lot.</p>
-                        <p class="text-2xl font-black text-[#1e3a8a] leading-tight italic">So I built the resource I wish I'd had from the beginning.</p>
+                    <div class="h-1 w-24 sm:w-32 bg-[#facc15] rounded-full"></div>
+                    <div class="space-y-4 sm:space-y-6 text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
+                        <p>
+                            Over the years, I joined programs, met inspiring people, traveled virtually across the world, learned new skills, and discovered paths I never knew existed.
+                        </p>
+                        <p>
+                            And eventually I realized that thousands of students were searching for the exact same things. So I built the resource I wish I'd had from the beginning.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Opportunities Worth Knowing -->
-    <section id="programs" class="py-32 px-6 lg:px-12 bg-white relative overflow-hidden">
+    <section id="programs" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#1e3a8a] text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-32">
-                <h2 class="text-6xl md:text-8xl font-black text-[#1e3a8a] leading-none tracking-tighter mb-8 uppercase">Proof It's <span class="text-[#a488f4]">Possible</span></h2>
-                <p class="text-2xl md:text-3xl text-gray-600 font-bold max-w-3xl leading-tight">Every opportunity below is something I actually applied to. Not something copied from a list. Something real.</p>
+            <div class="mb-16 sm:mb-24 md:mb-32">
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter mb-8 uppercase">Opportunities<br><span class="text-[#facc15]">Worth Knowing</span></h2>
+                <p class="text-lg sm:text-xl md:text-2xl text-white/80 font-medium max-w-2xl">
+                    Programs that challenged me, connected me with people from different countries, and completely changed how I saw my future.
+                </p>
             </div>
             
-            <div class="carousel-wrapper">
-                <div class="flex gap-12 items-center overflow-x-auto pb-6 snap-x snap-mandatory" id="programs-carousel">
-                    <!-- Populated by JS -->
+            <div class="carousel-container relative">
+                <div class="flex gap-8 sm:gap-12 items-center overflow-x-auto pb-6 snap-x snap-mandatory" id="programs-carousel">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section (Restored) -->
-    <section id="mission" class="py-32 px-6 lg:px-12 bg-[#facc15] relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-12 gap-24 items-center">
-            <div class="lg:col-span-7">
-                <h2 class="text-8xl md:text-[12rem] font-black text-[#1e3a8a] leading-[0.8] tracking-tighter mb-12 uppercase">
-                    Talent is <br/> Everywhere. <br/> <span class="text-white">Access is not.</span>
-                </h2>
-            </div>
-            <div class="lg:col-span-5">
-                <div class="p-16 bg-white rounded-2xl shadow-2xl space-y-12 transform lg:rotate-2">
-                    <p class="text-3xl md:text-4xl font-bold text-[#1e3a8a] leading-tight">
-                        Dear Future Luminary was born from one student asking: <br/>
-                        <span class="text-[#a488f4] font-black italic">"What if finding opportunities was a little less confusing?"</span>
+    <section id="mission" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#facc15] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 sm:gap-20 md:gap-32 items-start">
+                <div>
+                    <h2 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[#1e3a8a] leading-[0.9] tracking-tighter mb-12 uppercase">
+                        Talent is<br>Everywhere.<br><span class="text-white">Access<br>is not.</span>
+                    </h2>
+                </div>
+                <div class="space-y-8 sm:space-y-12">
+                    <p class="text-2xl sm:text-3xl md:text-4xl font-black text-[#1e3a8a] leading-tight">
+                        Dear Future Luminary was born from one student asking: <span class="italic text-[#a488f4]">"What if finding opportunities was a little less confusing?"</span>
                     </p>
-                    <div class="space-y-8 pt-12 border-t border-gray-100">
-                        <div class="flex items-start gap-6">
-                            <div class="w-10 h-10 rounded-full bg-[#a488f4] flex-shrink-0 mt-1"></div>
-                            <p class="text-xl text-gray-500 font-medium"><span class="font-black text-[#1e3a8a] uppercase tracking-widest block mb-1">Authenticity</span> Built by a student who knows how this feels.</p>
+                    <div class="space-y-6 sm:space-y-8 pt-8 sm:pt-12 border-t-4 border-[#1e3a8a]/20">
+                        <div class="flex items-start gap-4 sm:gap-6">
+                            <div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-[#a488f4] flex-shrink-0 mt-1"></div>
+                            <p class="text-lg sm:text-xl md:text-2xl text-[#1e3a8a] font-bold"><span class="text-[#1e3a8a]">Authenticity:</span> Built by a student who knows how this feels.</p>
                         </div>
-                        <div class="flex items-start gap-6">
-                            <div class="w-10 h-10 rounded-full bg-[#1e3a8a] flex-shrink-0 mt-1"></div>
-                            <p class="text-xl text-gray-500 font-medium"><span class="font-black text-[#1e3a8a] uppercase tracking-widest block mb-1">Clarity</span> Converting confusion into simple steps.</p>
+                        <div class="flex items-start gap-4 sm:gap-6">
+                            <div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-[#1e3a8a] flex-shrink-0 mt-1"></div>
+                            <p class="text-lg sm:text-xl md:text-2xl text-[#1e3a8a] font-bold"><span class="text-[#1e3a8a]">Clarity:</span> Converting confusion into simple steps.</p>
+                        </div>
+                        <div class="flex items-start gap-4 sm:gap-6">
+                            <div class="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white flex-shrink-0 mt-1 border-3 border-[#1e3a8a]"></div>
+                            <p class="text-lg sm:text-xl md:text-2xl text-[#1e3a8a] font-bold"><span class="text-[#1e3a8a]">Impact:</span> Realizing you're capable of more.</p>
                         </div>
                     </div>
                 </div>
@@ -334,127 +285,69 @@
         </div>
     </section>
 
-    <!-- FAQ Section: Sticky Left Title, Scrollable Right Questions -->
-    <section id="faq" class="min-h-screen bg-white relative flex flex-col md:flex-row border-t-8 border-[#1e3a8a]">
-        <!-- Left: Sticky Title -->
-        <div class="md:w-2/5 md:h-screen md:sticky md:top-0 p-12 lg:p-20 flex flex-col justify-center bg-white z-20 border-r border-gray-100">
-            <h2 class="text-5xl lg:text-6xl font-black text-[#1e3a8a] leading-[1.1] tracking-tighter uppercase mb-8">
-                Questions<br>You Might<br>Be Too Shy<br>to Ask
-            </h2>
-            <div class="w-2 h-24 bg-gradient-to-b from-[#a488f4] to-transparent rounded-full"></div>
-        </div>
-        
-        <!-- Right: Scrollable Q&A -->
-        <div class="md:w-3/5 py-24 px-6 lg:px-20 flex flex-col justify-center" id="faq-container">
-            <!-- Populated by JS -->
+    <section id="faq" class="py-20 sm:py-32 md:py-40 px-4 sm:px-6 lg:px-8 bg-white border-t-8 border-[#a488f4]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 sm:mb-24 md:mb-32">
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1e3a8a] leading-[0.9] tracking-tighter mb-8 uppercase">
+                    Questions You<br>Might Be <span class="text-[#a488f4]">Too Shy</span> to Ask
+                </h2>
+                <p class="text-lg sm:text-xl md:text-2xl font-black text-gray-500 italic uppercase tracking-widest">
+                    You Ask. We Yap, Respectfully.
+                </p>
+            </div>
+            <div class="space-y-0 max-w-4xl" id="faq-container">
+            </div>
         </div>
     </section>
 
-    <!-- Connect Bar -->
-    <div class="bg-[#facc15] py-20 px-6 lg:px-12 border-y-8 border-[#1e3a8a] relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-2 bg-white/20"></div>
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col items-center justify-center gap-12">
-                <div class="reveal text-center space-y-4">
-                    <span class="text-[#1e3a8a] text-sm font-black uppercase tracking-[0.4em]">Stay in the Loop</span>
-                    <h2 class="text-4xl md:text-5xl font-black text-[#1e3a8a] uppercase tracking-tighter">Connect With Us</h2>
-                </div>
-                <div class="flex items-center gap-6 md:gap-12 flex-wrap justify-center reveal">
-                    <a href="https://facebook.com/dear.future.luminary" target="_blank" rel="noopener noreferrer" class="w-16 h-16 bg-[#1e3a8a] text-white rounded-2xl flex items-center justify-center hover:bg-[#a488f4] hover:scale-110 hover:-rotate-6 transition-all duration-500 shadow-xl" title="Facebook"><i class="fa-brands fa-facebook text-2xl"></i></a>
-                    <a href="https://youtube.com/@malak_luminary" target="_blank" rel="noopener noreferrer" class="w-16 h-16 bg-[#1e3a8a] text-white rounded-2xl flex items-center justify-center hover:bg-[#a488f4] hover:scale-110 hover:rotate-6 transition-all duration-500 shadow-xl" title="YouTube"><i class="fa-brands fa-youtube text-2xl"></i></a>
-                    <a href="mailto:dear.future.luminary@gmail.com" class="w-16 h-16 bg-[#1e3a8a] text-white rounded-2xl flex items-center justify-center hover:bg-[#a488f4] hover:scale-110 hover:-rotate-6 transition-all duration-500 shadow-xl" title="Email"><i class="fa-solid fa-envelope text-2xl"></i></a>
-                    <a href="https://instagram.com/dear.future.luminary" target="_blank" rel="noopener noreferrer" class="w-16 h-16 bg-[#1e3a8a] text-white rounded-2xl flex items-center justify-center hover:bg-[#a488f4] hover:scale-110 hover:rotate-6 transition-all duration-500 shadow-xl" title="Instagram"><i class="fa-brands fa-instagram text-2xl"></i></a>
-                    <a href="#" onclick="toggleModal('comingSoonModal', event)" class="w-16 h-16 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-2xl flex items-center justify-center hover:bg-[#1e3a8a] hover:text-white hover:scale-110 hover:-rotate-6 transition-all duration-500 cursor-pointer" title="X"><i class="fa-brands fa-x-twitter text-2xl"></i></a>
-                    <a href="#" onclick="toggleModal('comingSoonModal', event)" class="w-16 h-16 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-2xl flex items-center justify-center hover:bg-[#1e3a8a] hover:text-white hover:scale-110 hover:rotate-6 transition-all duration-500 cursor-pointer" title="Discord"><i class="fa-brands fa-discord text-2xl"></i></a>
-                    <a href="#" onclick="toggleModal('comingSoonModal', event)" class="w-16 h-16 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-2xl flex items-center justify-center hover:bg-[#1e3a8a] hover:text-white hover:scale-110 hover:-rotate-6 transition-all duration-500 cursor-pointer" title="TikTok"><i class="fa-brands fa-tiktok text-2xl"></i></a>
-                    <a href="#" onclick="toggleModal('comingSoonModal', event)" class="w-16 h-16 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-2xl flex items-center justify-center hover:bg-[#1e3a8a] hover:text-white hover:scale-110 hover:rotate-6 transition-all duration-500 cursor-pointer" title="Pinterest"><i class="fa-brands fa-pinterest text-2xl"></i></a>
-                    <a href="#" onclick="toggleModal('comingSoonModal', event)" class="w-16 h-16 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-2xl flex items-center justify-center hover:bg-[#1e3a8a] hover:text-white hover:scale-110 hover:-rotate-6 transition-all duration-500 cursor-pointer" title="Substack"><i class="fa-solid fa-envelope-open text-2xl"></i></a>
-                    <a href="#" onclick="toggleModal('comingSoonModal', event)" class="w-16 h-16 bg-[#1e3a8a]/10 text-[#1e3a8a] rounded-2xl flex items-center justify-center hover:bg-[#1e3a8a] hover:text-white hover:scale-110 hover:rotate-6 transition-all duration-500 cursor-pointer" title="Spotify"><i class="fa-brands fa-spotify text-2xl"></i></a>
+    <div class="bg-[#facc15] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-y-4 border-[#1e3a8a]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-12">
+                <span class="text-[#1e3a8a] text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-[0.2em]">Connect With Us</span>
+                <div class="flex items-center gap-6 sm:gap-8 md:gap-12 flex-wrap justify-center">
+                    <a href="https://facebook.com/dear.future.luminary" target="_blank" rel="noopener noreferrer" class="text-[#1e3a8a] hover:scale-125 transition-transform" title="Facebook"><i class="fa-brands fa-facebook text-4xl sm:text-5xl md:text-6xl"></i></a>
+                    <a href="https://youtube.com/@malak_luminary" target="_blank" rel="noopener noreferrer" class="text-[#1e3a8a] hover:scale-125 transition-transform" title="YouTube"><i class="fa-brands fa-youtube text-4xl sm:text-5xl md:text-6xl"></i></a>
+                    <a href="https://instagram.com/dear.future.luminary" target="_blank" rel="noopener noreferrer" class="text-[#1e3a8a] hover:scale-125 transition-transform" title="Instagram"><i class="fa-brands fa-instagram text-4xl sm:text-5xl md:text-6xl"></i></a>
+                    <a href="mailto:dear.future.luminary@gmail.com" class="text-[#1e3a8a] hover:scale-125 transition-transform" title="Email"><i class="fa-solid fa-envelope text-4xl sm:text-5xl md:text-6xl"></i></a>
+                    <a href="#" onclick="toggleModal('comingSoonModal', event)" class="text-[#1e3a8a] hover:scale-125 transition-transform" title="More"><i class="fa-solid fa-plus text-4xl sm:text-5xl md:text-6xl"></i></a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer with Contact Form -->
-    <footer class="bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] pt-24 pb-12 px-6 lg:px-12 text-white relative overflow-hidden">
+    <footer id="contact" class="bg-gradient-to-br from-[#a488f4] via-[#8a6ef1] to-[#7b5fde] pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-10 md:pb-12 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <!-- Contact Form Section -->
-            <div class="mb-24 pb-24 border-b border-white/10">
-                <h3 class="text-4xl md:text-5xl font-black text-white mb-12 uppercase tracking-tighter text-center">Get in Touch</h3>
-                <form id="contact-form" class="max-w-4xl mx-auto">
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="relative">
-                            <input type="text" id="contact-name" placeholder=" " class="peer w-full px-0 py-4 bg-transparent border-b-2 border-white/30 focus:border-white outline-none font-bold text-white transition-all" required>
-                            <label for="contact-name" class="absolute left-0 top-4 text-white/50 font-bold transition-all pointer-events-none peer-focus:-translate-y-6 peer-focus:text-xs peer-[:not(:placeholder-shown)]:-translate-y-6 peer-[:not(:placeholder-shown)]:text-xs">Your Name</label>
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl sm:rounded-3xl md:rounded-[3rem] p-6 sm:p-8 md:p-12 lg:p-16 mb-12 sm:mb-16 grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start relative overflow-hidden border border-white/20">
+                <div class="relative z-10">
+                    <h4 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 sm:mb-6">Let's Talk.</h4>
+                    <p class="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mb-6 sm:mb-8">Have a question, an idea, or just want to say hi? I'm all ears.</p>
+                    <div class="flex items-center gap-3 sm:gap-4 text-[#facc15]"><i data-lucide="sparkles" class="w-5 sm:w-6 h-5 sm:h-6"></i><span class="font-bold uppercase tracking-widest text-xs sm:text-sm">Always checking my inbox</span></div>
+                </div>
+                <div class="relative z-10">
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4 sm:space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
+                            <input type="text" placeholder="Your Name" required class="bg-white/10 border border-white/20 rounded-lg sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-white/50 focus:outline-none focus:border-[#facc15] transition-colors text-sm sm:text-base" />
+                            <input type="email" placeholder="Your Email" required class="bg-white/10 border border-white/20 rounded-lg sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-white/50 focus:outline-none focus:border-[#facc15] transition-colors text-sm sm:text-base" />
                         </div>
-                        <div class="relative">
-                            <input type="email" id="contact-email" placeholder=" " class="peer w-full px-0 py-4 bg-transparent border-b-2 border-white/30 focus:border-white outline-none font-bold text-white transition-all" required>
-                            <label for="contact-email" class="absolute left-0 top-4 text-white/50 font-bold transition-all pointer-events-none peer-focus:-translate-y-6 peer-focus:text-xs peer-[:not(:placeholder-shown)]:-translate-y-6 peer-[:not(:placeholder-shown)]:text-xs">Your Email</label>
-                        </div>
-                        <div class="relative">
-                            <input type="text" id="contact-question" placeholder=" " class="peer w-full px-0 py-4 bg-transparent border-b-2 border-white/30 focus:border-white outline-none font-bold text-white transition-all" required>
-                            <label for="contact-question" class="absolute left-0 top-4 text-white/50 font-bold transition-all pointer-events-none peer-focus:-translate-y-6 peer-focus:text-xs peer-[:not(:placeholder-shown)]:-translate-y-6 peer-[:not(:placeholder-shown)]:text-xs">Your Question</label>
-                        </div>
-                    </div>
-                    <div class="mt-12 flex justify-center">
-                        <button type="submit" class="px-12 py-4 bg-white text-[#a488f4] rounded-full font-black text-lg hover:bg-[#facc15] hover:text-[#1e3a8a] transition-all uppercase tracking-[0.2em] shadow-xl hover:scale-105">Send Message</button>
-                    </div>
-                </form>
-                <div id="contact-success" class="hidden mt-6 p-6 bg-white text-[#a488f4] rounded-xl text-center">
-                    <p class="font-black text-lg">Message sent! I'll get back to you soon.</p>
+                        <textarea placeholder="Your Message" rows="4" required class="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-white/50 focus:outline-none focus:border-[#facc15] transition-colors text-sm sm:text-base resize-none"></textarea>
+                        <button type="submit" class="w-full bg-[#facc15] text-[#1e3a8a] font-black py-3 sm:py-4 rounded-lg sm:rounded-2xl hover:bg-white transition-all hover:scale-105 text-sm sm:text-base uppercase tracking-widest">Send Message</button>
+                    </form>
                 </div>
             </div>
-
-            <!-- Footer Bottom -->
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-white/60 text-xs font-bold uppercase tracking-[0.15em]">
-                <p>&copy; 2026 Dear Future Luminary. All rights reserved.</p>
-                <p>Supporting SDGs: 4, 8, 10, 17 | Developed by <a href="https://malakemad2007.github.io/My-portfolio/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Malak Emad</a></p>
+            <div class="text-center text-white/60 text-xs sm:text-sm font-bold">
+                <p>© 2024 Dear Future Luminary. Built with care for the future.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Minimalist Coming Soon Modal -->
-    <div id="comingSoonModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-[#1e3a8a]/80 backdrop-blur-sm">
-        <div class="modal-content bg-white rounded-2xl p-8 max-w-sm w-full text-center space-y-6 relative overflow-hidden shadow-2xl">
-            <div class="relative z-10 space-y-4">
-                <div class="w-16 h-16 bg-[#a488f4]/10 rounded-full flex items-center justify-center mx-auto"><i data-lucide="zap" class="w-8 h-8 text-[#a488f4]"></i></div>
-                <h3 class="text-2xl font-black text-[#1e3a8a] uppercase">Coming Soon</h3>
-                <p class="text-sm text-gray-500 font-medium">This is on the way. Stay tuned.</p>
-                <button onclick="toggleModal('comingSoonModal')" class="w-full py-3 bg-[#1e3a8a] text-white rounded-lg font-black text-sm hover:bg-[#a488f4] transition-all uppercase tracking-widest">Got it</button>
-            </div>
+    <div id="comingSoonModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-md w-full">
+            <h3 class="text-2xl sm:text-3xl font-black text-[#1e3a8a] mb-4">Coming Soon</h3>
+            <p class="text-base sm:text-lg text-gray-600 mb-6">More ways to connect are coming. Stay tuned!</p>
+            <button onclick="toggleModal('comingSoonModal')" class="w-full bg-[#a488f4] text-white font-black py-3 rounded-lg hover:bg-[#1e3a8a] transition-all">Close</button>
         </div>
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const subNav = document.getElementById('sub-nav');
-            const findSection = document.getElementById('what-you-find');
-            
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            if (findSection) {
-                const rect = findSection.getBoundingClientRect();
-                if (rect.top < 100 && rect.bottom > 200) {
-                    subNav.classList.remove('hidden');
-                    setTimeout(() => {
-                        subNav.classList.add('visible');
-                        subNav.style.opacity = '1';
-                        subNav.style.transform = 'translate(-50%, 0)';
-                    }, 10);
-                } else {
-                    subNav.style.opacity = '0';
-                    subNav.style.transform = 'translate(-50%, -1rem)';
-                    setTimeout(() => subNav.classList.add('hidden'), 400);
-                }
-            }
-        });
-    </script>
 </body>
 </html>
