@@ -1,55 +1,55 @@
 // Initialize Lucide icons
 lucide.createIcons();
 
-// FAQ Data
+// FAQ Data from pasted_content.txt
 const faqData = [
     {
         question: "What even is Dear Future Luminary?",
-        answer: "Dear Future Luminary is your corner of the internet for figuring things out—your next opportunity, your passions, your personal growth, and honestly… yourself. We help students discover scholarships, summer programs, teams, skills, and paths they might not even know exist yet. Think of it as a guide, a resource hub, and a big-sis energy boost all in one."
+        answer: "Think of it as the older sibling many of us wish we had. We're building a place where students can discover opportunities, learn how to apply for them, and realize that people like us can do incredible things too."
     },
     {
         question: "Who is this for?",
-        answer: "High school students. Early college students. Dreamers. Overthinkers. Future founders. People who feel behind. People who want more. Basically… if you're trying to grow, build your future, or find your spark—you belong here."
+        answer: "If you're a student who has ever Googled: 'Fully funded summer programs for international students', 'How do people get into Harvard?', 'I have no extracurriculars. Am I cooked?' Congratulations. You're one of us."
     },
     {
         question: "Is this really free?",
-        answer: "Yep. Actually free. No hidden fees. No 'pay to unlock the good stuff.' No weird catch. Access should never be the thing holding someone back."
+        answer: "Yep. Actually free. No hidden fees. No 'pay to unlock the good stuff.' No suspicious motivational guru energy."
     },
     {
         question: "I feel lost. Where do I even start?",
-        answer: "Honestly? That's exactly why this exists. Start anywhere that feels exciting: opportunities, personal growth, roadmaps… there's no perfect order. You do not need to have your life figured out before beginning."
+        answer: "Same. That's exactly why Dear Future Luminary exists. Start anywhere—the opportunities, the guides, the roadmaps. Nobody has life figured out at 17. Or 18. Or, honestly, ever."
     },
     {
         question: "I'm not extraordinary enough for these opportunities.",
-        answer: "Respectfully… says who? You do not need to be 'the perfect student' to deserve good opportunities. You need curiosity, effort, and the courage to try. Please don't reject yourself before the application even can."
+        answer: "Respectfully... says who? Most students you admire started with zero awards, zero connections, and a lot of self-doubt. The difference is that they applied anyway. Please don't reject yourself before the application even can."
     },
     {
-        question: "There's too much information. I'm overwhelmed.",
-        answer: "Same. That's why we curate everything—to save you from ten hours of chaotic searching and fifteen open tabs. Take one small step. One application. One resource. One better day. That's enough."
+        question: "There's too much information online. It's overwhelming.",
+        answer: "We know. One person says, 'Build a startup.' Another says, 'Publish research.' A third tells you to wake up at 5 AM and meditate on a mountain. We're trying to make things simpler."
     },
     {
         question: "Can I trust these opportunities?",
-        answer: "We do our best to carefully curate and share legitimate opportunities and resources. Still—always read official websites, double-check deadlines, and do your own final review. Smart luminaries verify."
+        answer: "If it's on Dear Future Luminary, we've done our homework. We care way too much about students to send them somewhere sketchy."
     },
     {
         question: "Can I suggest opportunities or resources?",
-        answer: "Please do. If you've found something amazing, send it our way. This space grows stronger when students help students."
+        answer: "Please do. This isn't supposed to be a one-person mission. If you've found something amazing, we'd love to hear about it."
     },
     {
         question: "Can I work with Dear Future Luminary?",
-        answer: "Absolutely! We love meeting passionate students, collaborators, mentors, and organizations who believe in helping young people grow. Reach out through the form below. Good things start with messages."
+        answer: "Absolutely. If you enjoy helping people, creating cool things, and occasionally questioning your life choices while fixing a website bug at midnight, you'll fit right in."
     },
     {
         question: "Who's behind all this?",
-        answer: "A student who knows how confusing all of this can feel. Someone who spent way too much time figuring things out the hard way—and decided to make it easier for others. Built with care. Built with purpose. Built for you."
+        answer: "A student. Not a giant organization. Not a company with a fancy office and unlimited coffee. Just someone who got tired of watching talented students miss opportunities because nobody told them where to look."
     },
     {
         question: "What does 'Luminary' mean here?",
-        answer: "Someone who shines—and helps others shine too. Not because they have everything figured out. Not because they're perfect. But because they keep learning, growing, and choosing to light the way. That can be you, too."
+        answer: "Someone who shines—and helps others shine too. Cheesy? Maybe. True? Also yes."
     },
     {
         question: "Still wondering something?",
-        answer: "Ask us through the form below. Seriously. No question is too small, too random, or too 'I feel silly asking this.' That's what we're here for."
+        answer: "Ask us. Worst case scenario, we answer with an unnecessarily long paragraph because we got excited."
     }
 ];
 
@@ -70,29 +70,23 @@ const programsData = [
     { name: 'Founder & CEO', logo: 'client/public/images/images.png' },
 ];
 
-// Render FAQ
+// Render FAQ with the new UI request: Main title fixed left, Q&A scrolled right
 function renderFAQ() {
-    const faqContainer = document.getElementById('faq-container');
-    if (!faqContainer) return;
+    const faqList = document.getElementById('faq-list');
+    if (!faqList) return;
 
-    faqContainer.innerHTML = faqData.map((item, index) => `
-        <div class="faq-item">
-            <button 
-                class="w-full focus:outline-none group flex justify-between items-start gap-6"
-                onclick="toggleFAQ(${index})"
-                aria-expanded="false"
-            >
-                <h3 class="text-lg md:text-xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors leading-tight uppercase tracking-tight flex-1">
+    faqList.innerHTML = faqData.map((item, index) => `
+        <div class="faq-item-premium group" onclick="toggleFAQ(${index})">
+            <div class="flex justify-between items-center py-6 sm:py-8 cursor-pointer border-b border-[#1e3a8a]/10 group-hover:border-[#a488f4]/30 transition-all duration-500">
+                <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-[#1e3a8a] group-hover:text-[#a488f4] transition-colors duration-500 pr-8">
                     ${item.question}
                 </h3>
-                <div class="icon-wrapper">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full border-3 border-[#1e3a8a] group-hover:border-[#a488f4] flex items-center justify-center transition-all duration-300">
-                        <i data-lucide="plus" class="w-5 h-5 text-[#1e3a8a] group-hover:text-[#a488f4] transition-transform duration-300 plus-icon"></i>
-                    </div>
+                <div class="faq-icon-wrapper flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[#1e3a8a] group-hover:border-[#a488f4] group-hover:bg-[#a488f4] flex items-center justify-center transition-all duration-500">
+                    <i data-lucide="arrow-down" class="w-5 h-5 sm:w-6 sm:h-6 text-[#1e3a8a] group-hover:text-white transition-all duration-500 faq-arrow"></i>
                 </div>
-            </button>
-            <div class="faq-answer-container" id="faq-answer-${index}">
-                <div class="text-base md:text-lg text-gray-600 font-medium leading-relaxed">
+            </div>
+            <div class="faq-answer-wrapper overflow-hidden max-h-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" id="faq-answer-${index}">
+                <div class="py-6 sm:py-8 text-lg sm:text-xl text-gray-600 font-medium leading-relaxed max-w-2xl">
                     ${item.answer}
                 </div>
             </div>
@@ -104,26 +98,24 @@ function renderFAQ() {
 // Toggle FAQ
 function toggleFAQ(index) {
     const container = document.getElementById(`faq-answer-${index}`);
-    const button = container.previousElementSibling.querySelector('button');
-    const icon = button.querySelector('.plus-icon');
+    const item = container.parentElement;
+    const arrow = item.querySelector('.faq-arrow');
     const isOpen = container.style.maxHeight && container.style.maxHeight !== '0px';
 
-    // Close all other FAQs
-    document.querySelectorAll('.faq-answer-container').forEach((el, i) => {
+    // Close others
+    document.querySelectorAll('.faq-answer-wrapper').forEach((el, i) => {
         if (i !== index) {
             el.style.maxHeight = '0';
-            const btn = el.previousElementSibling.querySelector('button');
-            const icn = btn.querySelector('.plus-icon');
-            icn.style.transform = 'rotate(0deg)';
+            el.parentElement.querySelector('.faq-arrow').style.transform = 'rotate(0deg)';
         }
     });
 
     if (isOpen) {
         container.style.maxHeight = '0';
-        icon.style.transform = 'rotate(0deg)';
+        arrow.style.transform = 'rotate(0deg)';
     } else {
         container.style.maxHeight = container.scrollHeight + 'px';
-        icon.style.transform = 'rotate(45deg)';
+        arrow.style.transform = 'rotate(-180deg)';
     }
 }
 
@@ -134,34 +126,48 @@ function renderProgramsCarousel() {
 
     carousel.innerHTML = programsData.map((program, index) => `
         <div class="flex-shrink-0 group snap-start">
-            <div class="w-40 h-40 sm:w-48 sm:h-48 bg-gray-100 border-2 border-gray-200 rounded-2xl flex items-center justify-center p-4 group-hover:border-[#a488f4] group-hover:bg-[#a488f4]/5 transition-all duration-500 transform group-hover:scale-110">
-                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain" />
+            <div class="w-40 h-40 sm:w-48 sm:h-48 bg-white border border-gray-100 rounded-[2rem] flex items-center justify-center p-6 shadow-sm group-hover:shadow-xl group-hover:border-[#a488f4]/20 group-hover:-translate-y-2 transition-all duration-500">
+                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
             </div>
-            <p class="mt-4 text-center text-xs sm:text-sm font-black text-gray-500 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500">${program.name}</p>
+            <p class="mt-4 text-center text-xs font-black text-[#1e3a8a]/40 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500">${program.name}</p>
         </div>
     `).join('');
 }
 
-// Toggle Mobile Menu
+// Mobile Menu
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
+    const icon = document.querySelector('[onclick="toggleMobileMenu()"] i');
     menu.classList.toggle('hidden');
+    if (menu.classList.contains('hidden')) {
+        icon.setAttribute('data-lucide', 'menu');
+    } else {
+        icon.setAttribute('data-lucide', 'x');
+    }
+    lucide.createIcons();
+}
+
+// Soon Modal
+function showSoonModal() {
+    const modal = document.getElementById('soon-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSoonModal() {
+    const modal = document.getElementById('soon-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = 'auto';
 }
 
 // Handle Contact Submit
 function handleContactSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const name = form.querySelector('input[type="text"]').value;
-    const email = form.querySelector('input[type="email"]').value;
-    const message = form.querySelector('textarea').value;
-
-    if (name && email && message) {
-        alert('Thank you for reaching out! We\'ll get back to you soon.');
-        form.reset();
-    } else {
-        alert('Please fill in all fields.');
-    }
+    showSoonModal();
+    form.reset();
 }
 
 // Initialize on DOM Load
@@ -170,13 +176,12 @@ document.addEventListener('DOMContentLoaded', function() {
     renderProgramsCarousel();
 
     // Navbar scroll effect
-    let lastScrollY = 0;
     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
         const miniNav = document.getElementById('mini-nav');
         const whatYouFindSection = document.getElementById('what-you-find');
 
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -185,16 +190,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show/hide mini nav based on what-you-find section
         if (whatYouFindSection) {
             const rect = whatYouFindSection.getBoundingClientRect();
-            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-
-            if (isInView && window.scrollY > 100) {
+            // Show when the section starts entering the viewport and hide when it leaves
+            const buffer = 100;
+            if (rect.top <= buffer && rect.bottom >= buffer) {
                 miniNav.classList.add('visible');
             } else {
                 miniNav.classList.remove('visible');
             }
         }
-
-        lastScrollY = window.scrollY;
     });
 
     // Smooth scroll for anchor links
@@ -205,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offset = 100;
+                    const offset = 120;
                     const elementPosition = target.getBoundingClientRect().top + window.scrollY;
                     window.scrollTo({
                         top: elementPosition - offset,
@@ -214,31 +217,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                        toggleMobileMenu();
                     }
                 }
             }
         });
     });
 
-    // Custom cursor
+    // Custom cursor (enhanced)
     const cursor = document.getElementById('custom-cursor');
     if (cursor) {
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         });
 
-        document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = '1';
-        });
-
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
+        document.querySelectorAll('a, button, .cursor-pointer, .faq-item-premium').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
         });
     }
 });
-
-// Prevent touch scrolling issues
-document.addEventListener('touchmove', function(e) {
-}, { passive: true });
