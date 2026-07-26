@@ -53,7 +53,7 @@ const faqData = [
     }
 ];
 
-// Programs Data
+// Programs Data - COLORFUL
 const programsData = [
     { name: 'Scholar', logo: 'client/public/images/logos/afs.png' },
     { name: 'Intern & Project Manager', logo: 'client/public/images/kode with klossy.png' },
@@ -67,10 +67,9 @@ const programsData = [
     { name: 'Girls Who Code', logo: 'client/public/images/logos/girls_who_code.png' },
     { name: 'Researcher', logo: 'client/public/images/NYAS-Swirl-Featured-Image.png' },
     { name: 'Trainee', logo: 'client/public/images/images.png' },
-    { name: 'Founder & CEO', logo: 'client/public/images/images.png' },
 ];
 
-// Render FAQ with the new UI request: Main title fixed left, Q&A scrolled right
+// Render FAQ
 function renderFAQ() {
     const faqList = document.getElementById('faq-list');
     if (!faqList) return;
@@ -102,7 +101,6 @@ function toggleFAQ(index) {
     const arrow = item.querySelector('.faq-arrow');
     const isOpen = container.style.maxHeight && container.style.maxHeight !== '0px';
 
-    // Close others
     document.querySelectorAll('.faq-answer-wrapper').forEach((el, i) => {
         if (i !== index) {
             el.style.maxHeight = '0';
@@ -119,35 +117,78 @@ function toggleFAQ(index) {
     }
 }
 
-// Render Programs Carousel
+// Render Programs Carousel (Continuous Loop)
 function renderProgramsCarousel() {
     const carousel = document.getElementById('programs-carousel');
     if (!carousel) return;
 
-    carousel.innerHTML = programsData.map((program, index) => `
-        <div class="flex-shrink-0 group snap-start">
-            <div class="w-40 h-40 sm:w-48 sm:h-48 bg-white border border-gray-100 rounded-[2rem] flex items-center justify-center p-6 shadow-sm group-hover:shadow-xl group-hover:border-[#a488f4]/20 group-hover:-translate-y-2 transition-all duration-500">
-                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
+    // Duplicate for seamless loop
+    const fullList = [...programsData, ...programsData];
+
+    carousel.innerHTML = fullList.map((program, index) => `
+        <div class="flex-shrink-0 group">
+            <div class="w-32 h-32 sm:w-48 sm:h-48 bg-white border border-gray-100 rounded-[2.5rem] flex items-center justify-center p-6 shadow-sm group-hover:shadow-2xl group-hover:border-[#a488f4]/20 group-hover:-translate-y-4 transition-all duration-700">
+                <img src="${program.logo}" alt="${program.name}" class="w-full h-full object-contain transition-all duration-700" />
             </div>
-            <p class="mt-4 text-center text-xs font-black text-[#1e3a8a]/40 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500">${program.name}</p>
+            <p class="mt-4 text-center text-[10px] font-black text-[#1e3a8a]/40 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500">${program.name}</p>
         </div>
     `).join('');
 }
 
-// Mobile Menu
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const icon = document.querySelector('[onclick="toggleMobileMenu()"] i');
-    menu.classList.toggle('hidden');
-    if (menu.classList.contains('hidden')) {
-        icon.setAttribute('data-lucide', 'menu');
-    } else {
-        icon.setAttribute('data-lucide', 'x');
+// Success Messages
+const successMessages = [
+    { title: "The Luminary signal has been received.", text: "Your message has been safely delivered. Time for us to pretend we're not ridiculously excited when people contact us." },
+    { title: "The Luminary signal has been received.", text: "Your message has been safely delivered. We're trying to act cool about it." },
+    { title: "The Luminary signal has been received.", text: "Your message made our day approximately 73% better." },
+    { title: "The Luminary signal has been received.", text: "Time for us to pretend we're not doing a little happy dance." },
+    { title: "The Luminary signal has been received.", text: "We're pretending to be professional, but we're ridiculously excited you reached out." },
+    { title: "The Luminary signal has been received.", text: "Your message is now hanging out in our inbox. We'll be with you soon." }
+];
+
+// Form Submission
+async function handleContactSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            showSuccessModal();
+            form.reset();
+        } else {
+            alert("Oops! There was a problem submitting your form.");
+        }
+    } catch (error) {
+        alert("Oops! There was a problem submitting your form.");
     }
-    lucide.createIcons();
 }
 
-// Soon Modal
+function showSuccessModal() {
+    const modal = document.getElementById('success-modal');
+    const titleEl = document.getElementById('success-title');
+    const textEl = document.getElementById('success-message');
+    
+    const randomMsg = successMessages[Math.floor(Math.random() * successMessages.length)];
+    titleEl.innerText = randomMsg.title;
+    textEl.innerText = randomMsg.text;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSuccessModal() {
+    document.getElementById('success-modal').classList.add('hidden');
+    document.getElementById('success-modal').classList.remove('flex');
+    document.body.style.overflow = 'auto';
+}
+
 function showSoonModal() {
     const modal = document.getElementById('soon-modal');
     modal.classList.remove('hidden');
@@ -162,20 +203,23 @@ function hideSoonModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Handle Contact Submit
-function handleContactSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    showSoonModal();
-    form.reset();
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.querySelector('[onclick="toggleMobileMenu()"] i');
+    menu.classList.toggle('hidden');
+    if (menu.classList.contains('hidden')) {
+        icon.setAttribute('data-lucide', 'menu');
+    } else {
+        icon.setAttribute('data-lucide', 'x');
+    }
+    lucide.createIcons();
 }
 
-// Initialize on DOM Load
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
     renderFAQ();
     renderProgramsCarousel();
 
-    // Navbar scroll effect
     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
         const miniNav = document.getElementById('mini-nav');
@@ -187,11 +231,9 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.classList.remove('scrolled');
         }
 
-        // Show/hide mini nav based on what-you-find section
         if (whatYouFindSection) {
             const rect = whatYouFindSection.getBoundingClientRect();
-            // Show when the section starts entering the viewport and hide when it leaves
-            const buffer = 100;
+            const buffer = 150;
             if (rect.top <= buffer && rect.bottom >= buffer) {
                 miniNav.classList.add('visible');
             } else {
@@ -200,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -208,15 +249,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offset = 120;
+                    const offset = 150;
                     const elementPosition = target.getBoundingClientRect().top + window.scrollY;
                     window.scrollTo({
                         top: elementPosition - offset,
                         behavior: 'smooth'
                     });
-
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
                         toggleMobileMenu();
                     }
                 }
@@ -224,13 +263,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Custom cursor (enhanced)
     const cursor = document.getElementById('custom-cursor');
     if (cursor) {
         document.addEventListener('mousemove', (e) => {
             cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         });
-
         document.querySelectorAll('a, button, .cursor-pointer, .faq-item-premium').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
