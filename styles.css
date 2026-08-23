@@ -734,3 +734,734 @@ textarea:focus-visible {
     gap: 1.15rem;
   }
 }
+
+/* ==========================================================================\n   Second-pass wow direction\n   ========================================================================== */
+
+.js-ready .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out);
+}
+
+.js-ready .reveal-on-scroll[data-reveal="left"] {
+  transform: translateX(-34px);
+}
+
+.js-ready .reveal-on-scroll[data-reveal="right"] {
+  transform: translateX(34px);
+}
+
+.js-ready .reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Youth: make the story feel like a signal being transmitted, not a content block. */
+.youth-section--signal {
+  min-height: min(920px, 92vh);
+  display: flex;
+  align-items: center;
+}
+
+.youth-corner-marker {
+  position: absolute;
+  top: 2rem;
+  right: 4%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: rgba(30, 58, 138, 0.38);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.youth-corner-marker span:first-child {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+.youth-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(3rem, 10vw, 10rem);
+  align-items: center;
+}
+
+.youth-title-wrap {
+  position: relative;
+  padding: clamp(2rem, 4vw, 4rem) 0;
+}
+
+.youth-title--signal {
+  display: flex;
+  flex-direction: column;
+  max-width: 8ch;
+  font-size: clamp(4.3rem, 10vw, 10.5rem);
+  line-height: 0.78;
+}
+
+.youth-title--signal span {
+  display: block;
+}
+
+.youth-title--signal span:nth-child(2) {
+  padding-left: 0.26em;
+}
+
+.youth-title--signal span:nth-child(3) {
+  padding-left: 0.05em;
+  font-style: italic;
+}
+
+.youth-title-footnote {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 3.5rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.youth-footnote-line {
+  width: 4.5rem;
+  height: 2px;
+}
+
+.youth-story--signal {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(2rem, 5vw, 4rem);
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.youth-story--signal::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  content: "";
+  transform-origin: left;
+  animation: signalLine 1.2s var(--ease-out) both;
+}
+
+.youth-story__signal {
+  margin-bottom: 1.6rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.youth-story__lead {
+  max-width: 14ch;
+  font-size: clamp(2.35rem, 4.8vw, 5rem);
+  line-height: 0.92;
+}
+
+.youth-resolution--signal {
+  grid-template-columns: 140px 1fr;
+  margin-top: 4.5rem;
+}
+
+.youth-signal-dot {
+  position: absolute;
+  right: 10%;
+  bottom: 12%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 10px rgba(250, 204, 21, 0.14),
+    0 0 0 22px rgba(250, 204, 21, 0.07);
+  animation: signalPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes signalLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes signalPulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.16);
+    opacity: 1;
+  }
+}
+
+/* Ecosystem: a visual path with oversized numbered waypoints. */
+.ecosystem-section {
+  overflow: hidden;
+}
+
+.ecosystem-header {
+  position: relative;
+}
+
+.ecosystem-header__top,
+.ecosystem-header__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.ecosystem-header__index,
+.ecosystem-scroll-mark {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ecosystem-scroll-mark {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ecosystem-scroll-mark svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ecosystem-title {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0 3rem;
+  font-size: clamp(4rem, 12vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.76;
+}
+
+.ecosystem-title span:nth-child(2) {
+  padding-left: clamp(2rem, 12vw, 13rem);
+}
+
+.ecosystem-path {
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+.ecosystem-path::before {
+  position: absolute;
+  top: 0;
+  bottom: 4rem;
+  left: 50%;
+  width: 1px;
+  background: rgba(30, 58, 138, 0.16);
+  content: "";
+}
+
+.ecosystem-step {
+  position: relative;
+  min-height: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.ecosystem-panel {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+  padding: clamp(2rem, 6vw, 6rem) clamp(1.3rem, 6vw, 6rem);
+  border: 0;
+  border-top: 2px solid rgba(30, 58, 138, 0.16);
+  border-bottom: 1px solid rgba(30, 58, 138, 0.16);
+  border-radius: 0;
+  background: var(--white);
+  box-shadow: none;
+}
+
+.ecosystem-panel--blue {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.ecosystem-step-number {
+  position: absolute;
+  top: 1.2rem;
+  right: clamp(1.3rem, 5vw, 5rem);
+  z-index: 2;
+  font-size: clamp(4rem, 11vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.7;
+  opacity: 0.28;
+}
+
+.ecosystem-label {
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ecosystem-art {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ecosystem-art__word {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ecosystem-image {
+  max-height: 340px;
+  object-fit: contain;
+  transition: transform 500ms var(--ease-out);
+}
+
+.ecosystem-panel:hover .ecosystem-image {
+  transform: rotate(-4deg) scale(1.06);
+}
+
+.ecosystem-highlight {
+  display: inline-block;
+  max-width: 34ch;
+  border-left: 8px solid var(--secondary);
+  padding: 0.2rem 0 0.2rem 1rem;
+}
+
+/* Founder: turn the portrait into a poster-like focal point rather than a card. */
+.founder-section {
+  position: relative;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(3rem, 10vw, 10rem);
+  align-items: center;
+}
+
+.founder-visual {
+  position: relative;
+}
+
+.founder-visual__index {
+  margin-bottom: 1.5rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.founder-visual__frame {
+  position: relative;
+  overflow: visible;
+  border-top: 2px solid var(--dark);
+  border-bottom: 2px solid var(--dark);
+  padding: 1rem 0;
+}
+
+.founder-portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.9;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.82) contrast(1.02);
+  clip-path: polygon(0 0, 88% 0, 100% 14%, 100% 100%, 12% 100%, 0 86%);
+  transition:
+    filter 450ms ease,
+    clip-path 450ms var(--ease-out);
+}
+
+.founder-visual__frame:hover .founder-portrait {
+  filter: saturate(1) contrast(1.05);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.founder-visual__stamp {
+  position: absolute;
+  right: -1.5rem;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8.5rem;
+  height: 8.5rem;
+  border: 10px solid var(--white);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(8deg);
+  transition: transform 300ms var(--ease-out);
+}
+
+.founder-visual__frame:hover .founder-visual__stamp {
+  transform: rotate(0deg) translateY(-0.5rem);
+}
+
+.founder-visual__caption {
+  margin-top: 1.5rem;
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.founder-copy {
+  max-width: 660px;
+}
+
+.founder-title {
+  margin-bottom: 2.5rem;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.78;
+}
+
+.founder-question {
+  max-width: 28ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.founder-quote {
+  max-width: 13ch;
+  margin-bottom: 2.5rem;
+  font-size: clamp(2.4rem, 5vw, 5.3rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.88;
+}
+
+.founder-rule {
+  width: 7rem;
+  height: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.founder-signature {
+  display: inline-flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  border-bottom: 2px solid var(--dark);
+  padding-bottom: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.founder-signature svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Mission: use animated typographic echoes as the wow effect, not gradients. */
+.mission-section--wow {
+  min-height: 840px;
+}
+
+.mission-echo {
+  position: absolute;
+  z-index: 0;
+  font-size: clamp(4rem, 16vw, 18rem);
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 0.7;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.mission-echo--one {
+  top: 8%;
+  right: -8%;
+  animation: echoDrift 11s ease-in-out infinite alternate;
+}
+
+.mission-echo--two {
+  bottom: 5%;
+  left: -4%;
+  animation: echoDrift 13s ease-in-out -2s infinite alternate-reverse;
+}
+
+.mission-heading--wow {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 3rem;
+  align-items: end;
+}
+
+.mission-hero-type {
+  display: flex;
+  flex-direction: column;
+  max-width: 7ch;
+  font-size: clamp(4.5rem, 10vw, 10.8rem);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.74;
+}
+
+.mission-hero-type span:nth-child(2) {
+  padding-left: 0.2em;
+}
+
+.mission-hero-type span:nth-child(3) {
+  padding-left: 0.07em;
+  font-style: italic;
+}
+
+.mission-statement--wow {
+  position: relative;
+  z-index: 1;
+}
+
+.mission-list--wow {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes echoDrift {
+  from {
+    transform: translateX(-1.5rem);
+  }
+  to {
+    transform: translateX(1.5rem);
+  }
+}
+
+/* Footer: keep the purple but turn the section into an open invitation. */
+.footer-section--signal {
+  min-height: 720px;
+}
+
+.footer-sweep {
+  position: absolute;
+  top: 10%;
+  right: -4%;
+  font-size: clamp(8rem, 28vw, 30rem);
+  font-weight: 900;
+  letter-spacing: -0.14em;
+  line-height: 0.7;
+  pointer-events: none;
+  user-select: none;
+  transform: rotate(-8deg);
+}
+
+.footer-contact-grid--signal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 4rem;
+  align-items: end;
+  min-height: 520px;
+}
+
+.footer-title {
+  margin: 2rem 0 2rem;
+  font-size: clamp(4.5rem, 10vw, 10.5rem);
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.72;
+}
+
+.footer-email {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.62);
+  padding-bottom: 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.footer-email:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.footer-email svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.footer-form-wrap--signal {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.44);
+}
+
+.footer-form-label {
+  margin-bottom: 2rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.contact-form--signal {
+  gap: 1.8rem;
+}
+
+.contact-form--signal .form-field input,
+.contact-form--signal .form-field textarea {
+  font-size: 1.15rem;
+}
+
+.form-submit--signal {
+  min-width: 12rem;
+}
+
+.footer-meta--signal {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .youth-stage,
+  .founder-grid,
+  .mission-heading--wow,
+  .footer-contact-grid--signal {
+    grid-template-columns: 1fr;
+  }
+
+  .youth-section--signal {
+    min-height: auto;
+  }
+
+  .ecosystem-path::before {
+    left: 1rem;
+  }
+
+  .founder-copy {
+    max-width: none;
+  }
+
+  .footer-contact-grid--signal {
+    min-height: auto;
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .youth-corner-marker {
+    top: 1.25rem;
+    right: 1rem;
+    font-size: 0.58rem;
+  }
+
+  .youth-title--signal {
+    font-size: clamp(4rem, 20vw, 7rem);
+  }
+
+  .youth-story__lead {
+    font-size: clamp(2.2rem, 10vw, 3.6rem);
+  }
+
+  .youth-resolution--signal {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-top: 3rem;
+  }
+
+  .ecosystem-header__top,
+  .ecosystem-header__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ecosystem-title {
+    margin-top: 1rem;
+    font-size: clamp(4rem, 19vw, 7rem);
+  }
+
+  .ecosystem-title span:nth-child(2) {
+    padding-left: 1.3rem;
+  }
+
+  .ecosystem-art {
+    min-height: 230px;
+  }
+
+  .ecosystem-step-number {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 5rem;
+  }
+
+  .founder-visual__stamp {
+    right: -0.4rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    border-width: 7px;
+    font-size: 0.6rem;
+  }
+
+  .founder-title {
+    font-size: clamp(4rem, 20vw, 7rem);
+  }
+
+  .mission-section--wow {
+    min-height: auto;
+  }
+
+  .mission-echo {
+    font-size: 5rem;
+  }
+
+  .mission-hero-type {
+    font-size: clamp(4.1rem, 20vw, 7rem);
+  }
+
+  .footer-sweep {
+    top: 22%;
+    right: -12%;
+    font-size: 13rem;
+  }
+
+  .footer-title {
+    font-size: clamp(4.5rem, 21vw, 7.5rem);
+  }
+}
