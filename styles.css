@@ -1465,3 +1465,868 @@ textarea:focus-visible {
     font-size: clamp(4.5rem, 21vw, 7.5rem);
   }
 }
+
+/* ==========================================================================\n   Third direction: DFL field guide / open index\n   ========================================================================== */
+
+/* Hide only once JavaScript is ready, so a slow script can never erase content. */
+.js-ready .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 650ms var(--ease-out),
+    transform 650ms var(--ease-out);
+}
+
+.js-ready .reveal-on-scroll[data-reveal="left"] {
+  transform: translateX(-40px);
+}
+
+.js-ready .reveal-on-scroll[data-reveal="right"] {
+  transform: translateX(40px);
+}
+
+.js-ready .reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Built by Youth: the visual language is an annotated field note. */
+.youth-field-guide {
+  min-height: min(920px, 94vh);
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+}
+
+.field-guide-rail {
+  position: absolute;
+  top: 3rem;
+  bottom: 3rem;
+  left: 3%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  writing-mode: vertical-rl;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.field-guide-rail::before,
+.field-guide-rail::after {
+  width: 1px;
+  height: 5rem;
+  background: rgba(30, 58, 138, 0.25);
+  content: "";
+}
+
+.field-guide-rail span:first-child {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  letter-spacing: 0;
+}
+
+.field-guide-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(3rem, 11vw, 12rem);
+  align-items: center;
+}
+
+.field-guide-title {
+  position: relative;
+  padding-left: clamp(1rem, 4vw, 5rem);
+}
+
+.field-guide-title::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--secondary);
+  content: "";
+}
+
+.field-guide-heading {
+  display: flex;
+  flex-direction: column;
+  max-width: 7ch;
+  margin: 2rem 0 3rem;
+  font-size: clamp(4.5rem, 10vw, 11rem);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.72;
+}
+
+.field-guide-heading span {
+  display: block;
+}
+
+.field-guide-heading__youth:nth-of-type(2) {
+  padding-left: 0.28em;
+}
+
+.field-guide-heading__for {
+  margin-top: 0.08em;
+  padding-left: 0.7em;
+  font-size: 0.48em;
+  font-style: italic;
+  line-height: 0.75;
+}
+
+.field-guide-heading__youth:last-child {
+  padding-left: 0.17em;
+}
+
+.field-guide-undertext {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.field-guide-undertext::after {
+  width: 5rem;
+  height: 2px;
+  background: var(--dark);
+  content: "";
+}
+
+.field-guide-story {
+  position: relative;
+  max-width: 620px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.field-guide-story__label {
+  margin-bottom: 2rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.field-guide-story__quote-mark {
+  position: absolute;
+  top: 0.9rem;
+  right: 0;
+  font-family: Georgia, serif;
+  font-size: 10rem;
+  line-height: 0.7;
+  opacity: 0.45;
+}
+
+.field-guide-story__lead {
+  position: relative;
+  max-width: 13ch;
+  font-size: clamp(2.45rem, 4.8vw, 5.2rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.88;
+}
+
+.field-guide-story__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.field-guide-story__body p {
+  margin: 0;
+}
+
+.field-guide-answer {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.4rem;
+}
+
+.field-guide-answer span {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.field-guide-answer p {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.6vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.field-guide-cutout {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 9rem;
+  height: 9rem;
+  z-index: -1;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* What You'll Find Here: an open index rather than four cards. */
+.ecosystem-index {
+  overflow: hidden;
+}
+
+.ecosystem-index__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.ecosystem-index__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ecosystem-index__meta span {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ecosystem-index__title {
+  display: flex;
+  flex-direction: column;
+  max-width: 8ch;
+  margin: 2rem 0;
+  font-size: clamp(4.5rem, 13vw, 14rem);
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.72;
+}
+
+.ecosystem-index__title span:last-child {
+  padding-left: 0.25em;
+  font-style: italic;
+}
+
+.ecosystem-index__intro {
+  max-width: 34ch;
+  font-size: clamp(1.1rem, 2.2vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.ecosystem-directory {
+  position: relative;
+}
+
+.ecosystem-directory::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4rem;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.22);
+  content: "";
+}
+
+.directory-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr) minmax(260px, 0.72fr);
+  gap: clamp(1.5rem, 5vw, 6rem);
+  align-items: center;
+  min-height: 460px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4.5rem 0 4.5rem 0;
+}
+
+.directory-entry__number {
+  align-self: start;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.directory-entry__main {
+  position: relative;
+  z-index: 1;
+}
+
+.directory-entry__eyebrow {
+  margin-bottom: 1.25rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.directory-entry__title {
+  margin: 0 0 2rem;
+  font-size: clamp(3.2rem, 6vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.78;
+}
+
+.directory-entry__copy {
+  max-width: 47ch;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.directory-entry__copy p {
+  margin: 0 0 1.2rem;
+}
+
+.directory-entry__highlight {
+  display: inline-block;
+  border-left: 8px solid var(--secondary);
+  padding: 0.2rem 0 0.2rem 1rem;
+  background: var(--secondary);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.directory-entry__visual {
+  position: relative;
+  display: flex;
+  min-height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.directory-entry__visual::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  content: "";
+}
+
+.directory-entry__word {
+  position: absolute;
+  z-index: 0;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.13em;
+  line-height: 0.7;
+  pointer-events: none;
+}
+
+.directory-entry__visual img {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 310px);
+  max-height: 310px;
+  object-fit: contain;
+  transition: transform 500ms var(--ease-out);
+}
+
+.directory-entry:hover .directory-entry__visual img {
+  transform: translateY(-10px) rotate(5deg) scale(1.08);
+}
+
+/* Founder: one image, one question, no decorative card. */
+.founder-section--poster {
+  position: relative;
+}
+
+.founder-poster-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(3rem, 10vw, 10rem);
+  align-items: center;
+}
+
+.founder-poster-visual__top {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.founder-poster-visual__top span:first-child {
+  color: var(--secondary);
+  font-size: 1.15rem;
+}
+
+.founder-poster-image-wrap {
+  position: relative;
+  border-top: 2px solid var(--dark);
+  border-bottom: 2px solid var(--dark);
+  padding: 1rem 0;
+}
+
+.founder-poster-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.88;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.82);
+  clip-path: polygon(0 0, 78% 0, 100% 18%, 100% 100%, 22% 100%, 0 82%);
+  transition:
+    filter 500ms ease,
+    clip-path 500ms var(--ease-out);
+}
+
+.founder-poster-image-wrap:hover .founder-poster-image {
+  filter: saturate(1.08);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.founder-poster-label {
+  position: absolute;
+  right: -1.2rem;
+  bottom: 2rem;
+  display: flex;
+  width: 9rem;
+  height: 9rem;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid var(--white);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(9deg);
+  transition: transform 280ms var(--ease-out);
+}
+
+.founder-poster-image-wrap:hover .founder-poster-label {
+  transform: rotate(0deg) translateY(-0.5rem);
+}
+
+.founder-poster-caption {
+  margin-top: 1.5rem;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.founder-poster-title {
+  margin-bottom: 2.5rem;
+  font-size: clamp(4.8rem, 9vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.72;
+}
+
+.founder-poster-question {
+  max-width: 27ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.45rem, 3vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.founder-poster-quote {
+  max-width: 13ch;
+  margin-bottom: 2.5rem;
+  font-size: clamp(2.6rem, 5.3vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.84;
+}
+
+.founder-poster-line {
+  width: 7.5rem;
+  height: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.founder-poster-signature {
+  display: inline-flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  border-bottom: 2px solid var(--dark);
+  padding-bottom: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.founder-poster-signature svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Mission: bracketed manifesto, with contrast coming from shape and type. */
+.mission-section--manifesto {
+  min-height: 900px;
+  isolation: isolate;
+}
+
+.manifesto-bracket {
+  position: absolute;
+  top: 4%;
+  font-family: Georgia, serif;
+  font-size: clamp(20rem, 45vw, 50rem);
+  font-weight: 400;
+  line-height: 0.6;
+  pointer-events: none;
+  user-select: none;
+}
+
+.manifesto-bracket--left {
+  left: -2%;
+}
+
+.manifesto-bracket--right {
+  right: -2%;
+}
+
+.manifesto-intro {
+  position: relative;
+  z-index: 1;
+}
+
+.manifesto-title {
+  display: flex;
+  flex-direction: column;
+  max-width: 8ch;
+  margin: 1.5rem 0;
+  font-size: clamp(4.6rem, 10vw, 11rem);
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.72;
+}
+
+.manifesto-title span:nth-child(2) {
+  padding-left: 0.18em;
+}
+
+.manifesto-title span:nth-child(3) {
+  padding-left: 0.08em;
+  font-style: italic;
+}
+
+.manifesto-subline {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.8vw, 2.3rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.manifesto-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 3rem;
+  align-items: end;
+  margin-top: 6rem;
+}
+
+.manifesto-question {
+  position: relative;
+  z-index: 1;
+  max-width: 610px;
+}
+
+.manifesto-stamp {
+  display: flex;
+  width: 11rem;
+  height: 11rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-11deg);
+  transition: transform 300ms var(--ease-out);
+}
+
+.manifesto-stamp:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.manifesto-stamp i {
+  position: absolute;
+  right: 1.7rem;
+  bottom: 1.5rem;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.mission-list--manifesto {
+  position: relative;
+  z-index: 1;
+  margin-top: 5rem;
+}
+
+/* Footer: a strong closing page, with the form treated as an open channel. */
+.footer-section--write-back {
+  min-height: 760px;
+}
+
+.write-back-ghost {
+  position: absolute;
+  top: 32%;
+  left: -5%;
+  font-size: clamp(6rem, 18vw, 19rem);
+  font-weight: 900;
+  letter-spacing: -0.13em;
+  line-height: 0.7;
+  pointer-events: none;
+  transform: rotate(-5deg);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.write-back-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1.5rem;
+}
+
+.write-back-top__index {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.write-back-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(3rem, 10vw, 10rem);
+  align-items: end;
+  min-height: 560px;
+  padding: 4rem 0 5rem;
+}
+
+.write-back-title {
+  margin: 1rem 0 2rem;
+  font-size: clamp(5rem, 11vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 0.68;
+}
+
+.write-back-intro .footer-email {
+  margin-top: 3rem;
+}
+
+.write-back-form-wrap {
+  border-top: 2px solid rgba(255, 255, 255, 0.7);
+  padding-top: 1.4rem;
+}
+
+.write-back-form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.write-back-form-heading span:last-child {
+  font-size: 2rem;
+}
+
+.contact-form--write-back {
+  gap: 1.8rem;
+}
+
+.contact-form--write-back .form-field input,
+.contact-form--write-back .form-field textarea {
+  font-size: 1.12rem;
+}
+
+@media (max-width: 900px) {
+  .field-guide-grid,
+  .founder-poster-grid,
+  .write-back-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .directory-entry {
+    grid-template-columns: 3rem minmax(0, 1fr) minmax(180px, 0.6fr);
+    gap: 1.5rem;
+  }
+
+  .manifesto-body {
+    grid-template-columns: 1fr 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  .field-guide-rail {
+    top: 1.25rem;
+    bottom: 1.25rem;
+    left: 0.7rem;
+    font-size: 0.55rem;
+  }
+
+  .field-guide-rail::before,
+  .field-guide-rail::after {
+    height: 3rem;
+  }
+
+  .field-guide-title {
+    padding-left: 1.25rem;
+  }
+
+  .field-guide-heading {
+    font-size: clamp(4.2rem, 20vw, 7.5rem);
+  }
+
+  .field-guide-story__body {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .field-guide-answer {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .ecosystem-index__meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ecosystem-index__title {
+    font-size: clamp(4rem, 19vw, 7rem);
+  }
+
+  .ecosystem-index__title span:last-child {
+    padding-left: 0.16em;
+  }
+
+  .ecosystem-directory::before {
+    left: 1.5rem;
+  }
+
+  .directory-entry {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.8rem;
+    min-height: 0;
+    padding: 3.5rem 0;
+  }
+
+  .directory-entry__number {
+    font-size: 0.8rem;
+  }
+
+  .directory-entry__main {
+    grid-column: 2;
+  }
+
+  .directory-entry__visual {
+    grid-column: 2;
+    min-height: 210px;
+    margin-top: 1rem;
+  }
+
+  .directory-entry__title {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .directory-entry__copy {
+    font-size: 1rem;
+  }
+
+  .founder-poster-title {
+    font-size: clamp(4.3rem, 20vw, 7.5rem);
+  }
+
+  .founder-poster-label {
+    right: -0.25rem;
+    width: 6.7rem;
+    height: 6.7rem;
+    border-width: 7px;
+    font-size: 0.58rem;
+  }
+
+  .manifesto-bracket {
+    top: 10%;
+    font-size: 18rem;
+  }
+
+  .manifesto-title {
+    font-size: clamp(4rem, 19vw, 7rem);
+  }
+
+  .manifesto-body {
+    grid-template-columns: 1fr;
+    margin-top: 4rem;
+  }
+
+  .manifesto-stamp {
+    width: 8.5rem;
+    height: 8.5rem;
+    justify-self: end;
+    font-size: 0.7rem;
+  }
+
+  .mission-list--manifesto {
+    margin-top: 4rem;
+  }
+
+  .write-back-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .write-back-grid {
+    min-height: 0;
+    padding-top: 3rem;
+  }
+
+  .write-back-title {
+    font-size: clamp(4.7rem, 21vw, 8rem);
+  }
+
+  .write-back-ghost {
+    top: 30%;
+    font-size: 8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mission-echo--one,
+  .mission-echo--two,
+  .youth-signal-dot {
+    animation: none;
+  }
+}
