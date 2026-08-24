@@ -2,6 +2,8 @@
   --dfl-primary: #a488f4;
   --dfl-secondary: #facc15;
   --dfl-dark: #1e3a8a;
+  --dfl-muted: #667085;
+  --dfl-line: rgba(30, 58, 138, .14);
 }
 
 html { scroll-behavior: smooth; }
@@ -10,78 +12,130 @@ body { overflow-x: hidden; }
 
 @media (pointer: fine) {
   body, body * { cursor: none !important; }
-  .dfl-cursor { position: fixed; top: 0; left: 0; width: 7px; height: 7px; z-index: 9999; pointer-events: none; border: 1px solid var(--dfl-dark); border-radius: 50%; background: var(--dfl-dark); opacity: .9; transform: translate3d(-50%, -50%, 0); transition: width .18s ease, height .18s ease, background-color .18s ease; }
+  .dfl-cursor { position: fixed; top: 0; left: 0; z-index: 9999; width: 7px; height: 7px; pointer-events: none; border: 1px solid var(--dfl-dark); border-radius: 50%; background: var(--dfl-dark); opacity: .9; transform: translate3d(-50%, -50%, 0); transition: width .16s ease, height .16s ease, background-color .16s ease; }
   .dfl-cursor.is-active { width: 12px; height: 12px; background: var(--dfl-secondary); }
 }
 @media (pointer: coarse) { .dfl-cursor { display: none !important; } }
 
-/* Navigation: quiet, legible, and aligned with the requested labels. */
-.dfl-nav { background: rgba(255,255,255,.97) !important; border-radius: 0 !important; border-color: rgba(30,58,138,.12) !important; box-shadow: 0 10px 22px rgba(30,58,138,.06) !important; }
+/* Keep the requested labels visible and make the nav feel like a quiet index. */
+.dfl-nav { background: rgba(255, 255, 255, .97) !important; border-radius: 0 !important; border-color: var(--dfl-line) !important; box-shadow: 0 8px 20px rgba(30, 58, 138, .055) !important; }
 .dfl-nav a, .dfl-nav button { font-weight: 800 !important; letter-spacing: .01em; }
 .dfl-nav .dfl-join-nav { padding: .45rem 0 !important; border: 0 !important; border-bottom: 2px solid var(--dfl-secondary) !important; border-radius: 0 !important; background: transparent !important; color: var(--dfl-dark) !important; box-shadow: none !important; }
 .dfl-nav .dfl-join-nav:hover { color: var(--dfl-primary) !important; }
-.dfl-nav .dfl-contact-link { color: rgba(30,58,138,.7); }
-.dfl-nav .dfl-contact-link:hover { color: var(--dfl-primary); }
-.dfl-mobile-menu { border-radius: 0 !important; box-shadow: 0 14px 24px rgba(30,58,138,.07) !important; }
+.dfl-nav .dfl-contact-link { color: rgba(30, 58, 138, .72); }
+.dfl-mobile-menu { border-radius: 0 !important; box-shadow: 0 12px 24px rgba(30, 58, 138, .08) !important; }
 
-/* Built by Youth: one compact statement and one compact explanation. */
-#who-we-are { padding-top: clamp(4rem, 8vw, 7rem) !important; padding-bottom: clamp(4rem, 8vw, 7rem) !important; }
-#who-we-are::before { content: none !important; display: none !important; }
+/* The youth statement is a compact editorial split, not a long decorative block. */
+#who-we-are { padding-top: clamp(3.5rem, 7vw, 6rem) !important; padding-bottom: clamp(3.5rem, 7vw, 6rem) !important; }
+#who-we-are::before { display: none !important; content: none !important; }
 #who-we-are [class*="absolute"] { display: none !important; }
-#who-we-are > div > div { display: grid !important; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: clamp(2.5rem,6vw,6rem) !important; align-items: center !important; }
-#who-we-are > div > div > div:first-child { width: auto !important; }
-#who-we-are > div > div > div:first-child h2 { margin: 0 !important; font-size: clamp(3.8rem, 9vw, 8rem) !important; line-height: .8 !important; letter-spacing: -.08em !important; }
-#who-we-are > div > div > div:first-child p:last-child { margin-top: 1.8rem !important; padding-top: .75rem; border-top: 1px solid rgba(30,58,138,.2); color: rgba(30,58,138,.45) !important; font-size: .65rem !important; letter-spacing: .18em !important; }
-#who-we-are > div > div > div:last-child { width: auto !important; padding-top: 0; }
-#who-we-are > div > div > div:last-child > p { max-width: 35rem; margin-bottom: 2rem !important; color: var(--dfl-dark) !important; font-size: clamp(1.7rem, 3.3vw, 3.2rem) !important; font-weight: 900 !important; line-height: 1.02 !important; letter-spacing: -.045em !important; }
-#who-we-are > div > div > div:last-child > div { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem !important; }
-#who-we-are > div > div > div:last-child > div > div { padding: 1rem 0 !important; border-left: 0 !important; border-top: 1px solid rgba(30,58,138,.16); }
+#who-we-are > div > div { display: grid !important; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 6rem) !important; align-items: center !important; }
+#who-we-are > div > div > div { width: auto !important; }
+#who-we-are > div > div > div:first-child h2 { margin: 0 !important; font-size: clamp(3.4rem, 8vw, 7.5rem) !important; line-height: .82 !important; letter-spacing: -.08em !important; }
+#who-we-are > div > div > div:first-child p:last-child { margin-top: 1.5rem !important; padding-top: .65rem; border-top: 1px solid var(--dfl-line); color: rgba(30, 58, 138, .48) !important; font-size: .62rem !important; letter-spacing: .18em !important; }
+#who-we-are > div > div > div:last-child { padding-top: 0 !important; }
+#who-we-are > div > div > div:last-child > p { max-width: 34rem; margin-bottom: 1.5rem !important; color: var(--dfl-dark) !important; font-size: clamp(1.55rem, 3vw, 2.85rem) !important; font-weight: 900 !important; line-height: 1.04 !important; letter-spacing: -.04em !important; }
+#who-we-are > div > div > div:last-child > div { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem !important; }
+#who-we-are > div > div > div:last-child > div > div { padding: 1rem 0 !important; border: 0 !important; border-top: 1px solid var(--dfl-line) !important; }
 #who-we-are > div > div > div:last-child > div > div > div { display: none !important; }
 #who-we-are > div > div > div:last-child > div > div span { color: var(--dfl-primary) !important; }
 #who-we-are > div > div > div:last-child > div > div:last-child span { color: #b28c00 !important; }
-#who-we-are > div > div > div:last-child > div > div p { color: #667085 !important; line-height: 1.45 !important; }
+#who-we-are > div > div > div:last-child > div > div p { color: var(--dfl-muted) !important; line-height: 1.45 !important; }
 
-/* Ecosystem: reduce the long scroll while keeping every original sentence. */
-#what-you-find > div:first-child { margin-left: 0 !important; margin-right: 0 !important; padding-top: 4rem !important; padding-bottom: 4rem !important; border-radius: 0 !important; }
-#what-you-find > div:not(:first-child) { padding-top: clamp(4rem, 7vw, 6rem) !important; padding-bottom: clamp(4rem, 7vw, 6rem) !important; }
-#what-you-find [class*="rounded-"], #what-you-find [class*="shadow-"] { border-radius: 0 !important; box-shadow: none !important; }
-#what-you-find [class*="relative bg-gray-50"], #what-you-find [class*="relative bg-white"], #what-you-find [class*="relative bg-[#1e3a8a]"] { background: transparent !important; border: 0 !important; border-top: 1px solid rgba(30,58,138,.15) !important; border-bottom: 1px solid rgba(30,58,138,.15) !important; }
+/* One ecosystem heading followed by a compact, aligned 2×2 field of the original sections. */
+#what-you-find { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #fff; }
+#what-you-find > div:first-child { grid-column: 1 / -1; margin: 0 !important; padding: clamp(3.5rem, 7vw, 6rem) clamp(1rem, 5vw, 5rem) !important; border-radius: 0 !important; }
+#what-you-find > div:not(:first-child) { min-width: 0; padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1rem, 4vw, 4rem) !important; border: 0 !important; border-top: 1px solid var(--dfl-line) !important; border-right: 1px solid var(--dfl-line) !important; background: #fff !important; }
+#what-you-find > div:nth-child(odd):not(:first-child) { background: rgba(30, 58, 138, .025) !important; }
+#what-you-find > div:not(:first-child) > div > div { display: flex !important; flex-direction: column !important; gap: 1.4rem !important; align-items: stretch !important; }
+#what-you-find > div:not(:first-child) > div > div > div { width: auto !important; order: 2 !important; padding: 0 !important; }
+#what-you-find > div:not(:first-child) > div > div > div:has(h3) { order: 1 !important; padding-bottom: 1.25rem !important; border-bottom: 1px solid var(--dfl-line) !important; }
+#what-you-find > div:not(:first-child) > div > div > div:has(svg) { order: 2 !important; }
+#what-you-find > div:not(:first-child) [class*="relative"] { position: static !important; }
+#what-you-find > div:not(:first-child) [class*="absolute"] { display: none !important; }
+#what-you-find > div:not(:first-child) [class*="rounded-"], #what-you-find > div:not(:first-child) [class*="shadow-"] { border-radius: 0 !important; box-shadow: none !important; }
+#what-you-find > div:not(:first-child) [class*="bg-gray-50"], #what-you-find > div:not(:first-child) [class*="bg-white"] { padding: 0 !important; background: transparent !important; border: 0 !important; }
+#what-you-find > div:not(:first-child) svg { display: none !important; }
+#what-you-find > div:not(:first-child) h3 { font-size: clamp(1.9rem, 3.5vw, 3.6rem) !important; line-height: .9 !important; letter-spacing: -.06em !important; }
+#what-you-find > div:not(:first-child) p { color: var(--dfl-muted) !important; line-height: 1.5 !important; }
+#what-you-find > div:not(:first-child) span[class*="text-6xl"], #what-you-find > div:not(:first-child) span[class*="text-7xl"], #what-you-find > div:not(:first-child) span[class*="text-8xl"] { display: none !important; }
+#what-you-find > div:not(:first-child) [class*="w-12 h-1"] { height: 2px !important; width: 2.5rem !important; }
 
-/* Mission: preserve the main statement, but turn the supporting copy into a compact reading column. */
+/* Keep the mission statement bold while aligning its supporting text to the same grid logic. */
 #mission { padding-top: clamp(4rem, 8vw, 7rem) !important; padding-bottom: clamp(4rem, 8vw, 7rem) !important; }
-#mission > div { display: grid !important; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: clamp(2.5rem,6vw,6rem) !important; }
-#mission h2 { font-size: clamp(3.8rem, 8.5vw, 8rem) !important; line-height: .82 !important; letter-spacing: -.08em !important; }
-#mission > div > div:last-child > div { padding: 1.25rem 0 !important; border-radius: 0 !important; border-top: 1px solid rgba(30,58,138,.35); border-bottom: 1px solid rgba(30,58,138,.35); background: transparent !important; box-shadow: none !important; transform: none !important; }
+#mission > div { display: grid !important; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(2rem, 6vw, 6rem) !important; }
+#mission h2 { font-size: clamp(3.6rem, 8vw, 8rem) !important; line-height: .82 !important; letter-spacing: -.08em !important; }
+#mission > div > div:last-child > div { padding: 1.5rem 0 !important; border-radius: 0 !important; border-top: 1px solid rgba(30, 58, 138, .35); border-bottom: 1px solid rgba(30, 58, 138, .35); background: transparent !important; box-shadow: none !important; transform: none !important; }
 #mission > div > div:last-child > div > div { padding-top: 1rem; }
 #mission > div > div:last-child > div > div > div { display: none !important; }
-#mission > div > div:last-child > div > div p { color: rgba(30,58,138,.8) !important; }
+#mission > div > div:last-child > div > div p { color: rgba(30, 58, 138, .8) !important; }
 #mission > div > div:last-child > div > div p span { color: var(--dfl-dark) !important; }
 #mission > div > div:last-child > div > div:first-child p span { color: var(--dfl-primary) !important; }
 #mission > div > div:last-child > div > div:last-child p span { color: #b28c00 !important; }
 
-/* Keep FAQ, social links, and the contact form easy to scan on smaller screens. */
+/* Founder: keep the portrait present, but remove the decorative badge and image-card treatment. */
+#founder { padding-top: clamp(3.5rem, 7vw, 6rem) !important; padding-bottom: clamp(3.5rem, 7vw, 6rem) !important; }
+#founder [class*="absolute"] { display: none !important; }
+#founder img { border-radius: 0 !important; box-shadow: none !important; }
+#founder > div > div { gap: clamp(2rem, 6vw, 6rem) !important; }
+#founder h2 { font-size: clamp(2.6rem, 5vw, 5rem) !important; line-height: .92 !important; }
+#founder p { line-height: 1.5 !important; }
+
+/* Opportunities: one short editorial introduction and one quiet logo field, not 26 cards. */
+#programs { padding-top: clamp(3.5rem, 7vw, 6rem) !important; padding-bottom: clamp(3.5rem, 7vw, 6rem) !important; }
+#programs > div > div:first-child { margin-bottom: clamp(2rem, 5vw, 4rem) !important; }
+#programs > div > div:first-child h2 { font-size: clamp(3rem, 7vw, 7rem) !important; line-height: .82 !important; }
+#programs .logos-carousel { width: 100% !important; display: flex !important; flex-wrap: wrap !important; gap: 0 !important; animation: none !important; }
+#programs .logos-carousel > div { width: 25% !important; height: clamp(5rem, 10vw, 8rem) !important; padding: 1rem !important; border: 0 !important; border-top: 1px solid var(--dfl-line) !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+#programs .logos-carousel > div:nth-child(n+14) { display: none !important; }
+#programs .logos-carousel > div > div { display: none !important; }
+#programs .logos-carousel > div img { max-width: 80% !important; max-height: 70% !important; filter: saturate(.75); opacity: .82; }
+#programs .logos-carousel ~ div { display: none !important; }
+
+/* CTA: a single solid color field, with no rounded container or oversized gradient. */
+#faq + .section-divider + section { padding-top: clamp(3.5rem, 7vw, 6rem) !important; padding-bottom: clamp(3.5rem, 7vw, 6rem) !important; }
+#faq + .section-divider + section > div > div { border-radius: 0 !important; background: var(--dfl-dark) !important; box-shadow: none !important; padding: clamp(3rem, 7vw, 6rem) !important; }
+#faq + .section-divider + section > div > div > div { max-width: 48rem !important; }
+#faq + .section-divider + section a { border-radius: 0 !important; box-shadow: none !important; }
+
+/* FAQ, connect bar, footer form, and modal surfaces stay simple and readable. */
 #faq { padding-top: clamp(4rem, 8vw, 7rem) !important; padding-bottom: clamp(4rem, 8vw, 7rem) !important; }
 #faq [class*="rounded-full"] { border-radius: 0 !important; background: transparent !important; color: var(--dfl-primary) !important; border-bottom: 2px solid var(--dfl-primary); }
 #faq button { border-radius: 0 !important; }
+.mini-nav { border-radius: 0 !important; background: #fff !important; backdrop-filter: none !important; box-shadow: 0 8px 20px rgba(30, 58, 138, .08) !important; }
 .dfl-connect { border-radius: 0 !important; margin-left: 0 !important; margin-right: 0 !important; }
 .dfl-connect > div > div { justify-content: center !important; }
 .dfl-connect a, .dfl-connect button { color: var(--dfl-dark) !important; }
 .dfl-footer { padding-top: clamp(4rem, 8vw, 6rem) !important; }
-.dfl-footer > div > div:first-child { padding: 0 0 2.5rem !important; border-radius: 0 !important; border-top: 1px solid rgba(30,58,138,.15); border-bottom: 1px solid rgba(30,58,138,.15); background: transparent !important; }
+.dfl-footer > div > div:first-child { padding: 0 0 2.5rem !important; border-radius: 0 !important; border-top: 1px solid var(--dfl-line); border-bottom: 1px solid var(--dfl-line); background: transparent !important; }
 .dfl-footer form { gap: 1.1rem !important; }
 .dfl-footer form > div { gap: 1rem !important; }
-.dfl-footer form input, .dfl-footer form textarea { min-width: 0; border: 0 !important; border-bottom: 1px solid rgba(30,58,138,.24) !important; border-radius: 0 !important; background: transparent !important; padding: .75rem 0 !important; }
+.dfl-footer form input, .dfl-footer form textarea { min-width: 0; border: 0 !important; border-bottom: 1px solid rgba(30, 58, 138, .24) !important; border-radius: 0 !important; background: transparent !important; padding: .75rem 0 !important; }
 .dfl-footer form input:focus, .dfl-footer form textarea:focus { border-color: var(--dfl-primary) !important; }
 .dfl-footer form button { border-radius: 0 !important; background: var(--dfl-dark) !important; box-shadow: none !important; }
-
-/* Modals: concise, solid, and focused on their main action. */
-.dfl-modal-backdrop { background: rgba(30,58,138,.97) !important; backdrop-filter: none !important; }
-.dfl-modal-panel { border-radius: 0 !important; box-shadow: 10px 10px 0 var(--dfl-secondary) !important; border: 1px solid rgba(30,58,138,.16); }
+.dfl-modal-backdrop { background: rgba(30, 58, 138, .97) !important; backdrop-filter: none !important; }
+.dfl-modal-panel { border-radius: 0 !important; box-shadow: 10px 10px 0 var(--dfl-secondary) !important; border: 1px solid rgba(30, 58, 138, .16); }
 .dfl-modal-panel > div:first-child { border-radius: 0 !important; }
 .dfl-modal-panel [class*="rounded-full"], .dfl-modal-panel [class*="rounded-2xl"], .dfl-modal-panel [class*="rounded-3xl"] { border-radius: 0 !important; }
 .dfl-modal-panel a { border-radius: 0 !important; background: transparent !important; border-left: 3px solid var(--dfl-primary) !important; }
 .dfl-modal-panel a:last-child { border-left-color: var(--dfl-secondary) !important; }
 .dfl-modal-panel button { border-radius: 0 !important; }
 
-@media (max-width: 900px) { #who-we-are > div > div, #mission > div { grid-template-columns: 1fr !important; } #who-we-are > div > div > div:last-child, #mission > div > div > div:last-child { padding-top: 0; } }
-@media (max-width: 640px) { #who-we-are > div > div > div:last-child > div { grid-template-columns: 1fr; gap: 0 !important; } #what-you-find > div:first-child { padding-left: 1rem !important; padding-right: 1rem !important; } #mission h2 { font-size: clamp(3.5rem, 17vw, 5.5rem) !important; } .dfl-modal-panel { width: calc(100vw - 2rem) !important; box-shadow: 6px 6px 0 var(--dfl-secondary) !important; } .dfl-footer > div > div:first-child { grid-template-columns: 1fr !important; } .dfl-footer form > div { grid-template-columns: 1fr !important; } }
+@media (max-width: 900px) {
+  #who-we-are > div > div, #mission > div { grid-template-columns: 1fr !important; }
+  #who-we-are > div > div > div:last-child, #mission > div > div > div:last-child { padding-top: 1.5rem !important; }
+  #what-you-find > div:not(:first-child) > div > div { gap: 1.25rem !important; }
+}
+@media (max-width: 640px) {
+  #who-we-are > div > div > div:last-child > div { grid-template-columns: 1fr; gap: 0 !important; }
+  #what-you-find { display: block !important; }
+  #what-you-find > div:first-child { padding: 3.5rem 1rem !important; }
+  #what-you-find > div:not(:first-child) { padding: 2.75rem 1rem !important; border-right: 0 !important; }
+  #what-you-find > div:not(:first-child) > div > div { gap: 1.25rem !important; }
+  #what-you-find > div:not(:first-child) h3 { font-size: clamp(2rem, 11vw, 3rem) !important; }
+  #mission h2 { font-size: clamp(3.4rem, 16vw, 5.5rem) !important; }
+  .dfl-modal-panel { width: calc(100vw - 2rem) !important; box-shadow: 6px 6px 0 var(--dfl-secondary) !important; }
+  .dfl-footer > div > div:first-child { grid-template-columns: 1fr !important; }
+  .dfl-footer form > div { grid-template-columns: 1fr !important; }
+  #programs .logos-carousel > div { width: 50% !important; height: 5.5rem !important; }
+}
