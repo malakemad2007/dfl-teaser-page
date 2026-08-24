@@ -26,7 +26,18 @@
         joinButton.parentElement.insertBefore(contact, joinButton);
       }
       const mobileMenu = [...nav.querySelectorAll('div')].find((element) => element.textContent.includes("What You'll Find") && element.textContent.includes('FAQ') && element.querySelector('button'));
-      if (mobileMenu) mobileMenu.classList.add('dfl-mobile-menu');
+      if (mobileMenu) {
+        mobileMenu.classList.add('dfl-mobile-menu');
+        const hasMobileContact = [...mobileMenu.querySelectorAll('a')].some((link) => link.textContent.trim() === 'Contact');
+        const mobileJoin = [...mobileMenu.querySelectorAll('button')].find((button) => button.textContent.includes('Join Us'));
+        if (mobileJoin && !hasMobileContact) {
+          const contact = document.createElement('a');
+          contact.href = '#contact';
+          contact.textContent = 'Contact';
+          contact.className = 'dfl-contact-link block text-lg font-medium';
+          mobileJoin.parentElement.insertBefore(contact, mobileJoin);
+        }
+      }
     }
 
     const who = document.getElementById('who-we-are');
